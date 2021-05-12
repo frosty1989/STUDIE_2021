@@ -1,0 +1,190 @@
+\epigraph{Since the early middle ages, mankind has always struggled to increase the hardness and flexibility of metals, to improve the durability and reliability of  metal tools and parts. From the damascus steel smiths through the swordsmiths of medieval japan, the method of cold-working metal by the application of precise mechanical pressure such as hammer blows has a glorious history.
+
+In modern times, this concept has reached its apex with industrial surface hardening using shot peening, where thousands of small lead shot are fired at the metal surface, compressing and hardening the surface , improving the durability. With the advent of high power laser systems, an improved process has been developed, the process of Laser Shock peening.}{\textit{Samuel Zhrdne\\ HoloOr company}}
+
+\section{Laser Shock Peening}
+
+Laser Shock Peening (LSP) treatment induces residual stresses beneath the treated surface of metallic materials. The residual stresses are produced by a high magnitude shock wave induced by a high-energy laser pulse. The advantage of LSP is that the laser pulse can be adjusted and controlled in real time. A computer-controlled system can measure the energy per pulse and record it for each LSP process on the component \cite{mannava}.
+
+\subsection{Laser Shock Peening Process}
+The configuration of an LSP process on a metallic component is shown in Figure \ref{fig:lspconfiguration}. An intense pulsed laser shock beam is fired onto a metal surface for a brief time (\SIrange{10}{100}{\ns}). The heated zone is vaporized and transformed to plasma by ionization due to high temperatures (over \SI{10000}{\degreeCelsius} ). The plasma is under high pressure, which propagates through the material via shock waves. Two modes of LSP exist – the direct ablation mode and the confined ablation mode. The direct ablation mode refers to the interaction of plasma with metal without coating and confinement \cite{sano}. Plasma pressure of tenths of a \SI{}{\GPa} is achieved using direct ablation mode. Higher pressures of \SIrange{1}{5}{\GPa} can be obtained using the confined mode. In the confined mode, the metal surface is usually coated with an opaque material such as black paint or aluminium foil and confined by a material transparent to the laser radiation such as distilled water or borosilicate glass. A stronger pressure pulse results in a higher magnitude of compressive residual stress to a deeper depth \cite{fairland}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/lsp_configuration.jpg}
+    \caption{Schematic configuration of laser shock peening}
+    \label{fig:lspconfiguration}
+\end{figure}
+
+\subsection{Laser Shock Peening Strategy}
+During the peening process, a pattern is created made of individual laser pulses. Generally, multiple sequences of the pattern that are gradually shifted across the sample are used to create a layer, as seen in Figure \ref{fig:lspstrategy}. The pattern shifting ensures a more homogeneous residual stress distribution. This peening strategy's disadvantage is that the protective coating needs to be replaced in between sequences \cite{kaufman}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/lsp_strategy.jpg}
+    \caption{Laser shock peening strategy - one layer consisting of four sequences}
+    \label{fig:lspstrategy}
+\end{figure}
+
+\section{LSP station and laser source at HiLASE Centre}
+
+The LSP station uses the Bivoj laser system, located on the ground floor of the HiLASE Centre. The HiLASE Research Centre is an excellent pan-European infrastructure in laser research and development, located in Dolní Břežany, Czech Republic. The logo of the HiLASE Centre is shown in Figure A Laser Beam Distribution System (LBDS) transports the beam to
+experimental laboratory on the 1\textsuperscript{st} floor. The Bivoj laser system is a Diode Pumped Solid State Laser (DPSSL) based on Yb-doped gain media with a laser wavelength of 1030 nm capable of delivering energy pulses up to \SI{8}{\joule} at a \SI{10}{\hertz} repetition rate. The beam shape at the output of the Bivoj laser is a square flat-top pulse. An overview of the BIVOJ laser system is shown in Figure \ref{fig:bivoj}. The two main sections of the Bivoj laser are the front-end and the \SI{10}{\joule} amplifier.
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/hilase.jpg}
+    \caption{Logo of HiLASE Centre.}
+    \label{fig:lspconfiguration}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\linewidth]{img/bivoj.jpg}
+    \caption{Laser system "BIVOJ": Diode-pumped solid-state (DPSSL) laser DiPOLE 100}
+    \label{fig:bivoj}
+\end{figure}
+
+\subsection{Bivoj laser system}
+
+\subsubsection*{Bivoj front-end}
+
+The front end starts with a fibre-based section, consisting
+of a fibre oscillator, fibre amplifier and temporal pulse shaper
+with \SI{125}{\ps} resolution. The output of the fibre front-end is fed
+to the first booster amplifier, which is regenerative and
+increases the energy to \SI{30}{\milli\joule} and reduces the repetition rate to \SI{10}{\hertz}. The second booster amplifier works in a multi-pass regime
+and increases the pulse energy to approximately \SI{30}{\milli\joule}.
+The repetition rate can be switched between \SI{1}{\hertz} and \SI{10}{\hertz}. The
+beam shape at the front-end output is \SI{8 x 8}{\mm\squared} square flat top.
+
+\subsubsection*{Bivoj 10 J_ amplifier}
+
+The \SI{10}{\joule}  amplifier is the first-stage main amplifier based on
+cryogenically cooled multi-slab technology. The principal
+component of the amplifier is the amplifier head, where the
+gain media are stored and cooled by gaseous helium to 
+the temperature of about \SI{150}{\kelvin}. The laser beam from the front-end
+is enlarged to \SI{22 x 22}{\mm\squared} and sent to the \SI{10}{\joule} amplifier, where
+increases its pulse energy from approximately \SI{30}{\milli\joule} to
+approximately \SI{8}{\joule} at \SI{10}{\hertz}. The spatial profile of the laser beam at the output of the BiVOJ \SI{10}{\joule} amplifier is shown in Figure \ref{fig:spatialprofile} and the temporal profile is shown in Figure \ref{fig:temporalprofile} \cite{saumyabrata}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/spatial_profile.jpg}
+    \caption{Spatial profile of laser beam at output of BiVOJ \SI{10}{\joule} amplifier and approximate dimensions.}
+    \label{fig:spatialprofile}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/temporal_profile_bivoj.png}
+    \caption{Temporal profile of laser beam at output of BiVOJ \SI{10}{\joule}.}
+    \label{fig:temporalprofile}
+\end{figure}
+
+\subsection{Litron LPY ST 7875-10 2HG laser}
+
+The second laser source available at the LSP station is the Litron LPY ST 7875-10 2HG laser, a tabletop laser located directly in the experimental laboratory next to the LSP station. This laser is a pulsed Q-switched Nd:YAG laser suited for industrial or research applications. The Litron  LPY ST 7875-10 2HG laser comes with a Super-Gaussian resonator. The most critical parameters of this system are highlighted in Table \ref{litronparameters} and the laser system is shown in Figure \ref{fig:litron} \cite{litron}. 
+
+
+\begin{table}[h!]
+\centering
+    \begin{threeparttable}
+        \begin{tabular}{||c | c||} 
+        \hline
+            \textbf{Parameter} & \textbf{Value} \\ [0.5ex] 
+        \hline\hline
+        Repetition Rate [Hz] & 10  \\ 
+        \hline
+            Output Energy [mJ] & \\
+            1064nm & 3500 \\
+            532nm & 1750 \\
+        \hline
+            Beam Diameter [mm] & 15 \tnote{a} \\
+        \hline
+            Beam Divergence [mrad] & <0.5 \tnote{b} \\ 
+        \hline
+            Pulse Length @1064nm [ns] & 10-12 \\
+        \hline
+            Pointing Stability [µrad] & 25 \tnote{c} \\
+        \hline
+            Timing Jitter [ns] & <0.5 \tnote{d}  \\
+        \hline
+        \hline
+        \end{tabular}
+        \begin{tablenotes}
+            \small
+            \item[a] Peak-to-peak Energy - 99 \% of pulses. 
+            \item[b] Full angle for 90 \% of the energy.
+            \item[c] Half angle.
+            \item[d] Jitter is measured concerning the external Q-switch trigger input.
+        \end{tablenotes}
+    
+        \caption{Litron LPY ST 7875-10 2HG parameters}
+        \label{litronparameters}
+    \end{threeparttable}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/litron.JPG}
+    \caption{Litron LPY ST 7875-10 2HG laser at HiLASE Centre.}
+    \label{fig:litron}
+\end{figure}
+
+
+
+\subsection{LSP station layout}
+
+The layout of the LSP station is as shown in Figure \ref{fig:lsplayout}. The laser
+beam enters the LSP station through the LSP output node and
+continues to the optical table, where it is redirected and
+focused on the target. The target itself is mounted on the
+robotic arm. The laser beam position is fixed, so the robotic
+arm needs to be moved to direct the laser.
+
+\begin{figure}[t!]
+\centering
+\begin{subfigure}{.45\textwidth}
+
+    \includegraphics[width=1\linewidth]{img/lsp_layout.jpg}
+
+    \label{fig:a}
+\end{subfigure}
+\begin{subfigure}{.45\textwidth}
+
+    \includegraphics[width=1\linewidth]{img/lsp_station_real.JPG}
+
+    \label{fig:b}
+\end{subfigure}
+
+\caption{(from left to right)Schematic layout of LSP station and photography of LSP station.}
+\label{fig:lsplayout}
+\end{figure}
+
+\subsection{FANUC M-20iA/20M robotic arm}
+
+The FANUC M-20iA/20M is a 6-axis universal industrial robotic arm with a maximum load capacity at the wrist of \SI{20}{\kg} and a maximum reach of \SI{1811}{\mm}. The repeatability of the robotic arm is \SI{+-0.08}{\mm} The FANUC M-20iA/20M is a multi-purpose robotic arm and can be used for various applications such as assembling, packaging and machining. The  FANUC M-20iA/20M robot is shown in Figure \ref{fig:fanucrobot} \cite{fanucrobot}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/fanuc_robot.png}
+    \caption{FANUC M-20iA/20M industrial robotic arm  \cite{fanucrobot}.}
+    \label{fig:fanucrobot}
+\end{figure}
+
+The robot is coupled with a FANUC R-30iA controller. The R-30iA controller is equipped with a FANUC AIF01A PLC Interface module. The Interface module is connected to the following expansion modules:
+
+\begin{itemize}
+    \item AID16L - 16 digital inputs
+    \item AOD16D - 16 digital outputs
+    \item ADA02A - 2 analog outputs \cite{fanucunitmanual}
+\end{itemize}
+
+\subsection{LSP process example}
+
+The following \href{https://www.youtube.com/watch?v=awhlLU91-dk&ab_channel=HiLASECentre}{video} shows the improvement of cavitation erosion Resistance by Laser Shock Peening carried out at HiLASE Centre. This process is developed by HiLASE Center and SIGMA GROUP Plc. for the improvement of cavitation erosion resistance of pump blades. The parameters chosen for this experiment are:
+

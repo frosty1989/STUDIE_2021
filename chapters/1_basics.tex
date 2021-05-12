@@ -1,0 +1,88 @@
+\epigraph{
+
+Excerpt from the play Rossum’s Universal Robots (RUR).\break
+In the introductory scene Helena Glory is visiting Harry Domin the director general of Rossum’s Universal Robots and his robotic secretary Sulla.\break
+\break
+\textbf{Domin:} Sulla, let Miss Glory have a look at you.\break
+\textbf{Helena (stands and offers her hand):} Pleased to meet you. It must be very hard for you out here, cut off from the rest of the world [the factory is on an island].\break
+\textbf{Sulla:} I do not know the rest of the world Miss Glory. Please sit down.\break
+\textbf{Helena (sits):} Where are you from?\break
+\textbf{Sulla:} From here, the factory\break
+\textbf{Helena:} Oh, you were born here.\break
+\textbf{Sulla:} Yes I was made here.\break
+\textbf{Helena (startled):} What?\break
+\textbf{Domin (laughing):} Sulla isn’t a person, Miss Glory, she’s a robot.\break
+\textbf{Helena:} Oh, please forgive me …
+}{\textit{Karel Čapek \\ Rossum’s Universal Robots (RUR)}}
+
+\section{Classification of industrial robots and their structures}
+
+Industrial robots can be classified according to various criteria: the number of degrees of freedom, kinematic structure, drives used, workspace geometry, motion characteristics, control method or programming method. According to the abovementioned criteria, several types of robots are distinguished:
+
+\subsection*{Number of degrees of freedom}
+
+\begin{itemize}
+    \item Universal robot - 6 degrees of freedom
+    \item Redundant robot - more than 6 degrees of freedom
+    \item Deficient robot - less than 6 degrees of freedom
+\end{itemize}
+
+\subsection*{Kinematic structure}
+
+\begin{itemize}
+    \item Serial robots - with an open-loop kinematic chain
+    \item Parallel robots - with a closed-loop kinematic chain
+    \item Hybrid robots - combining both types of kinematic chains
+\end{itemize}
+
+
+\subsection*{Type of drives}
+
+\begin{itemize}
+    \item Electric
+    \item Hydraulic
+    \item Pneumatic
+\end{itemize}
+
+Currently, industrial robots with electric drives predominate in numbers. If high loads are required, hydraulic drives are used and for high speeds pneumatic drives are preferred.
+
+\subsection*{Workspace geometry}
+
+\begin{itemize}
+    \item Cartesian
+    \item Cylindrical
+    \item Spherical
+    \item Angular
+    \item SCARA
+\end{itemize}
+
+\section{Industrial robot programming}
+
+Before we dive into the programming of industrial robotic arms, let us revise a few concepts.
+A workcell represents a robot and a collection of machines or peripherals. A single robot controller is responsible for controlling the various appliances of a workcell.
+
+A robot end effector is a peripheral placed at the end of the robotic arm. The end effector represents the last link of the robot. According to the application, end effectors can be grippers, welding devices, spray guns or grinding and deburring machines.
+
+The robot controller is equipped with a so-called interface software. The interface software makes it easier for the user to program the robotic arm.  
+Two basic information need to be programmed into the robotic arm:
+
+\begin{itemize}
+    \item position data 
+    \item procedure
+\end{itemize}
+
+Many different ways of teaching a robot position do exist:
+
+\begin{itemize}
+    \item Positional commands
+    \item Teach pendant
+    \item Lead-by-the-nose
+    \item Offline programming
+    \item Robot simulation tools
+    \item Manufacturing independent robot programming tools
+\end{itemize}
+
+\subsection{Offline programming}
+Different robot brands have incompatible interfaces. Robot programming languages evolve slowly, and robot manufacturers offer backwards compatibility. For example, FANUC ...
+
+Offline programming  (OLP) refers to a programming method in which the robot is programmed outside the production environment. OLP helps to eliminate production downtime, allows studying multiple scenarios of a robot cell before setting up the productions cell. OLP also aids in predicting mistakes made in designing a work cell.
