@@ -111,29 +111,30 @@
 
 
 %% --- zde jsou zavedeny některé "konstanty" - některé musíte změnit! --- %%
-\newcommand{\cvut}{Tertiary Professional School, Secondary School}
-\newcommand{\fjfi}{The Centre of professional training Sezimovo Ústí}
-\newcommand{\program}{Electrotechnics}
+\newcommand{\cvut}{Czech Technical University in Prague}
+\newcommand{\fjfi}{Faculty of Nuclear Sciences and Physical Engineering }
+\newcommand{\program}{Applications of Natural Sciences}
 
-\newcommand{\obor}{Mechatronic systems} % změňte, pokud máte jiný obor
+\newcommand{\obor}{Physical engineering} % změňte, pokud máte jiný obor
 
-\newcommand{\druh}{Thesis} % nebo "Diplomová práce"
+\newcommand{\druh}{Study for dissertation} % nebo "Diplomová práce"
 \newcommand{\woman}{} % pokud jste ŽENA, ZMĚŇTE na: ...{\woman}{a} (je to do Prohlášení)
 
-\newcommand{\logoCVUT}{\includegraphics{img/copsu_logo.jpg}} % logo ČVUT -- podle grafického manuálu ČVUT platného od prosince 2016. Pokud nevyhovuje PDF-verze, tak použijte jinou variantu loga: https://www.cvut.cz/logo-a-graficky-manual -> "Symbol a logo ČVUT v Praze"). Pokud chcete logo úplně vynechat, zadejte místo "\includegraphics{...}" text "\vspace{35mm}"
+\newcommand{\logoCVUT}{\includegraphics{img/symbol_cvut.pdf}} % logo ČVUT -- podle grafického manuálu ČVUT platného od prosince 2016. Pokud nevyhovuje PDF-verze, tak použijte jinou variantu loga: https://www.cvut.cz/logo-a-graficky-manual -> "Symbol a logo ČVUT v Praze"). Pokud chcete logo úplně vynechat, zadejte místo "\includegraphics{...}" text "\vspace{35mm}"
 
 % přesně podle formuláře "Zadání bak./dipl. práce" VYPLŇTE:
 \newcommand{\nazevcz}{Postprocesor robota pro metodu Laser Shock Peening}    % český název práce (přesně podle zadání!)
 \newcommand{\nazeven}{Robot post processor for Laser Shock Peening technique}          % anglický název práce (přesně podle zadání!)
 \newcommand{\autor}{Marek Böhm}   % vyplňte své jméno a příjmení (s akademickým titulem, máte-li jej)
-\newcommand{\vedouci}{Mgr. Bc. Miroslav V. Hospodářský} % vyplňte jméno a příjmení vedoucího práce, včetně titulů, např.: Doc. Ing. Ivo Malý, Ph.D.
-\newcommand{\pracovisteVed}{VOŠ, SŠ, COP Sezimovo Ústí} % ZMĚŇTE, pokud vedoucí Vaší práce není z KSI
+\newcommand{\vedouci}{Ing. Josef Blažej, Ph.D.} % vyplňte jméno a příjmení vedoucího práce, včetně titulů, např.: Doc. Ing. Ivo Malý, Ph.D.
+\newcommand{\specialist}{Ing. Saulius Pakalnis, Ph.D.} % vyplňte jméno a příjmení vedoucího práce, včetně titulů, např.: Doc. Ing. Ivo Malý, Ph.D.
+\newcommand{\pracovisteVed}{Katedra fyzikální elektroniky, ČVUT, FJFI} % ZMĚŇTE, pokud vedoucí Vaší práce není z KSI
 \newcommand{\konzultant}{Ing. Jakub Horáček} % POKUD MÁTE určeného konzultanta, NAPIŠTE jeho jméno a příjmení
 \newcommand{\pracovisteKonz}{HiLASE centrum, Fyzikální ústav AV ČR, v. v. i.} % POKUD MÁTE konzultanta, NAPIŠTE jeho pracoviště
 
 % podle skutečnosti VYPLŇTE:
 \newcommand{\rok}{2021}  % rok odevzdání práce (jen rok odevzdání, nikoli celý akademický rok!)
-\newcommand{\kde}{Sezimovo Ústí} % studenti z Děčína ZMĚNÍ na: "Děčíně" (doplní se k "prohlášení")
+\newcommand{\kde}{Praha} % studenti z Děčína ZMĚNÍ na: "Děčíně" (doplní se k "prohlášení")
 
 \newcommand{\klicova}{RoboDk, Industrial Robots, Robotic Arms, Collision Avoidance, Simulation, Post processor}   % zde NAPIŠTE česky max. 5 klíčových slov
 \newcommand{\keyword}{RoboDk, Industrial Robots, Robotic Arms, Collision Avoidance, Simulation, Post processor}       % zde NAPIŠTE anglicky max. 5 klíčových slov (přeložte z češtiny)
@@ -149,7 +150,7 @@ The RoboDK CAM program is a powerful tool that enables users to create their pos
 
 \newcommand{\prohlaseni}{I declare that I have prepared my thesis independently, and I have used only the materials (literature, projects, software, etc.) listed in the attached list.} % text prohlášení můžete mírně upravit :-)
 
-\newcommand{\podekovani}{I want to thank my supervisor Mgr. Bc. Miroslav V. Hospodářský for the invaluable advice and help in creating this thesis.} % NAPIŠTE poděkování, např. svému vedoucímu:
+\newcommand{\podekovani}{I want to thank my supervisor Ing. Josef Blažej, Ph.D. for the invaluable advice and help in creating this thesis.} % NAPIŠTE poděkování, např. svému vedoucímu:
 % Děkuji Ing. Eleonoře Krtečkové, Ph.D. za vedení mé bakalářské práce a za podnětné návrhy, které ji obohatily.
 % NEBO:
 % Děkuji vedoucímu práce doc. Pafnutijovi Snědldítětikaši, Ph.D. za neocenitelné rady a pomoc při tvorbě bakalářské práce.
@@ -188,6 +189,7 @@ The RoboDK CAM program is a powerful tool that enables users to create their pos
     \begin{tabular}{ll}
     Author : & \autor\\
     Supervisor: & \vedouci\\
+    Supervisor specialist: & \specialist\\
     Year: & \rok
     \end{tabular}
    }
@@ -206,7 +208,7 @@ The RoboDK CAM program is a powerful tool that enables users to create their pos
 %% zde podle toho, jak jste zadání naskenovali, VYBERTE variantu A, B nebo C:
 %
 % --- varianta A: zadání naskenované jako 2stránkové PDF:
-\includepdf[pages={1}]{assignment/assignment_scan.pdf} % NAHRAĎTE správným souborem!
+% \includepdf[pages={1}]{assignment/assignment_scan.pdf} % NAHRAĎTE správným souborem!
 %
 %% --- varianta B: zadání naskenované jako jednotlivé stránky:
 %\includepdf[pages={1}]{zadani1.pdf} % 1. strana zadání v PDF

@@ -6,7 +6,7 @@
 
 \subsection{FANUC Roboguide}
 
-FANUC Roboguide is a proprietary robot simulator and offline programming tool developed by FANUC. Roboguide is in many ways similar to RoboDK.  Like RoboDK, it supports the creation of robot stations, importing of CAD files and CAD-to-path features. The main difference is that Roboguide is limited to FANUC robots and FANUC related technology and procedures. In contrast, RoboDK is not limited to one robot manufactures and is universal and expandable. Roboguide is used for this project to compile the created FANUC programs and upload them to the FANUC robot controller. Roboguide offers several Simulation Software Options tailored for specific robotic arm applications:
+FANUC Roboguide is a proprietary robot simulator and offline programming tool developed by FANUC. Roboguide is in many ways similar to RoboDK.  Like RoboDK, it supports the creation of robot stations, importing of CAD files and CAD-to-path features. The main difference is that Roboguide is limited to FANUC robots and FANUC related technology and procedures. In contrast, RoboDK is not limited to one robot manufactures and is universal and expandable. Roboguide is used for this project to compile the created FANUC programs and upload them to the FANUC robot controller. Roboguide offers several simulation software options tailored for specific robotic arm applications:
 
 \begin{itemize}
 
@@ -26,7 +26,7 @@ An example of a Roboguide station is shown in Figure \ref{fig:roboguide}. The ve
     \label{fig:roboguide}
 \end{figure}
 
-\subsection{FANUC robots programming languages}
+\subsection{FANUC robot controller programming languages}
 
 The FANUC company implements two programming languages for programming their robot controllers: Teach Pendant (TP) or KAREL. The Teach Pendant language is mainly used for motion control of the robotic arm and edited via the Pendant. Teach pendant programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human-readable ASCII files (\mintinline{shell-session}{.ls} file extension). The KAREL language is a high-level language and does not support robot movements. KAREL is mainly used to implement algorithms. KAREL programs can be only edited using a Personal Computer, and they can not be edited using a Pendant.
 
@@ -36,7 +36,7 @@ Only a Teach Pendant program in binary format can be run on FANUC controllers. B
 
 \begin{enumerate}
 \item The ASCII Upload option must be loaded on the robot controller. After upload an (\mintinline{shell-session}{.ls} file to the controller it is automatically converted to a (\mintinline{shell-session}{.tp} file.
-\item The program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly
+\item The program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly.
 
 \end{enumerate}
 
@@ -96,9 +96,9 @@ The user has to execute the following steps set up a basic curve follow cell:
 
 \item Update project. RoboDK automatically generates a preprocessed robot program for the actual station.
 
-\item Right-click the preprocessed program, Select Post Processor and Generate program. The .ls program for the actual station will be opened in the default RoboDK text editor (VSCodium).
+\item Right-click the preprocessed program, Select Post Processor and Generate program. The .ls program for the actual station will be opened in the default RoboDK text editor.
 
-\item Compile the program and export the program to the robot controller using Roboguide. 
+\item Compile the program and export the program to the FANUC robot controller using Roboguide or WinOLPC tools.
     
 \end{enumerate}
 
