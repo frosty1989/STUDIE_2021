@@ -32,17 +32,8 @@ During the peening process, a pattern is created made of individual laser pulses
 
 \section{LSP station and laser source at HiLASE Centre}
 
-The LSP station uses the Bivoj laser system, located on the ground floor of the HiLASE Centre. The HiLASE Research Centre is an excellent pan-European infrastructure in laser research and development, located in Dolní Břežany, Czech Republic. The logo of the HiLASE Centre is shown in Figure A Laser Beam Distribution System (LBDS) transports the beam to
+The LSP station uses the Bivoj laser system, located on the ground floor of the HiLASE Centre. The HiLASE Research Centre is an excellent pan-European infrastructure in laser research and development, located in Dolní Břežany, Czech Republic. A Laser Beam Distribution System (LBDS) transports the beam to
 experimental laboratory on the 1\textsuperscript{st} floor. The Bivoj laser system is a Diode Pumped Solid State Laser (DPSSL) based on Yb-doped gain media with a laser wavelength of 1030 nm capable of delivering energy pulses up to \SI{8}{\joule} at a \SI{10}{\hertz} repetition rate. The beam shape at the output of the Bivoj laser is a square flat-top pulse. An overview of the BIVOJ laser system is shown in Figure \ref{fig:bivoj}. The two main sections of the Bivoj laser are the front-end and the \SI{10}{\joule} amplifier.
-
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.6\linewidth]{img/hilase.jpg}
-    \caption{Logo of HiLASE Centre.}
-    \label{fig:lspconfiguration}
-\end{figure}
 
 \begin{figure}[h]
     \centering
@@ -165,7 +156,7 @@ arm needs to be moved to direct the laser.
     \label{fig:b}
 \end{subfigure}
 
-\caption{(from left to right)Schematic layout of LSP station and photography of LSP station.}
+\caption{(Description of images from left to right (1) Schematic layout of LSP station, (2) Photography of LSP station.}
 \label{fig:lsplayout}
 \end{figure}
 
@@ -190,5 +181,43 @@ The robot is coupled with a FANUC R-30iA controller. The R-30iA controller is eq
 
 \subsection{LSP process example}
 
-The following \href{https://www.youtube.com/watch?v=awhlLU91-dk&ab_channel=HiLASECentre}{video} shows the improvement of cavitation erosion Resistance by Laser Shock Peening carried out at HiLASE Centre. This process is developed by HiLASE Center and SIGMA GROUP Plc. for the improvement of cavitation erosion resistance of pump blades. The parameters chosen for this experiment are:
+The following \href{https://www.youtube.com/watch?v=awhlLU91-dk&ab_channel=HiLASECentre}{video} shows the improvement of cavitation erosion Resistance by Laser Shock Peening carried out at HiLASE Centre. This process is developed by HiLASE Center and SIGMA GROUP Plc. for the improvement of cavitation erosion resistance of pump blades. The parameters chosen for this experiment are shown in Table. 
+
+\begin{table}[h!]
+\centering
+    \begin{threeparttable}
+        \begin{tabular}{||c | c||} 
+        \hline
+            \textbf{Parameter} & \textbf{Value} \\ [0.5ex] 
+        \hline\hline
+        Repetition Rate [Hz] & 10  \\ 
+        \hline
+            Output Energy [mJ] & \\
+            1064nm & 3500 \\
+            532nm & 1750 \\
+        \hline
+            Beam Diameter [mm] & 15 \tnote{a} \\
+        \hline
+            Beam Divergence [mrad] & <0.5 \tnote{b} \\ 
+        \hline
+            Pulse Length @1064nm [ns] & 10-12 \\
+        \hline
+            Pointing Stability [µrad] & 25 \tnote{c} \\
+        \hline
+            Timing Jitter [ns] & <0.5 \tnote{d}  \\
+        \hline
+        \hline
+        \end{tabular}
+        \begin{tablenotes}
+            \small
+            \item[a] Peak-to-peak Energy - 99 \% of pulses. 
+            \item[b] Full angle for 90 \% of the energy.
+            \item[c] Half angle.
+            \item[d] Jitter is measured concerning the external Q-switch trigger input.
+        \end{tablenotes}
+    
+        \caption{Litron LPY ST 7875-10 2HG parameters}
+        \label{litronparameters}
+    \end{threeparttable}
+\end{table}
 

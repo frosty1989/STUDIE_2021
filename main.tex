@@ -87,7 +87,10 @@
 \usepackage{siunitx}
 \sisetup{load-configurations = abbreviations}
 
-
+% for glosaries and acronyms
+\usepackage[acronym, toc]{glossaries}
+\makeglossaries
+\input{appendices/acronyms.tex}
 
 \frenchspacing % za větou bude mezislovní mezera (v anglických textech je mezera za větou delší)
 \widowpenalty=1000 % "síla" zákazu vdov (= jeden řádek ze začátku odstavce na konci stránky)
@@ -130,14 +133,14 @@
 \newcommand{\specialist}{Ing. Saulius Pakalnis, Ph.D.} % vyplňte jméno a příjmení vedoucího práce, včetně titulů, např.: Doc. Ing. Ivo Malý, Ph.D.
 \newcommand{\pracovisteVed}{Katedra fyzikální elektroniky, ČVUT, FJFI} % ZMĚŇTE, pokud vedoucí Vaší práce není z KSI
 \newcommand{\konzultant}{Ing. Jakub Horáček} % POKUD MÁTE určeného konzultanta, NAPIŠTE jeho jméno a příjmení
-\newcommand{\pracovisteKonz}{HiLASE centrum, Fyzikální ústav AV ČR, v. v. i.} % POKUD MÁTE konzultanta, NAPIŠTE jeho pracoviště
+\newcommand{\pracovisteSpecialisty}{HiLASE Centrum, Fyzikální ústav AV ČR, v. v. i.} % POKUD MÁTE konzultanta, NAPIŠTE jeho pracoviště
 
 % podle skutečnosti VYPLŇTE:
 \newcommand{\rok}{2021}  % rok odevzdání práce (jen rok odevzdání, nikoli celý akademický rok!)
-\newcommand{\kde}{Praha} % studenti z Děčína ZMĚNÍ na: "Děčíně" (doplní se k "prohlášení")
+\newcommand{\kde}{Prague} % studenti z Děčína ZMĚNÍ na: "Děčíně" (doplní se k "prohlášení")
 
-\newcommand{\klicova}{RoboDk, Industrial Robots, Robotic Arms, Collision Avoidance, Simulation, Post processor}   % zde NAPIŠTE česky max. 5 klíčových slov
-\newcommand{\keyword}{RoboDk, Industrial Robots, Robotic Arms, Collision Avoidance, Simulation, Post processor}       % zde NAPIŠTE anglicky max. 5 klíčových slov (přeložte z češtiny)
+\newcommand{\klicova}{RoboDK, industrial robots, robotic arms, collision avoidance, robotic arm simulation, robotic arm post processors}   % zde NAPIŠTE česky max. 5 klíčových slov
+\newcommand{\keyword}{RoboDK, průmysloví roboti,průmyslová robotická ramena, zabránění kolizím, simulace robotických ramen, postprocesory robotických ramen}       % zde NAPIŠTE anglicky max. 5 klíčových slov (přeložte z češtiny)
 \newcommand{\abstrCZ}{Popis práce česky}    % zde NAPIŠTE abstrakt v češtině (cca 7 vět, min. 80 slov)
 \newcommand{\abstrEN}{
 The focus of this thesis is to develop a post-processor for the Laser Shock Peening Technique. 
@@ -150,7 +153,7 @@ The RoboDK CAM program is a powerful tool that enables users to create their pos
 
 \newcommand{\prohlaseni}{I declare that I have prepared my thesis independently, and I have used only the materials (literature, projects, software, etc.) listed in the attached list.} % text prohlášení můžete mírně upravit :-)
 
-\newcommand{\podekovani}{I want to thank my supervisor Ing. Josef Blažej, Ph.D. for the invaluable advice and help in creating this thesis.} % NAPIŠTE poděkování, např. svému vedoucímu:
+\newcommand{\podekovani}{I want to thank my supervisor Ing. Josef Blažej, Ph.D. for the invaluable advice and help in creating this study.} % NAPIŠTE poděkování, např. svému vedoucímu:
 % Děkuji Ing. Eleonoře Krtečkové, Ph.D. za vedení mé bakalářské práce a za podnětné návrhy, které ji obohatily.
 % NEBO:
 % Děkuji vedoucímu práce doc. Pafnutijovi Snědldítětikaši, Ph.D. za neocenitelné rady a pomoc při tvorbě bakalářské práce.
@@ -287,7 +290,8 @@ In \kde\ on .................... &........................................ \\	% 
   {\em Obor:} & \obor \\
   {\em Druh práce:} & \druh \\[1em]
   {\em Vedoucí práce:} & \odstavec{\delka}{\vedouci\\ \pracovisteVed} \\
-  {\em Konzultant:} & \odstavec{\delka}{\konzultant \\ \pracovisteKonz}  % VYMAŽTE text "-- %" v případě, že jste neměli konzultanta
+  % {\em Konzultant:} & \odstavec{\delka}{\konzultant \\ \pracovisteSpecialisty}  % VYMAŽTE text "-- %" v případě, že jste neměli konzultanta
+    {\em Vedoucí specialista:} & \odstavec{\delka}{\specialist \\ \pracovisteSpecialisty}  % VYMAŽTE text "-- %" v případě, že jste neměli konzultanta
  \\[1em]  
   \multicolumn{2}{l}{\odstavec{\textwidth}{{\em Abstrakt:} ~ \abstrCZ  }} \\[1em]
   {\em Klíčová slova:} & \odstavec{\delka}{\klicova} \\[2em]
@@ -296,7 +300,7 @@ In \kde\ on .................... &........................................ \\	% 
   \multicolumn{2}{l}{\odstavec{\textwidth}{\bf \nazeven}}\\[1em]
   {\em Author:} & \autor \\[1em]
   \multicolumn{2}{l}{\odstavec{\textwidth}{{\em Abstract:} ~ \abstrEN  }} \\[1em]
-  {\em Key words:} & \odstavec{\delka}{\keyword}
+  {\em Keywords:} & \odstavec{\delka}{\keyword}
 \end{tabular}
 
 
@@ -313,10 +317,18 @@ In \kde\ on .................... &........................................ \\	% 
 \nomenclature{$c$}{Speed of light in a vacuum inertial frame}
 \nomenclature{$h$}{Planck constant}
 
-\cleardoublepage
+% is the clear double page really necessa
+%\cleardoublepage
+
 \addcontentsline{toc}{chapter}{Nomenclature}
 \printnomenclature
 
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Acronyms}
+
+
+
+\printglossary
 
 \cleardoublepage
 % \phantomsection

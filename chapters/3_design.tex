@@ -37,14 +37,7 @@ The following section highlights some of the features RoboDK has to offer.
 \subsection{RoboDK licences and versions}
 
 RoboDK offers a free (limited), educational or professional version. 
-The software is available for Windows, Mac OS, Ubuntu Linux or Android. It supports either 32 or 64-bit versions of the abovementioned operating systems. At the time of writing this document, the latest version of RoboDK is 5.2. The complete RoboDK revision history is available online at this \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{link}. The logo of RoboDK is shown in Figure \ref{fig:robodklogo}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.6\linewidth]{img/robodk_logo.png}
-    \caption{RoboDK logo.}
-    \label{fig:robodklogo}
-\end{figure}
+The software is available for Windows, Mac OS, Ubuntu Linux or Android. It supports either 32 or 64-bit versions of the abovementioned operating systems. At the time of writing this document, the latest version of RoboDK is 5.2. The complete RoboDK revision history is available \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{online}. 
 
 \section{RoboDK robot library}
 
@@ -57,17 +50,17 @@ RoboDK supports offline programming and has an extensive robot library supportin
     \item Motoman Inform (JBI)
     \item Universal Robots (URP/script)
 \end{itemize}
-Models of industrial robots in RoboDK have the same properties as used with an actual robotic controller. The RoboDK library can be accessed either online via this \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{link}  or in the RoboDK application itself. 
+Models of industrial robots in RoboDK have the same properties as used with an actual robotic controller. The RoboDK library can be accessed either \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{online}  or in the RoboDK application itself. 
 
 
 
 \section{RoboDK interface}
 
-The interface of RoboDK consists of the main menu, the toolbar, the station tree, the status bar, and the 3D view. A picture of the RoboDK interface is shown in Figure \ref{fig:robodkinterface}. An extensive documentation for RoboDK is available online via this \href{https://robodk.com/doc/en/Basic-Guide.html#Start}{link}.
+The interface of RoboDK consists of the main menu, the toolbar, the station tree, the status bar, and the 3D view. A picture of the RoboDK interface is shown in Figure \ref{fig:robodkinterface}. An extensive documentation for RoboDK is available \href{https://robodk.com/doc/en/Basic-Guide.html#Start}{online}.
 
 \subsection{RoboDK station}
 
-A RoboDK project containing a robot, robot tools, additional CAD files, robot frames and a robot program is called a station. A RoboDK station is saved as one file (\mintinline{shell-session}{.rdk} extension).  The FANUC M-20iA/35M is used in this thesis because it is readily available in the RoboDK library and differs from the FANUC M-20iA/20M robotic arm only in payload capacity.
+A RoboDK project containing a robot, robot tools, additional CAD files, robot frames and a robot program is called a station. A RoboDK station is saved as one file (\mintinline{shell-session}{.rdk} extension).  The FANUC M-20iA/35M model from the RoboDK robot library is used in this thesis because it is readily available in the RoboDK library and differs from the FANUC M-20iA/20M robotic arm only in payload capacity.
 
 \begin{figure}[h]
     \centering
@@ -94,14 +87,14 @@ The RoboDK API is divided into the following modules:
 \begin{itemize}
     \item \mintinline{shell-session}{robolink} module - this module represents the link between RoboDK and the programming language
     \item \mintinline{shell-session}{Item} module - any item from the RoboDK item tree can be retrieved.  An item can be a robot, a reference frame, a tool, an object or a specific project.
-    \item \mintinline{shell-session}{robodk} module - a module with a robotics toolbox for pose operations.All post processors depend on the robodk module.
+    \item \mintinline{shell-session}{robodk} module - a module with a robotics toolbox for pose operations. All post processors depend on the robodk module.
 \end{itemize}
 
 \section{RoboDK Plug-Ins}
 
 \subsection{RoboDK Plug-In interface}
 
-Plug-Ins can extend RoboDK's functionality. Plug-Ins can be developed by using the RoboDK Plug-In interface. The RoboDK Plug-In interface is linked natively to the core of RoboDK. Examples of RoboDK Plug-Ins are available at this \href{https://github.com/RoboDK/Plug-In-Interface}{link}. 
+Plug-Ins can extend RoboDK's functionality. Plug-Ins can be developed by using the RoboDK Plug-In interface. The RoboDK Plug-In interface is linked natively to the core of RoboDK. Examples of RoboDK Plug-Ins are available \href{https://github.com/RoboDK/Plug-In-Interface}{online}. 
 
 \subsection{RoboDK Plug-In for SolidWorks}
 
@@ -142,6 +135,6 @@ To import curves from SolidWorks to RoboDK, SolidWorks offers two options:
 
 \section{RoboDK post processors}
 
-Post processors generate robot programs for robot controllers from the RoboDK simulation. Post processors are essential for offline programming of robots. A post processor defines the vendor-specific rules a robot program must follow. A robot is linked to a post processor in RoboDK. The post processors available in RoboDK by default are in this \href{https://robodk.com/doc/en/Post-Processors.html#AvailablePosts}{link}.  
+Post processors generate robot programs for robot controllers from the RoboDK simulation. Post processors are essential for offline programming of robots. A post processor defines the vendor-specific rules a robot program must follow. A robot is linked to a post processor in RoboDK. The post processors available in RoboDK by default can be found \href{https://robodk.com/doc/en/Post-Processors.html#AvailablePosts}{online}.  
 A post processor in RoboDK is a Python script (.py extension). All the post processors of RoboDK are located in the
 \mintinline{shell-session}{C:/RoboDK/Posts/} folder running on the Windows operating system.  To use a post processor it must be placed in the \mintinline{shell-session}{C:/RoboDK/Posts/} folder. The user can modify an existing post processor or create a new one from scratch. Modifications of post processors are described in \autoref{chap:implementation} in more detail. 
