@@ -49,11 +49,11 @@ Currently, industrial robots with electric drives predominate in numbers. If hig
 \subsection*{Workspace geometry}
 
 \begin{itemize}
-    \item Cartesian
-    \item Cylindrical
-    \item Spherical
-    \item Angular
-    \item SCARA
+    \item Cartesian - robots equipped with three perpendicular linear axes
+    \item Cylindrical - robots equipped with two linear axes and one rotary axis
+    \item Spherical -  robots equipped with two rotary axes and one linear axis
+    \item Angular - robots equipped with a varying number of rotary axes
+    \item SCARA - Selective Compliant Articulated Robot Arm, also equipped with with two rotary axes and one linear axis but in a different configuration than a spherical robotic arm
 \end{itemize}
 
 \section{Industrial robot programming}
@@ -67,22 +67,31 @@ The robot controller is equipped with a so-called interface software. The interf
 Two basic information need to be programmed into the robotic arm:
 
 \begin{itemize}
-    \item position data 
-    \item procedure
+    \item position data - i.e. where to robotic arm has to move
+    \item procedure - i.e. what action the robotic arm will perform at the specific position
 \end{itemize}
 
 Many different ways of teaching a robot position do exist:
 
 \begin{itemize}
-    \item Positional commands
-    \item Teach pendant
-    \item Lead-by-the-nose
-    \item Offline programming
-    \item Robot simulation tools
-    \item Manufacturing independent robot programming tools
+    \item Positional commands - the programmer inputs the position data using a GUI or a text based command
+    \item Teach pendant - the Teach Pendant is a handheld control and programming unit attached to the robot controller
+    \item Lead-by-the-nose - the robotic arm is de-energized and moved along the required positions by hand while the robotic controller saves them into memory
+    \item Offline programming - the robotic cell including the robotic arm and machines are represented in a specialized software. The robot can be moved in the software and brand-specific applications for the robotic controller can be created.  
+
 \end{itemize}
 
 \subsection{Offline programming}
 Different robot brands have incompatible interfaces. Robot programming languages evolve slowly, and robot manufacturers offer backwards compatibility. For example, FANUC ...
 
-Offline programming  (OLP) refers to a programming method in which the robot is programmed outside the production environment. OLP helps to eliminate production downtime, allows studying multiple scenarios of a robot cell before setting up the productions cell. OLP also aids in predicting mistakes made in designing a work cell.
+Offline programming  (OLP) refers to a programming method in which the robot is programmed outside the production environment. OLP helps to eliminate production downtime, allows studying multiple scenarios of a robot cell before setting up the productions cell. OLP also aids in predicting mistakes made in designing a work cell. The OLP workflow can be summarized into the following steps:
+
+\begin{enumerate}
+  \item Creating/importing a robotic cell that mimics the real life workcell. 
+  \item Importing a CAD file representing the machined part
+  \item Programming (graphical or textual) and automatic generation of robot path
+  \item Simulation and validation - collision detection, join violations etc.
+  \item Reporting - efficiency, productivity etc.
+  \item Translating the robot program
+  \item Executing the robot program
+\end{enumerate}
