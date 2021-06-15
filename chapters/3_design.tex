@@ -37,11 +37,11 @@ The following section highlights some of the features RoboDK has to offer.
 \subsection{RoboDK licences and versions}
 
 RoboDK offers a free (limited), educational or professional version. 
-The software is available for Windows, Mac OS, Ubuntu Linux or Android. It supports either 32 or 64-bit versions of the abovementioned operating systems. At the time of writing this document, the latest version of RoboDK is 5.2. The complete RoboDK revision history is available \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{online}. 
+The software is available for Windows, MacOS, Ubuntu Linux or Android. It supports either 32 or 64-bit versions of the abovementioned operating systems. At the time of writing this document, the latest version of RoboDK is 5.2. The complete RoboDK revision history is available \href{https://robodk.com/whatsnew}{online}. 
 
 \section{RoboDK robot library}
 
-RoboDK supports offline programming and has an extensive robot library supporting many robot controllers, including:
+RoboDK supports offline programming and has an extensive robot library supporting robot controllers from various manufacturers, including:
 
 \begin{itemize}
     \item ABB RAPID (mod/prg)
@@ -50,7 +50,7 @@ RoboDK supports offline programming and has an extensive robot library supportin
     \item Motoman Inform (JBI)
     \item Universal Robots (URP/script)
 \end{itemize}
-Models of industrial robots in RoboDK have the same properties as used with an actual robotic controller. The RoboDK library can be accessed either \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{online}  or in the RoboDK application itself. 
+Models of industrial robots in RoboDK have the same properties as used with an actual robotic controller. The RoboDK library can be accessed either \href{https://robodk.com/library}{online}  or in the RoboDK application itself. 
 
 
 
@@ -60,7 +60,7 @@ The interface of RoboDK consists of the main menu, the toolbar, the station tree
 
 \subsection{RoboDK station}
 
-A RoboDK project containing a robot, robot tools, additional CAD files, robot frames and a robot program is called a station. A RoboDK station is saved as one file (\mintinline{shell-session}{.rdk} extension).  The FANUC M-20iA/35M model from the RoboDK robot library is used in this thesis because it is readily available in the RoboDK library and differs from the FANUC M-20iA/20M robotic arm only in payload capacity.
+A RoboDK project containing a robot, robot tools, additional CAD files, robot frames and a robot program is called a station. A RoboDK station is saved as one file (\mintinline{shell-session}{.rdk} extension).  The FANUC M-20iA/35M model from the RoboDK robot library is used in this thesis because it is readily available in the RoboDK library and differs from the FANUC M-20iA/20M robotic arm only in payload capacity. Robot files in RoboDK have a \mintinline{shell-session}{.robot} extension.
 
 \begin{figure}[h]
     \centering
@@ -98,12 +98,6 @@ Plug-Ins can extend RoboDK's functionality. Plug-Ins can be developed by using t
 
 \subsection{RoboDK Plug-In for SolidWorks}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.6\linewidth]{img/solidworks_toolbar.PNG}
-    \caption{SolidWorks RoboDK Plug-In Toolbar.}
-    \label{fig:solidworkstoolbar}
-\end{figure}
 
 
 Solidworks is a professional 3D CAD modelling application. The RoboDK Add-in for SolidWorks allows to combine SolidWork's 3D CAD modelling features with RoboDK for robot simulation and offline programming and considerably simplifies the programmer's workflow. The programmed can load 3D models created in SolidWorks directly to RoboDK. Groups of curves and point can also be loaded to RoboDK, and robot programs can be generated from them.
@@ -117,8 +111,16 @@ After opening SolidWorks under the RoboDK toolbar, the RoboDK Add-in presents th
     \item Load Part - only loads the 3D model from SolidWorks to RoboDK without the curves or points
     \item Load Point(s) - loads points to RoboDK as a new object. Selected surfaces are be used to calculate curve normals. 
     \item Load Curve(s) -  loads curves selected in RoboDK as a new item. Selected surfaces are be used to calculate curve normals. 
-    \item Settinngs - opens default Settings window
+    \item Settings - opens default Settings window
 \end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/solidworks_toolbar.PNG}
+    \caption{SolidWorks RoboDK Plug-In Toolbar.}
+    \label{fig:solidworkstoolbar}
+\end{figure}
+
 
 \subsubsection*{Importing curves from Solidworks}
 
