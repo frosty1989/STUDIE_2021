@@ -87,6 +87,9 @@
 \usepackage{siunitx}
 \sisetup{load-configurations = abbreviations}
 
+% for printing of multiline comments
+\usepackage{verbatim}
+
 % for glosaries and acronyms
 \usepackage[acronym, toc]{glossaries}
 \makeglossaries
@@ -311,21 +314,22 @@ In \kde\ on .................... &........................................ \\	% 
 
 \mbox{}
 
-\nomenclature{$c$}{Speed of light in a vacuum inertial frame}
-\nomenclature{$h$}{Planck constant}
+
+%\nomenclature{$c$}{Speed of light in a vacuum inertial frame}
+%\nomenclature{$h$}{Planck constant}
 
 % is the clear double page really necessa
 %\cleardoublepage
 
-\addcontentsline{toc}{chapter}{Nomenclature}
-\printnomenclature
+%\addcontentsline{toc}{chapter}{Nomenclature}
+%\printnomenclature
 
-\cleardoublepage
-\addcontentsline{toc}{chapter}{Acronyms}
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{Acronyms}
 
 
 
-\printglossary
+%\printglossary
 
 \cleardoublepage
 % \phantomsection

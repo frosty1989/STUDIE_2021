@@ -7,7 +7,7 @@ In modern times, this concept has reached its apex with industrial surface harde
 Laser Shock Peening (LSP) treatment induces residual stresses beneath the treated surface of metallic materials. The residual stresses are produced by a high magnitude shock wave induced by a high-energy laser pulse. The advantage of LSP is that the laser pulse can be adjusted and controlled in real time. A computer-controlled system can measure the energy per pulse and record it for each LSP process on the component \cite{mannava}.
 
 \subsection{Laser Shock Peening Process}
-The configuration of an LSP process on a metallic component is shown in Figure \ref{fig:lspconfiguration}. An intense pulsed laser shock beam is focused onto a metal surface for a brief time (\SIrange{10}{100}{\ns}). The heated zone is vaporized and transformed to plasma by ionization due to high temperatures (over \SI{10000}{\degreeCelsius} ). The plasma is under high pressure, which propagates through the material via shock waves. Two modes of LSP exist – the direct ablation mode and the confined ablation mode. The direct ablation mode refers to the interaction of plasma with metal without coating and confinement \cite{sano}. Plasma pressure of tenths of a \SI{}{\GPa} is achieved using direct ablation mode. Higher pressures of \SIrange{1}{5}{\GPa} can be obtained using the confined mode. In the confined mode, the metal surface is usually coated with an opaque material such as black paint or aluminium foil and confined by a material transparent to the laser radiation such as distilled water or borosilicate glass. A stronger pressure pulse results in a higher magnitude of compressive residual stress to a deeper depth \cite{fairland}.
+The configuration of an LSP process on a metallic component is shown in Figure \ref{fig:lspconfiguration}. An intense pulsed laser shock beam is focused onto a metal surface for a brief period of time (\SIrange{10}{100}{\ns}). The heated zone is vaporized and transformed to plasma by ionization due to high temperatures (over \SI{10000}{\degreeCelsius} ). The plasma is under high pressure, which propagates through the material via shock waves. Two modes of LSP exist – the direct ablation mode and the confined ablation mode. The direct ablation mode refers to the interaction of plasma with metal without coating and confinement \cite{sano}. Plasma pressure of tenths of a \SI{}{\GPa} is achieved using direct ablation mode. Higher pressures of \SIrange{1}{5}{\GPa} can be obtained using the confined mode. In the confined mode, the metal surface is usually coated with an opaque material such as black paint or aluminium foil and confined by a material transparent to the laser radiation such as distilled water or borosilicate glass. A stronger pressure pulse results in a higher magnitude of compressive residual stress to a deeper depth \cite{fairland}.
 
 \subsection{Characteristics of residual stresses induced by Laser Shock Peening}
 
@@ -156,7 +156,7 @@ arm needs to be moved to direct the laser.
     \label{fig:b}
 \end{subfigure}
 
-\caption{(Description of images from left to right (1) Schematic layout of LSP station, (2) Photography of LSP station.}
+\caption{(Description of images from left to right) (1) Schematic layout of LSP station, (2) Photography of LSP station.}
 \label{fig:lsplayout}
 \end{figure}
 
@@ -164,12 +164,36 @@ arm needs to be moved to direct the laser.
 
 The FANUC M-20iA/20M is a 6-axis universal industrial robotic arm with a maximum load capacity at the wrist of \SI{20}{\kg} and a maximum reach of \SI{1811}{\mm}. The repeatability of the robotic arm is \SI{+-0.08}{\mm} The FANUC M-20iA/20M is a multi-purpose robotic arm and can be used for various applications such as assembling, packaging and machining. The  FANUC M-20iA/20M robot is shown in Figure \ref{fig:fanucrobot} \cite{fanucrobot}.
 
+
+\begin{figure}[t!]
+\centering
+\begin{subfigure}{.45\textwidth}
+
+    \includegraphics[width=1\linewidth]{img/fanuc_robot.png}
+
+    \label{fig:a}
+\end{subfigure}
+\begin{subfigure}{.45\textwidth}
+
+    \includegraphics[width=1\linewidth]{img/fanuc_controller.png}
+
+    \label{fig:b}
+\end{subfigure}
+
+\caption{(Description of images from left to right) (1) FANUC M-20iA/20M industrial robotic arm, (2) FANUC R-30iB controller with Teach Pendant controller.}
+\label{fig:lsplayout}
+\end{figure}
+
+
+
+\begin{comment}
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{img/fanuc_robot.png}
     \caption{FANUC M-20iA/20M industrial robotic arm  \cite{fanucrobot}.}
     \label{fig:fanucrobot}
 \end{figure}
+\end{comment}
 
 The robot is coupled with a FANUC R-30iA controller. The R-30iA controller is equipped with a FANUC AIF01A PLC Interface module. The Interface module is connected to the following expansion modules:
 
@@ -190,32 +214,23 @@ The following \href{https://www.youtube.com/watch?v=awhlLU91-dk&ab_channel=HiLAS
         \hline
             \textbf{Parameter} & \textbf{Value} \\ [0.5ex] 
         \hline\hline
+        Laser source & Bivoj laser system  \\
+        \hline
         Repetition Rate [Hz] & 10  \\ 
         \hline
-            Output Energy [mJ] & \\
-            1064nm & 3500 \\
-            532nm & 1750 \\
+            Pulse energy at sample [mJ] & \\
+            1030nm & 5000 \\
         \hline
-            Beam Diameter [mm] & 15 \tnote{a} \\
+            Beam size at sample [\SI{}{\mm\squared}] & 4 \\
         \hline
-            Beam Divergence [mrad] & <0.5 \tnote{b} \\ 
+            Pulse Length @1030nm [ns] & 10 \\
         \hline
-            Pulse Length @1064nm [ns] & 10-12 \\
-        \hline
-            Pointing Stability [µrad] & 25 \tnote{c} \\
-        \hline
-            Timing Jitter [ns] & <0.5 \tnote{d}  \\
+            Beam size at sample [\SI{}{\giga\watt\per\cm\squared}] & 5.56 \\
+
         \hline
         \hline
         \end{tabular}
-        \begin{tablenotes}
-            \small
-            \item[a] Peak-to-peak Energy - 99 \% of pulses. 
-            \item[b] Full angle for 90 \% of the energy.
-            \item[c] Half angle.
-            \item[d] Jitter is measured concerning the external Q-switch trigger input.
-        \end{tablenotes}
-    
+
         \caption{Litron LPY ST 7875-10 2HG parameters}
         \label{litronparameters}
     \end{threeparttable}
