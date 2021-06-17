@@ -9,19 +9,19 @@ Laser shock peening (LSP) treatment induces residual stresses beneath the treate
 \subsection{Laser shock peening process}
 The configuration of an LSP process with a metallic component is shown in Figure \ref{fig:lspconfiguration}. An intense pulsed laser shock beam is focused onto a metal surface for a brief period of time (\SIrange{10}{100}{\ns}). The heated zone is vaporized and transformed to plasma by ionization due to high temperatures (over \SI{10000}{\degreeCelsius} ). The plasma is under high pressure, which propagates through the material via shock waves. Two modes of LSP exist – the direct ablation mode and the confined ablation mode. The direct ablation mode refers to the interaction of plasma with metal without coating and confinement \cite{sano}. Plasma pressure of tenths of a \SI{}{\GPa} is achieved using direct ablation mode. Higher pressures of \SIrange{1}{5}{\GPa} can be obtained using the confined mode. In the confined mode, the metal surface is usually coated with an opaque material such as black paint or aluminium foil and confined by a material transparent to the laser radiation such as distilled water or borosilicate glass. A stronger pressure pulse results in a higher magnitude of compressive residual stress at a deeper depth \cite{fairland}.
 
-\subsection{Characteristics of residual stresses induced by Laser Shock Peening}
+\subsection{Characteristics of residual stresses induced by laser shock peening}
 
 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{img/lsp_configuration.jpg}
-    \caption{Schematic configuration of laser shock peening}
+    \caption{Schematic configuration of laser shock peening process}
     \label{fig:lspconfiguration}
 \end{figure}
 
-\subsection{Laser Shock Peening Strategy}
-During the peening process, a pattern is created made of individual laser pulses. Generally, multiple sequences of the pattern that are gradually shifted across the sample are used to create a layer, as seen in Figure \ref{fig:lspstrategy}. The pattern shifting ensures a more homogeneous residual stress distribution. This peening strategy's disadvantage is that the protective coating needs to be replaced in between sequences \cite{kaufman}.
+\subsection{Laser shock peening strategy}
+During the peening process, a pattern is created made of individual laser pulses. Generally, multiple sequences of the pattern that are gradually shifted across the sample are used to create a layer, as seen in Figure \ref{fig:lspstrategy}. The pattern shifting ensures a more homogeneous residual stress distribution. This strategy's disadvantage is that the protective coating needs to be replaced in between sequences \cite{kaufman}.
 
 \begin{figure}[h]
     \centering
@@ -30,9 +30,9 @@ During the peening process, a pattern is created made of individual laser pulses
     \label{fig:lspstrategy}
 \end{figure}
 
-\section{LSP station and laser source at HiLASE Centre}
+\section{Laser shock peening station and laser source at HiLASE Centre}
 
-The HiLASE Research Centre is an infrastructure focused on laser research and development, located in Dolní Břežany, Czech Republic. HiLASE's Industrial laser applications group (ILA) focuses on LSP, laser induced damage threshold (LIDT), and laser micromachining technologies. ILA is equipped with several experimental stations, including a LSP station. 
+The HiLASE research centre is an infrastructure focused on laser research and development, located in Dolní Břežany, Czech Republic. HiLASE's Industrial laser applications group (ILA) focuses on LSP, laser induced damage threshold (LIDT), and laser micromachining technologies. ILA is equipped with several experimental stations, including a LSP station. 
 
 The LSP station uses two laser sources:
 
@@ -41,14 +41,43 @@ The LSP station uses two laser sources:
   \item Litron LPY ST 7875-10 2HG laser 
 \end{itemize}
 
-The LSP station uses the Bivoj laser system, located on the ground floor of the HiLASE Centre.  A Laser Beam Distribution System (LBDS) distributes the beam from the laser laboratory located on the ground floor to the experimental laboratory located on the 1\textsuperscript{st} floor. The Bivoj laser system is a Diode Pumped Solid State Laser (DPSSL) based on Yb-doped gain media with a laser wavelength of 1030 nm capable of delivering energy pulses up to \SI{8}{\joule} at a \SI{10}{\hertz} repetition rate. The beam shape at the output of the Bivoj laser is a square flat-top pulse. An overview of the BIVOJ laser system is shown in Figure \ref{fig:bivoj}. The two main sections of the Bivoj laser are the front-end and the \SI{10}{\joule} amplifier.
-
-\begin{figure}[h]
+ A laser beam distribution system (LBDS) distributes the beam from the laser laboratory located on the ground floor to the experimental laboratory located on the 1\textsuperscript{st} floor. The Bivoj laser system is a Diode Pumped Solid State Laser (DPSSL) based on Yb-doped gain media with a laser wavelength of 1030 nm capable of delivering energy pulses up to \SI{8}{\joule} at a \SI{10}{\hertz} repetition rate. The beam shape at the output of the Bivoj laser is a square flat-top pulse. An overview of the Bivoj laser system is shown in Figure \ref{fig:bivoj}. The two main sections of the Bivoj laser are the front-end and the \SI{10}{\joule} amplifier.
+ 
+ \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\linewidth]{img/bivoj.jpg}
-    \caption{Laser system "BIVOJ": Diode-pumped solid-state (DPSSL) laser DiPOLE 100}
+    \caption{Laser system Bivoj: Diode-pumped solid-state (DPSSL) laser}
     \label{fig:bivoj}
 \end{figure}
+ 
+ \subsection{LSP station layout}
+
+The layout of the LSP station is shown in Figure \ref{fig:lsplayout}. The laser beam enters the LSP station through the LBDS output node and
+continues to the optical table, where it is redirected and
+focused on the target. The target itself is mounted on the
+robotic arm. The laser beam position is fixed, so the robotic
+arm needs to be moved to direct the laser on the sample.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.45\textwidth}
+
+    \includegraphics[width=1\linewidth]{img/lsp_layout.jpg}
+
+    \label{fig:a}
+\end{subfigure}
+\begin{subfigure}{.45\textwidth}
+
+    \includegraphics[width=1\linewidth]{img/lsp_station_real.JPG}
+
+    \label{fig:b}
+\end{subfigure}
+
+\caption{(Description of images from left to right) (1) Schematic layout of LSP station, (2) Photography of LSP station.}
+\label{fig:lsplayout}
+\end{figure}
+
+
 
 \subsection{Bivoj laser system}
 
@@ -140,39 +169,24 @@ The second laser source available at the LSP station is the Litron LPY ST 7875-1
 
 
 
-\subsection{LSP station layout}
 
-The layout of the LSP station is shown in Figure \ref{fig:lsplayout}. The laser beam enters the LSP station through the LBDS output node and
-continues to the optical table, where it is redirected and
-focused on the target. The target itself is mounted on the
-robotic arm. The laser beam position is fixed, so the robotic
-arm needs to be moved to direct the laser.
-
-\begin{figure}[t!]
-\centering
-\begin{subfigure}{.45\textwidth}
-
-    \includegraphics[width=1\linewidth]{img/lsp_layout.jpg}
-
-    \label{fig:a}
-\end{subfigure}
-\begin{subfigure}{.45\textwidth}
-
-    \includegraphics[width=1\linewidth]{img/lsp_station_real.JPG}
-
-    \label{fig:b}
-\end{subfigure}
-
-\caption{(Description of images from left to right) (1) Schematic layout of LSP station, (2) Photography of LSP station.}
-\label{fig:lsplayout}
-\end{figure}
 
 \subsection{FANUC M-20iA/20M robotic arm}
 
-The FANUC M-20iA/20M is a 6-axis universal industrial robotic arm with a maximum load capacity at the wrist of \SI{20}{\kg} and a maximum reach of \SI{1811}{\mm}. The repeatability of the robotic arm is \SI{+-0.08}{\mm} The FANUC M-20iA/20M is a multi-purpose robotic arm and can be used for various applications such as assembling, packaging and machining. The  FANUC M-20iA/20M robot and FANUC R-30iB controller are shown in Figure \ref{fig:robotcontroller} \cite{fanucrobot}.
+The FANUC M-20iA/20M is a 6-axis universal industrial robotic arm with a maximum load capacity at the wrist of \SI{20}{\kg} and a maximum reach of \SI{1811}{\mm}. The repeatability of the robotic arm is \SI{+-0.08}{\mm} The FANUC M-20iA/20M is a multipurpose robotic arm and can be used for various applications such as assembling, packaging and machining.
+
+The robot is coupled with a FANUC R-30iB controller. The R-30iB controller is equipped with a FANUC AIF01A PLC interface module. The interface module is connected to the following expansion modules:
+
+\begin{itemize}
+    \item AID16L - 16 digital inputs,
+    \item AOD16D - 16 digital outputs,
+    \item ADA02A - 2 analog outputs. \cite{fanucunitmanual}
+\end{itemize}
+
+The  FANUC M-20iA/20M robot and FANUC R-30iB controller are shown in Figure \ref{fig:robotcontroller} \cite{fanucrobot}.
 
 
-\begin{figure}[t!]
+\begin{figure}[h]
 \centering
 \begin{subfigure}{.45\textwidth}
 
@@ -202,17 +216,11 @@ The FANUC M-20iA/20M is a 6-axis universal industrial robotic arm with a maximum
 \end{figure}
 \end{comment}
 
-The robot is coupled with a FANUC R-30iB controller. The R-30iB controller is equipped with a FANUC AIF01A PLC Interface module. The Interface module is connected to the following expansion modules:
 
-\begin{itemize}
-    \item AID16L - 16 digital inputs
-    \item AOD16D - 16 digital outputs
-    \item ADA02A - 2 analog outputs \cite{fanucunitmanual}
-\end{itemize}
 
 \subsection{LSP process example}
 
-The following \href{https://www.youtube.com/watch?v=awhlLU91-dk&ab_channel=HiLASECentre}{video} shows the improvement of cavitation erosion Resistance by Laser Shock Peening carried out at HiLASE Centre. This process is developed by HiLASE Center and SIGMA GROUP Plc. for the improvement of cavitation erosion resistance of pump blades. The parameters chosen for this experiment are shown in Table \ref{experimentalparameters}. 
+The following \href{https://www.youtube.com/watch?v=awhlLU91-dk&ab_channel=HiLASECentre}{video} shows the improvement of cavitation erosion resistance by LSP carried out at the HiLASE centre. This process is developed by HiLASE center and SIGMA GROUP Plc. for the improvement of cavitation erosion resistance of pump blades. The parameters chosen for this experiment are shown in Table \ref{experimentalparameters}. 
 
 \begin{table}[h!]
 \centering
