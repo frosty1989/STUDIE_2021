@@ -6,24 +6,73 @@ In modern times, this concept has reached its apex with industrial surface harde
 % because the paragraph alone leaves too much space
 \section*{}
 
-This chapter deals with the physical and mechanical mechanisms of laser shock peening and describes the experimental equipment used for laser shock peening. 
 
-\section{Laser shock peening}
 
-Laser shock peening (LSP) treatment induces residual stresses beneath the treated surface of metallic materials. The residual stresses are produced by a high magnitude shock wave induced by a high-energy laser pulse. The advantage of LSP is that the laser pulse can be adjusted and controlled in real time. A computer-controlled system can measure the energy per pulse and record it for each LSP process on the component \cite{mannava}.
+
+Laser shock peening (LSP) is a surface treatment process to improve the fatigue performance of metallic components.
+LSP induces residual stresses beneath the treated surface of metallic materials. The residual stresses are produced by a high magnitude shock wave induced by a high-energy laser pulse. The advantage of LSP is that the laser pulse can be adjusted and controlled in real time. A computer-controlled system can measure the energy per pulse and record it for each LSP process on the component \cite{mannava}.
+
+Firstly, this chapter deals with the physical and mechanical mechanisms of laser shock peening. Secondly, it focuses on the parameters of laser shock peening, mainly:
+
+\begin{itemize}
+    
+    \item laser power density,
+    \item pulse shape and duration,
+    \item laser wavelength,
+    \item laser spot, 
+    \item thermal protective coating,
+    \item confining overlay,
+    \item coverage ratio of impacts.
+
+\end{itemize}
+
+ Lastly, this chapter describes the experimental equipment used for laser shock peening at the HiLASE Centre. 
+
+
+\section{Laser shock peening overview}
 
 \subsection{Laser shock peening process}
-The configuration of an LSP process with a metallic component is shown in Figure \ref{fig:lspconfiguration}. An intense pulsed laser shock beam is focused onto a metal surface for a brief period of time (\SIrange{10}{100}{\ns}). The heated zone is vaporized and transformed to plasma by ionization due to high temperatures (over \SI{10000}{\degreeCelsius} ). The plasma is under high pressure, which propagates through the material via shock waves. Two modes of LSP exist – the direct ablation mode and the confined ablation mode. The direct ablation mode refers to the interaction of plasma with metal without coating and confinement \cite{sano}. Plasma pressure of tenths of a \SI{}{\GPa} is achieved using direct ablation mode. Higher pressures of \SIrange{1}{5}{\GPa} can be obtained using the confined mode. In the confined mode, the metal surface is usually coated with an opaque material such as black paint or aluminium foil and confined by a material transparent to the laser radiation such as distilled water or borosilicate glass. A stronger pressure pulse results in a higher magnitude of compressive residual stress at a deeper depth \cite{fairland}.
+The configuration of an LSP process with a metallic component is shown in Figure \ref{fig:lspconfiguration}. An intense pulsed laser shock beam is focused onto a metal surface for a brief period of time (\SIrange{10}{100}{\ns}). The heated zone is vaporized and transformed to plasma by ionization due to high temperatures (over \SI{10000}{\degreeCelsius} ). The plasma is under high pressure, which propagates through the material via shock waves. Two modes of LSP exist: 
 
-\subsection{Characteristics of residual stresses induced by laser shock peening}
+\begin{itemize}
 
+    \item direct ablation mode,
+    \item confined ablation mode.
 
+\end{itemize}
+
+The direct ablation mode refers to the interaction of plasma with metal without coating and confinement \cite{sano}. Plasma pressure of tenths of a \SI{}{\GPa} is achieved using direct ablation mode. Higher pressures of \SIrange{1}{5}{\GPa} can be obtained using the confined mode. In the confined mode, the metal surface is usually coated with an opaque material such as black paint or aluminium foil and confined by a material transparent to the laser radiation such as distilled water or borosilicate glass. A stronger pressure pulse results in a higher magnitude of compressive residual stress at a deeper depth \cite{fairland}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{img/lsp_configuration.jpg}
     \caption{Schematic configuration of laser shock peening process}
     \label{fig:lspconfiguration}
+\end{figure}
+
+\subsection{Characteristics of residual stresses induced by laser shock peening}
+
+At high power densities of several \SI{}{\giga\watt\per\cm\squared}, plasma of pressure of several \SI{}{\giga\watt} and a temperature around \SI{10000}{\degreeCelsius} develops on the material surface. The plasma expands rapidly and generates a pressure pulse on the surface of the material. As a consequence, a high-amplitude shock wave propagates through the material. When using the confined ablation mode with a transparent overlay, the plasma is held between the material and the transparent overlay, increasing the plasma's magnitude and amplitude. According to the above-mentioned description of the confined ablation mode, the LSP process can be regarded as a two-step method: 
+\begin{enumerate}
+
+    \item uniaxial compression of the irradiated area and dilation of the surface layer is caused by the rapid plasma expansion,
+    
+    \item the surrounding material reacts to this deformation and generates a compressive stress field.
+    
+\end{enumerate}
+
+Before the reaction of the surrounding zones excluded from LSP, during the actual LSP process, uniaxial compression is induced in the direction of the shock wave propagation and a tensile state is induced in the plane parallel to the surface. 
+After the reaction of the surrounding zones, a compressive stress field is generated in the affected zone, and a tensile stress field is created in the underlying layers. 
+The compressive stress field causes deformation in the material. The deformation is plastic as long as the peak dynamic stresses of the shock waves within the material are above the dynamic yield strength of the material. The process of compressive residual stress generation with LSP is shown in Figure \ref{fig:lspresidual}.
+
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/residual_stress.jpg}
+    \caption{Residual stresses formation with LSP:(a) stretching of impact area during interaction, (b) recovery of material a}
+    \label{fig:lspresidual}
 \end{figure}
 
 \subsection{Laser shock peening strategy}
@@ -36,7 +85,55 @@ During the peening process, a pattern is created made of individual laser pulses
     \label{fig:lspstrategy}
 \end{figure}
 
-\section{Laser shock peening station and laser source at HiLASE Centre}
+\subsection{Laser system parameters affecting the LSP process}
+
+\subsubsection*{Laser system for laser shock peening overview}
+
+Choosing an appropriate laser system is the first step in fulfilling the LSP process requirements. In LSP laser systems, we are focusing mainly on the following parameters:
+\begin{itemize}
+
+    \item pulse energy: \SIrange{1}{100}{\joule}/pulse
+    \item pulse duration: less than \SI{100}{\nano\second} 
+    
+    \item laser wavelength: three wavelengths are used in the LSP process, most commonly:
+    
+    \begin{itemize}
+
+        \item \SI{1064}{\nano\second} (near-infrared),
+        \item \SI{532}{\nano\second} (green),
+        \item \SI{355}{\nano\second} (ultraviolet).
+
+    \end{itemize}
+
+\end{itemize}
+
+The laser pulse energy influences the laser power density and therefore the magnitude of surface residual stress. 
+The laser pulse duration and temporal shape affect the breakdown threshold of the laser power density. A shorter laser pulse with a short rise time usually results in a higher power density and higher peak pressure. 
+The wavelength of the laser system influences the interaction between the laser pulse and the material surface. 
+
+\subsubsection*{Laser spot size and geometry}
+
+
+\subsubsection*{Laser pulse temporal profile, duration and rise time}
+
+
+\subsection{Laser shock peening applications}
+
+Nowadays, LSP is heavily commercialized, and hundreds of patents regarding LSP have been issued. The industry leaders are General Electrics, LSP Technologies and Curtis Wright Surface Technologies. LSP is used in the following applications:
+
+\begin{itemize}
+ 
+    \item increase of fatigue life and fatigue strength of structures,
+    \item strengthening of thin sections,
+    \item hardening surfaces,
+    \item shaping or straightening of parts  (laser peen forming),
+    \item compacting powdered metals.
+
+\end{itemize}
+
+
+
+\section{Laser shock peening station and laser sources at HiLASE Centre}
 
 The HiLASE research centre is an infrastructure focused on laser research and development, located in Dolní Břežany, Czech Republic. HiLASE's Industrial laser applications group (ILA) focuses on LSP, laser induced damage threshold (LIDT), and laser micromachining technologies. ILA is equipped with several experimental stations, including a LSP station. 
 

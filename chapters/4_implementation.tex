@@ -1,19 +1,21 @@
 \label{chap:implementation}
 
-\epigraph{Python is the "most powerful language you can still read".}{\textit{Paul Dubois \\ CEO at RoboDK }}
+\epigraph{Python is the "most powerful language you can still read".}{\textit{Paul Dubois \\ Lead developer for Numerical Python and Pyfort }}
+
+This chapter deals with creating a curve follow project in RoboDK and modifying a RoboDK post processor to be suitable for the LSP process.
 
 \section{FANUC robotic arms programming specifics and FANUC software}
 
 \subsection{FANUC Roboguide}
 
-FANUC Roboguide is a proprietary robot simulator and offline programming tool developed by FANUC. Roboguide is in many ways similar to RoboDK.  Like RoboDK, it supports the creation of robot stations, importing of CAD files and CAD-to-path features. The main difference is that Roboguide is limited to FANUC robots and FANUC related technologies and procedures. In contrast, RoboDK is not limited to one robot manufacturer and is universal and expandable. Roboguide is used for this project to compile the created FANUC programs and upload them to the FANUC robot controller. Roboguide offers several simulation software options tailored for specific robotic arm applications:
+FANUC Roboguide is a proprietary robot simulator and offline programming tool developed by FANUC. Roboguide is in many ways similar to RoboDK.  Like RoboDK, it supports the creation of robotic arm stations, importing of CAD files and CAD-to-path features. The main difference is that Roboguide is limited to FANUC robotic arms and FANUC related technologies and procedures. In contrast, RoboDK is not limited to one robotic arm manufacturer and is universal and expandable. Roboguide is used for this project to compile the created FANUC programs and upload them to the FANUC robotic arm controller. Roboguide offers several simulation software options tailored for specific robotic arm applications:
 
 \begin{itemize}
 
-\item FANUC Roboguide HandlingPRO - simulating material handling applications including load/unload, packaging, assembly and material removal
-\item FANUC Roboguide PaintPRO - simulating painting applications
-\item FANUC Roboguide WeldPRO - simulating robotic arc welding process
-\item FANUC Roboguide PalletPRO and PalletTool - simulating palletizing applications
+\item FANUC Roboguide HandlingPRO - simulating material handling applications including load/unload, packaging, assembly and material removal,
+\item FANUC Roboguide PaintPRO - simulating painting applications,
+\item FANUC Roboguide WeldPRO - simulating robotic arc welding processes,
+\item FANUC Roboguide PalletPRO and PalletTool - simulating palletizing applications.
 
 \end{itemize}
 
@@ -22,17 +24,17 @@ An example of a Roboguide station is shown in Figure \ref{fig:roboguide}. The ve
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\linewidth]{img/roboguide.PNG}
-    \caption{FANUC Roboguide work cell - user interface example.}
+    \caption{FANUC Roboguide workcell - user interface example.}
     \label{fig:roboguide}
 \end{figure}
 
 \subsection{FANUC robot controller programming languages}
 
-The FANUC company implements two programming languages for programming their robot controllers: Teach Pendant (TP) or KAREL. The Teach Pendant language is mainly used for motion control of the robotic arm and edited via the Pendant. Teach pendant programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human-readable ASCII files (\mintinline{shell-session}{.ls} file extension). The KAREL language is a high-level language and does not support robot movements. KAREL is mainly used to implement algorithms. KAREL programs can be only edited using a Personal Computer, and they can not be edited using a Pendant.
+The FANUC company implements two programming languages for programming their robot controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are mostly edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human-readable ASCII files (\mintinline{shell-session}{.ls} file extension). The KAREL language is a high-level language and does not support robot movement instructions. KAREL is mainly used to implement program logic. KAREL programs can be only edited using a personal computer (they can not be edited using a pendant).
 
 \subsection{Compiling a FANUC TP program}
 
-Only a Teach Pendant program in binary format can be run on FANUC controllers. Because RoboDK creates TP programs as human-readable ASCII files, the Teach Pendant programs need to be converted to binary format before uploading them to the robot controller. Two options to convert .ls programs to .tp programs exist:
+Only a TP program in binary format can be run on FANUC controllers. Because RoboDK creates TP programs as human-readable ASCII files, the TP programs need to be converted to binary format before uploading them to the robot controller. Two options to convert \mintinline{shell-session}{.ls} programs to \mintinline{shell-session}{.tp} programs exist:
 
 \begin{enumerate}
 \item The ASCII Upload option must be loaded on the robot controller. After upload an (\mintinline{shell-session}{.ls} file to the controller it is automatically converted to a (\mintinline{shell-session}{.tp} file.
@@ -46,10 +48,10 @@ The applications of robot machining in the industry are numerous. Some applicati
 
 \begin{itemize}
 
-    \item milling
-    \item drilling
-    \item chamfering
-    \item deburring
+    \item milling,
+    \item drilling,
+    \item chamfering,
+    \item deburring.
 
 \end{itemize}
 
@@ -57,48 +59,48 @@ RoboDK offers three types of robot manufacturing projects:
 
 \begin{itemize}
 
-    \item Robot machining project
-    \item Curve follow project 
-    \item Point follow project 
+    \item robot machining project,
+    \item curve follow project, 
+    \item point follow project. 
 
 \end{itemize}
 
-This chapter deals with setting up a curve follow project in RoboDK. In laser shock peening, the laser (representing the tool) is static, and the robot holds the object. Therefore, a curve follow project with a constant tool orientation is set up in RoboDK.
+The process of setting up a curve follow project in RoboDK is described in the following sections. In laser shock peening, the laser (representing the tool) is static, and the robot holds the object. Therefore, a curve follow project with a constant tool orientation is set up in RoboDK.
 
 \subsection{Setting up a curve follow project in RoboDK}
 
-A curve follow project in RoboDK must at least consist of one robot, one tool and one reference frame. The situation described is a so-called remote TCP situation, i.e. the TCP (Tool Center Point) is fixed in the station, and the robot holds the object. The TCP in our project is represented by the laser source. 
-The user has to execute the following steps set up a basic curve follow cell: 
+A curve follow project in RoboDK must at least consist of one robot, one tool and one reference frame. The situation described is a so-called remote TCP situation, i.e., the Tool Center Point (TCP) is fixed in the station, and the robot holds the object. The TCP in our project is represented by the laser beam. 
+The user has to execute the following steps set up a basic curve follow station: 
 
 \begin{enumerate}
 
-\item Create and import the path to RoboDK  (using the Load Curves option) path using preferred CAD software. 
+\item create and import the robotic arm path to RoboDK using preferred CAD software,
 
-\item Mount the robot path as a tool in RoboDK.
+\item mount the robot path as a tool in RoboDK,
 
-\item Create the robotic arm and reference frame (optionally import CAD of object) in RoboDK project. 
+\item import the robotic arm and create reference frame (optionally import CAD of manufactured part) into RoboDK station, 
 
-\item Create curve follow project: Utilities --> Curve follow project
+\item create curve follow project: \mintinline{shell-session}{Utilities --> Curve follow project},
 
-\item Open the curve follow project settings by double-clicking the project name. A window similar to the one displayed in Figure will open. 
+\item open the curve follow project settings. A window similar to the one displayed in Figure \ref{fig:curvefollow} will open, 
 
-\item In curve follow project settings modify:
+\item modify in curve follow project settings:
 
     \begin{itemize}
 
-        \item Robot: The station robot holding the object
-        \item Reference: The frame representing the remote TCP
-        \item Tool: The robot path
+        \item Robot: The station robot holding the object,
+        \item Reference: The frame representing the remote TCP,
+        \item Tool: The robot path.
         
     \end{itemize}
     
-\item Change Select algorithm option to: Robot holds object \& follows path.
+\item change \mintinline{shell-session}{Select algorithm} option to: \mintinline{shell-session}{Robot holds object \& follows path},
 
-\item Update project. RoboDK automatically generates a preprocessed robot program for the actual station.
+\item update project. RoboDK automatically generates a preprocessed robot program for the actual station,
 
-\item Right-click the preprocessed program, Select Post Processor and Generate program. The .ls program for the actual station will be opened in the default RoboDK text editor.
+\item right-click the preprocessed program, select post processor and generate program. The \mintinline{shell-session}{.ls} program for the actual station will be opened in the default RoboDK text editor,
 
-\item Compile the program and export the program to the FANUC robot controller using Roboguide or WinOLPC tools.
+\item compile the program and export the program to the FANUC robot controller using Roboguide or WinOLPC tools.
     
 \end{enumerate}
 
@@ -117,7 +119,7 @@ The user has to execute the following steps set up a basic curve follow cell:
 
 \subsection{RoboDK post processors overview}
 
-A post processor specifies how robot programs must be generated for a specific robot controller. Post processors serve as tools to convert the simulation to vendor-specific robot programs. All RoboDK post processors are placed in the \mintinline{shell-session}{C:/RoboDK/Posts/} folder in the Windows operating system. Post processors rely on the \mintinline{shell-session}{robodk} module. The \mintinline{shell-session}{robodk} module is a robotics toolbox for Python, based on \href{http://petercorke.com/Robotics_Toolbox.html}{Peter Corke’s Robotics Toolbox}. 
+A post processor specifies how robot programs must be generated for a specific robot controller. Post processors serve as tools to convert the simulation to vendor-specific robot programs. All RoboDK post processors are placed in the \mintinline{shell-session}{C:/RoboDK/Posts/} folder in the Windows operating system. All post processors rely on the \mintinline{shell-session}{robodk} module. The \mintinline{shell-session}{robodk} module is a robotics toolbox for Python, based on \href{http://petercorke.com/Robotics_Toolbox.html}{Peter Corke’s Robotics Toolbox}. 
 
 \subsection{FANUC R-30iA post processor}
 
