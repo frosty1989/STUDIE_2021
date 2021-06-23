@@ -37,8 +37,8 @@ The FANUC company implements two programming languages for programming their rob
 Only a TP program in binary format can be run on FANUC controllers. Because RoboDK creates TP programs as human-readable ASCII files, the TP programs need to be converted to binary format before uploading them to the robot controller. Two options to convert \mintinline{shell-session}{.ls} programs to \mintinline{shell-session}{.tp} programs exist:
 
 \begin{enumerate}
-\item The ASCII Upload option must be loaded on the robot controller. After upload an (\mintinline{shell-session}{.ls} file to the controller it is automatically converted to a (\mintinline{shell-session}{.tp} file.
-\item The program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly.
+\item the ASCII Upload option must be loaded on the robot controller. After upload an (\mintinline{shell-session}{.ls} file to the controller it is automatically converted to a (\mintinline{shell-session}{.tp} file.
+\item the program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly.
 
 \end{enumerate}
 
@@ -88,9 +88,9 @@ The user has to execute the following steps set up a basic curve follow station:
 
     \begin{itemize}
 
-        \item Robot: The station robot holding the object,
-        \item Reference: The frame representing the remote TCP,
-        \item Tool: The robot path.
+        \item \mintinline{shell-session}{Robot}: the robotic arm holding the object,
+        \item \mintinline{shell-session}{Reference}: the frame representing the remote TCP,
+        \item \mintinline{shell-session}{Tool}: the robotic arm path.
         
     \end{itemize}
     

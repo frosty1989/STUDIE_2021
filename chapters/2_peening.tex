@@ -50,6 +50,8 @@ The direct ablation mode refers to the interaction of plasma with metal without 
     \label{fig:lspconfiguration}
 \end{figure}
 
+\subsection{Laser shock peening process}
+
 \subsection{Characteristics of residual stresses induced by laser shock peening}
 
 At high power densities of several \SI{}{\giga\watt\per\cm\squared}, plasma of pressure of several \SI{}{\giga\watt} and a temperature around \SI{10000}{\degreeCelsius} develops on the material surface. The plasma expands rapidly and generates a pressure pulse on the surface of the material. As a consequence, a high-amplitude shock wave propagates through the material. When using the confined ablation mode with a transparent overlay, the plasma is held between the material and the transparent overlay, increasing the plasma's magnitude and amplitude. According to the above-mentioned description of the confined ablation mode, the LSP process can be regarded as a two-step method: 
@@ -75,7 +77,10 @@ The compressive stress field causes deformation in the material. The deformation
     \label{fig:lspresidual}
 \end{figure}
 
-\subsection{Laser shock peening strategy}
+\subsection{Laser shock peening overlapping strategy}
+
+Overlapping of successive LSP processes (i.e., individual laser impact areas) is used to cover large areas with LSP. The coverage ratio is defined as the ratio between the overlapping area and the impact spot size for two successive LSP processes. An increase in the coverage ratio increases the plastically affected depth. Overlapping successive LSP processes results in a comparatively uniform distribution of compressive residual stresses across the overlapping regions.
+
 During the peening process, a pattern is created made of individual laser pulses. Generally, multiple sequences of the pattern that are gradually shifted across the sample are used to create a layer, as seen in Figure \ref{fig:lspstrategy}. The pattern shifting ensures a more homogeneous residual stress distribution. This strategy's disadvantage is that the protective coating needs to be replaced in between sequences \cite{kaufman}.
 
 \begin{figure}[h]
@@ -113,6 +118,35 @@ The wavelength of the laser system influences the interaction between the laser 
 
 \subsubsection*{Laser spot size and geometry}
 
+Laser spot sizes used for LSP vary in practice between hundreds of micrometres and \SIrange{6}{10}{\mm}.  The usable laser spot sizes are restricted mainly by the incident laser power density. The main difference between using a laser spot with a small diameter compared to a laser spot with a larger diameter lies in the way the shock waves expand in the material:
+
+\begin{itemize}
+
+    \item shock waves originating from a laser spot with a small diameter (\(r\)) expand like a sphere and attenuate at a rate of \(1/r^2\)
+
+    \item shock waves originating from a laser spot with a larger diameter (\(r\))  expand like a planar front and attenuate at a rate of \(1/r\)
+
+\end{itemize}
+
+Consequently, the planar shock wave propagates further into the material, and the residual stresses reach deeper than the spherical shock wave. 
+
+The magnitude of residual stresses usually reaches its maximum at the surface and decreases with depth. This rule is valid for square laser spots. which minimalize instabilities of the residual stresses at the centre of the laser spot. On the other hand, when using a circular laser spot, the residual stresses at the centre of the laser spot are unstable due to the complicated interactions of shock waves in this region. 
+
+\subsubsection*{Laser power density and wavelength}
+
+
+
+The magnitude of the laser power density plays a pivotal role in determining the magnitude of the plasma pressure. Moreover, the magnitude of the surface residual stresses is directly proportional to the magnitude of the plasma pressure. It is tempting to assume that by just increasing the laser power density, we will obtain higher surface stresses and thus a better quality LSP process. In reality, we are limited by several effects accompanying the laser-matter interaction:
+
+\begin{itemize}
+
+    \item laser-induced breakdown of air can occur if the magnitude of the laser power density is too high
+
+    \item when the magnitude of laser power density is higher than a certain threshold, residual stresses increase in depth but decrease at the surface because of surface release waves
+
+    \item another consequence of increasing the laser power density above a certain threshold is the saturation and scattering of the corresponding pressure. The saturation of pressure is caused by the confining overlay breakdown phenomenon. This breakdown limits the magnitude of the laser power density reaching the material.
+
+\end{itemize}
 
 \subsubsection*{Laser pulse temporal profile, duration and rise time}
 
@@ -133,7 +167,7 @@ Nowadays, LSP is heavily commercialized, and hundreds of patents regarding LSP h
 
 
 
-\section{Laser shock peening station and laser sources at HiLASE Centre}
+\section{Laser shock peening station and laser sources at HiLASE centre}
 
 The HiLASE research centre is an infrastructure focused on laser research and development, located in Dolní Břežany, Czech Republic. HiLASE's Industrial laser applications group (ILA) focuses on LSP, laser induced damage threshold (LIDT), and laser micromachining technologies. ILA is equipped with several experimental stations, including a LSP station. 
 
