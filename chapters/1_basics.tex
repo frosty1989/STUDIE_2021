@@ -21,24 +21,24 @@ This chapter gives a short introduction to the domain of industrial robotics. A 
 
 Industrial robots can be classified according to various criteria: the number of degrees of freedom, kinematic structure, drives used, workspace geometry, motion characteristics, control method, or programming method. According to the abovementioned criteria, several types of robots are distinguished:
 
-\subsection*{Number of degrees of freedom}
+\subsubsection*{Number of degrees of freedom}
 
 \begin{itemize}
-    \item universal robots - six degrees of freedom,
-    \item redundant robots - more than six degrees of freedom,
-    \item deficient robots - less than six degrees of freedom.
+    \item universal robots -- six degrees of freedom,
+    \item redundant robots -- more than six degrees of freedom,
+    \item deficient robots -- less than six degrees of freedom.
 \end{itemize}
 
-\subsection*{Kinematic structure}
+\subsubsection*{Kinematic structure}
 
 \begin{itemize}
-    \item serial robots - open-loop kinematic chain,
-    \item parallel robots - closed-loop kinematic chain,
-    \item hybrid robots - combining both types of kinematic chains.
+    \item serial robots -- open-loop kinematic chain,
+    \item parallel robots -- closed-loop kinematic chain,
+    \item hybrid robots -- combining both types of kinematic chains.
 \end{itemize}
 
 
-\subsection*{Type of drives}
+\subsubsection*{Type of drives}
 
 \begin{itemize}
     \item electric,
@@ -48,45 +48,45 @@ Industrial robots can be classified according to various criteria: the number of
 
 Currently, industrial robots with electric drives predominate in numbers. If high loads are required, hydraulic drives are used and for high speeds pneumatic drives are preferred.
 
-\subsection*{Workspace geometry}
+\subsubsection*{Workspace geometry}
 
 \begin{itemize}
-    \item cartesian - robotic arms equipped with three perpendicular linear axes,
-    \item cylindrical - robotic arms equipped with two linear axes and one rotary axis,
-    \item spherical -  robotic arms equipped with two rotary axes and one linear axis,
-    \item SCARA - Selective Compliant Articulated Robotic Arm, also equipped with with two rotary axes and one linear axis but in a different configuration than a spherical robotic arm.
+    \item cartesian -- robotic arms equipped with three perpendicular linear axes,
+    \item cylindrical -- robotic arms equipped with two linear axes and one rotary axis,
+    \item spherical --  robotic arms equipped with two rotary axes and one linear axis,
+    \item SCARA -- Selective Compliant Articulated Robotic Arm, also equipped with with two rotary axes and one linear axis but in a different configuration than a spherical robotic arm.
 \end{itemize}
 
 \section{Industrial robotic arm programming}
 
 Before we dive into the programming of industrial robotic arms, let us revise a few concepts.
-A workcell represents a robot and a collection of machines or peripherals. A single robot controller is responsible for controlling the various appliances of a workcell.
+A workcell represents a robot and a collection of machines or peripherals. A single robot controller is responsible for controlling the various appliances of a~ workcell.
 
-A robot end effector is a peripheral placed at the end of the robotic arm. The end effector represents the last link of the robot. According to the application, end effectors can be grippers, welding devices, spray guns, or grinding and deburring machines.
+A robot end effector is a peripheral placed at the end of the robotic arm. The~-------------------------------------------------+ end effector represents the last link of the robot. According to the application, end effectors can be grippers, welding devices, spray guns, or grinding and deburring machines.
 
 The robot controller is equipped with a so-called interface software. The interface software makes it easier for the user to program the robotic arm.  
 Two basic information need to be programmed into the robotic arm:
 
 \begin{itemize}
-    \item position data - i.e., where to robotic arm has to move,
-    \item procedure - i.e., what action the robotic arm will perform at the specific position.
+    \item position data -- i.e., where to robotic arm has to move,
+    \item procedure -- i.e., what action the robotic arm will perform at the specific position.
 \end{itemize}
 
 A robot position can be taught in several different ways:
 
 \begin{itemize}
-    \item positional commands - the programmer inputs the position data using a GUI or text-based commands,
+    \item positional commands -- the programmer inputs the position data using a GUI or text-based commands,
     
     \item Online programming, which is further divided into two types:
     
     \begin{itemize}
     
-    \item pendant - the pendant is a handheld control and programming unit attached to the robot controller,
-    \item lead-by-the-nose - the robotic arm is de-energized and moved along the required positions by hand while the robotic controller saves them into memory,
+    \item pendant -- the pendant is a handheld control and programming unit attached to the robot controller,
+    \item lead-by-the-nose -- the robotic arm is de-energized and moved along the required positions by hand while the robotic controller saves them into memory.
     
     \end{itemize}
     
-    \item offline programming - the robotic cell including the robotic arm and machines are represented in a specialized software. The robot can be moved in the software and brand-specific applications for the robotic controller can be created.
+    \item offline programming -- the robotic cell including the robotic arm and machines are represented in a specialized software. The robot can be moved in the software and brand-specific applications for the robotic controller can be created.
   
 
 \end{itemize}
@@ -96,8 +96,8 @@ Different robot brands have incompatible interfaces. Robot programming languages
 
 \begin{itemize}
 
- \item TP language - suitable for programming position data,
- \item KAREL language - high-level language based on Pascal, suitable for programming logical constructs.
+ \item TP language -- suitable for programming position data,
+ \item KAREL language -- high-level language based on Pascal, suitable for programming logical constructs.
 
 \end{itemize}
 
@@ -107,8 +107,8 @@ Offline programming  (OLP) refers to a programming method in which the robot is 
   \item creating/importing a robotic cell that mimics the real life workcell,
   \item importing a CAD file representing the machined part,
   \item programming (graphical or textual) and automatic generation of robot path,
-  \item simulation and validation - collision detection, join violations etc,
-  \item reporting - efficiency, productivity, cycle time etc.,
+  \item simulation and validation -- collision detection, join violations etc.,
+  \item reporting -- efficiency, productivity, cycle time etc.,
   \item translating the robot program for a specific controller using a post processor,
   \item executing the robot program in a real workcell.
 \end{enumerate}
