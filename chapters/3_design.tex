@@ -3,7 +3,7 @@ in essentially the same way. The same applies to computers. If you have a
 Windows PC, the user interface won’t be affected by your computer hardware.
 This is definitely not the case for industrial robots.}{\textit{Albert Nubiola \\ CEO at RoboDK}}
 
-This chapter gets the reader acquainted with the RoboDK software and its various features. This is followed by  \autoref{chap:implementation}, where this knowledge will be used practically. 
+This chapter gets the reader acquainted with the RoboDK software and its various features. It is followed by  \autoref{chap:implementation}, where the knowledge gained is used practically. 
 
 \section{RoboDK overview}
 
@@ -11,13 +11,11 @@ RoboDK (short for robot development kit) is a development platform for industria
 
 \subsection{RoboDK history}
 
-RoboDK (the company) was founded by Albert Nubiola and Lauren Ierullo in January 2015 as a spin-off company from the \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{CoRo laboratory}   at ETS University in Montreal, Canada. RoboDK is a commercial version of \href{https://www.parallemic.org/RoKiSim.html}{RoKiSim}, a multiplatform educational software tool for 3D simulation of serial 6-axis robotic arms.
+RoboDK (the company) was founded by Albert Nubiola and Lauren Ierullo in January 2015 as a spin-off company from the \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{CoRo laboratory}   at ETS University in Montreal, Canada. RoboDK is a commercial version of \href{https://www.parallemic.org/RoKiSim.html}{RoKiSim}, a multiplatform educational software tool for 3D simulation of serial 6-axis robotic arms \cite{robodkoverview}.
 
 \subsection{RoboDK features}
 
-
 The following section highlights some of the features RoboDK has to offer: 
-
 
 \begin{itemize}
 \item graphical user interface,
@@ -34,13 +32,13 @@ The following section highlights some of the features RoboDK has to offer:
 \item advanced use - creating robotic arm programs from an external computer using a higher programming language. The RoboDK API is available in Python, C\#, Visual Basic, C++, and Matlab,
 \item simulating 2D vision cameras - testing image recognition algorithms in the simulation environment,
 \item multiple robotic arms simulation - synchronizing and programming multiple robotic arms and moving them at the same time, 
-\item customizable post processors - integrating specific sensors or actuators such as grippers, force control, image processing, etc.
+\item customizable post processors - integrating specific sensors or actuators such as grippers, force control, image processing, etc \cite{robodkfeatures}.
 \end{itemize}
 
 \subsection{RoboDK licence and versions}
 
 RoboDK offers free (limited), educational or professional versions. 
-The software is available for Windows, MacOS, Ubuntu Linux, Android or iOS. It supports either 32-bit or 64-bit versions of the abovementioned operating systems. At the time of writing this document, the latest version of RoboDK is 5.2. The complete RoboDK revision history is available \href{https://robodk.com/whatsnew}{online}. 
+The software is available for Windows, MacOS, Ubuntu Linux, Android or iOS. It supports either 32-bit or 64-bit versions of the abovementioned operating systems. At the time of writing this document, the latest version of RoboDK is 5.2. The complete RoboDK revision history is available \href{https://robodk.com/whatsnew}{online} \cite{robodkversions}. 
 
 \section{RoboDK robot library}
 
@@ -53,16 +51,16 @@ RoboDK supports offline programming and has an extensive robotic arm library sup
     \item Motoman 
     \item Universal Robots 
 \end{itemize}
-Models of industrial robotic arms in RoboDK have the same properties as if used with an actual robotic arm controller. The RoboDK library can be accessed \href{https://robodk.com/library}{online} either via a browser or in the RoboDK application itself (keyboard shortcut - \mintinline{shell-session}{Ctrl+Shift+O}).
+Models of industrial robotic arms in RoboDK have the same properties as if used with an actual robotic arm controller. The RoboDK library can be accessed \href{https://robodk.com/library}{online} either via a browser or in the RoboDK application itself (keyboard shortcut - \mintinline{shell-session}{Ctrl+Shift+O}) \cite{robodklibrary}.
 
 
 \section{RoboDK interface}
 
-The interface of RoboDK consists of the main menu, the toolbar, the station tree, the status bar, and the 3D view. A picture of the RoboDK interface is shown in Figure \ref{fig:robodkinterface}. An extensive documentation for RoboDK is available \href{https://robodk.com/doc/en/Basic-Guide.html#Start}{online}.
+The interface of RoboDK consists of the main menu, the toolbar, the station tree, the status bar, the 3D view, and the robot panel. A picture of the RoboDK interface is shown in Figure \ref{fig:robodkinterface}. An extensive documentation for RoboDK is available \href{https://robodk.com/doc/en/Basic-Guide.html#Start}{online} \cite{robodkinterface}.
 
 \subsection{RoboDK station}
 
-A RoboDK project containing a robotic arm, robotic arm tools, additional CAD files, robotic arm frames, and a robotic arm program is called a station. A RoboDK station is saved as one file (\mintinline{shell-session}{.rdk} extension).  The FANUC M-20iA/35M model from the RoboDK robotic arm library is used in this thesis because it is readily available in the RoboDK library and differs from the FANUC M-20iA/20M robotic arm used in the LSP station at HiLASE only in payload capacity. Robot files in RoboDK have a \mintinline{shell-session}{.robot} extension.
+A RoboDK project containing a robotic arm, robotic arm tools, additional CAD files, robotic arm frames, and a robotic arm program is called a station. A RoboDK station is saved as one file (\mintinline{shell-session}{.rdk} extension).  The FANUC M-20iA/35M model from the RoboDK robotic arm library is used in this thesis because it is readily available in the RoboDK library and differs from the FANUC M-20iA/20M robotic arm used in the LSP station at HiLASE only in payload capacity. Robot files in RoboDK have a \mintinline{shell-session}{.robot} extension \cite{robodkstation}.
 
 \begin{figure}[h]
     \centering
@@ -88,14 +86,14 @@ The RoboDK API is divided into the following modules:
 \begin{itemize}
     \item \mintinline{shell-session}{robolink} module - this module represents the link between RoboDK and the high-level programming language,
     \item \mintinline{shell-session}{item} module - any item from the RoboDK item tree can be retrieved.  An item can be a robotic arm, a reference frame, a tool, an object, or a specific project,
-    \item \mintinline{shell-session}{robodk} module - a module with a robotics toolbox for pose operations. All post processors depend on the \mintinline{shell-session}{robodk} module.
+    \item \mintinline{shell-session}{robodk} module - a module with a robotics toolbox for pose operations. All post processors depend on the \mintinline{shell-session}{robodk} module \cite{robodkapi}.
 \end{itemize}
 
 \section{RoboDK Add-ins}
 
 \subsection{RoboDK Add-in interface}
 
-Add-ins extend RoboDK's functionality. Add-ins can be developed by using the RoboDK Add-in interface. The RoboDK Add-in interface is linked natively to the core of RoboDK.
+Add-ins extend RoboDK's functionality. Add-ins can be developed by using the RoboDK Add-in interface. The RoboDK Add-in interface is linked natively to the core of RoboDK \cite{robodkaddininterface}.
 
 \subsection{RoboDK Add-in for SolidWorks}
 
@@ -110,7 +108,7 @@ The RoboDK Add-in for SolidWorks is accessible directly from the SolidWorks tool
     \item \mintinline{shell-session}{LoadPart} - only loads the 3D model from SolidWorks to RoboDK without importing the curves or points,
     \item \mintinline{shell-session}{LoadPoints} - loads points to RoboDK as a new object. Selected surfaces are used to calculate the curve normals, 
     \item \mintinline{shell-session}{Load Curves} -  loads curves selected in RoboDK as a new object. Selected surfaces are used to calculate curve normals, 
-    \item \mintinline{shell-session}{Settings} - opens default settings window.
+    \item \mintinline{shell-session}{Settings} - opens default settings window \cite{robodksolidworks}.
 \end{itemize}
 
 \begin{figure}[h]
@@ -146,4 +144,4 @@ To import curves from SolidWorks to RoboDK, SolidWorks offers two options:
 
 Post processors generate robot programs for robot controllers from robot simulations. Post processors are essential for offline programming of robots. A post processor defines the vendor-specific rules a robot program must follow. A robotic arm must be linked to a post processor in RoboDK to be able to generate a robotic arm controller program. The post processors available in RoboDK by default can be found \href{https://robodk.com/doc/en/Post-Processors.html#AvailablePosts}{online}.  
 A post processor in RoboDK is a Python script (\mintinline{shell-session}{.py} extension). All the post processors of RoboDK are located in the
-\mintinline{shell-session}{C:/RoboDK/Posts/} folder (in case of the Windows operating system).  To use a post processor it must be placed in the \mintinline{shell-session}{C:/RoboDK/Posts/} folder. The user can modify an existing post processor or create a new one from scratch. Modifications of post processors are described in \autoref{chap:implementation} in more detail. 
+\mintinline{shell-session}{C:/RoboDK/Posts/} folder (in case of the Windows operating system).  To use a post processor it must be placed in the \mintinline{shell-session}{C:/RoboDK/Posts/} folder. The user can modify an existing post processor or create a new one from scratch. Modifications of post processors are described in \autoref{chap:implementation} in more detail \cite{robodkposts}. 
