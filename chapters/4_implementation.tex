@@ -28,16 +28,16 @@ An example of a Roboguide station is shown in Figure \ref{fig:roboguide}. The ve
     \label{fig:roboguide}
 \end{figure}
 
-\subsection{FANUC robot controller programming languages}
+\subsection{FANUC robotic arm controller programming languages}
 
-The FANUC company implements two programming languages for programming their robot controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are mostly edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human-readable ASCII files (\mintinline{shell-session}{.ls} file extension). The KAREL language is a high-level language and does not support robot movement instructions. KAREL is mainly used to implement program logic. KAREL programs can be only edited using a personal computer (they can not be edited using a pendant).
+The FANUC company implements two programming languages for programming their robot controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human-readable ASCII files (\mintinline{shell-session}{.ls} file extension). The KAREL language is a high-level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a pendant.
 
 \subsection{Compiling a FANUC TP program}
 
-Only a TP program in binary format can be run on FANUC controllers. Because RoboDK creates TP programs as human-readable ASCII files, the TP programs need to be converted to binary format before uploading them to the robot controller. Two options to convert \mintinline{shell-session}{.ls} programs to \mintinline{shell-session}{.tp} programs exist:
+Only a TP program in binary format can be run on FANUC robotic arm controllers. Because RoboDK creates TP programs as human-readable ASCII files, the TP programs need to be converted to binary format before uploading them to the robot controller. Two options to convert \mintinline{shell-session}{.ls} programs to \mintinline{shell-session}{.tp} programs exist:
 
 \begin{enumerate}
-\item the ASCII Upload option must be loaded on the robot controller. After upload an (\mintinline{shell-session}{.ls} file to the controller it is automatically converted to a (\mintinline{shell-session}{.tp} file.
+\item the ASCII Upload option must be loaded on the robot controller. After upload an (\mintinline{shell-session}{.ls} file to the controller it is automatically converted to a (\mintinline{shell-session}{.tp} file,
 \item the program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly.
 
 \end{enumerate}
@@ -59,9 +59,9 @@ RoboDK offers three types of robot manufacturing projects:
 
 \begin{itemize}
 
-    \item robot machining project,
-    \item curve follow project, 
-    \item point follow project. 
+    \item robot machining projects,
+    \item curve follow projects, 
+    \item point follow projects. 
 
 \end{itemize}
 
@@ -69,8 +69,8 @@ The process of setting up a curve follow project in RoboDK is described in the f
 
 \subsection{Setting up a curve follow project in RoboDK}
 
-A curve follow project in RoboDK must at least consist of one robot, one tool and one reference frame. The situation described is a so-called remote TCP situation, i.e., the Tool Center Point (TCP) is fixed in the station, and the robot holds the object. The TCP in our project is represented by the laser beam. 
-The user has to execute the following steps set up a basic curve follow station: 
+A curve follow project in RoboDK must at least consist of one robot, one tool, and one reference frame. The situation described is a so-called remote TCP situation, i.e., the Tool Center Point (TCP) is fixed in the station, and the robot holds the object. The TCP in our project is represented by the laser beam. 
+The user has to execute the following steps to set up a basic curve follow project: 
 
 \begin{enumerate}
 
@@ -84,7 +84,7 @@ The user has to execute the following steps set up a basic curve follow station:
 
 \item open the curve follow project settings. A window similar to the one displayed in Figure \ref{fig:curvefollow} will open, 
 
-\item modify in curve follow project settings:
+\item modify curve follow project settings:
 
     \begin{itemize}
 
@@ -94,7 +94,7 @@ The user has to execute the following steps set up a basic curve follow station:
         
     \end{itemize}
     
-\item change \mintinline{shell-session}{Select algorithm} option to: \mintinline{shell-session}{Robot holds object \& follows path},
+\item change \mintinline{shell-session}{Select algorithm} option to: \mintinline{shell-session}{Robot holds object & follows path},
 
 \item update project. RoboDK automatically generates a preprocessed robot program for the actual station,
 
@@ -125,7 +125,7 @@ A post processor specifies how robot programs must be generated for a specific r
 
 The FANUC R-30iA post processor is located in the \mintinline{shell-session}{C:/RoboDK/Posts/vXX folder}. \mintinline{shell-session}{XX} is a two-digit number and denotes the post processor version. The FANUC R-30iA post processor comes in the form of a \mintinline{shell-session}{.pyc} file (compiled bytecode) and needs to be decompiled to a \mintinline{shell-session}{.py} file with the help of a decompiler. The decompyler used in this thesis is   \href{https://github.com/rocky/python-decompile3}{decompyle3}.
 
-When a program is generated, a preprocessed/universal Python program is generated and saved in a local temporary folder. The preprocessed program is linked with the right post processor (selected by the user in RoboDK). The post processor defines a \mintinline{shell-session}{RobotPost} class that generates the desired code. On Windows, the preprocessed Python files are saved in the user's temporary folder (for example: \mintinline{shell-session}{C:/Users/username/AppData/Local/Temp folder}). These programs can also be used for debugging new post processors.
+When a program is generated, a preprocessed/universal Python program is generated and saved in a local temporary folder. The preprocessed program is linked to the right post processor (selected by the user in RoboDK). The post processor defines a \mintinline{shell-session}{RobotPost} class that generates the desired code. In the Windows operating system, the preprocessed Python files are saved in the user's temporary folder (e.g.: \mintinline{shell-session}{C:/Users/username/AppData/Local/Temp folder}). These programs can also be used for debugging new post processors.
 
 
 \section{Modifying a post processor}
