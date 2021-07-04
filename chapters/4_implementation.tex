@@ -111,7 +111,17 @@ The user has to execute the following steps to set up a basic curve follow proje
     \label{fig:curvefollow}
 \end{figure}
 
-\section{RoboDK API for Python}
+\section{Python API for RoboDK}
+
+
+
+The RoboDK API for Python consists of the following modules:
+
+\begin{itemize}
+    \item \mintinline{shell-session}{robolink} module - this module represents the link between RoboDK and the high-level programming language,
+    \item \mintinline{shell-session}{item} module - any item from the RoboDK item tree can be retrieved.  An item can be a robotic arm, a reference frame, a tool, an object, or a specific project,
+    \item \mintinline{shell-session}{robodk} module - a module with a robotics toolbox for pose operations. All post processors depend on the \mintinline{shell-session}{robodk} module \cite{robodkapi}.
+\end{itemize}
 
 \section{Installation, Python setup and path settings of RoboDK API}
 
@@ -119,7 +129,7 @@ The user has to execute the following steps to set up a basic curve follow proje
 
 \subsection{RoboDK post processors overview}
 
-A post processor specifies how robot programs must be generated for a specific robot controller. Post processors serve as tools to convert the simulation to vendor-specific robot programs. All RoboDK post processors are placed in the \mintinline{shell-session}{C:/RoboDK/Posts/} folder in the Windows operating system. All post processors rely on the \mintinline{shell-session}{robodk} module. The \mintinline{shell-session}{robodk} module is a robotics toolbox for Python, based on \href{http://petercorke.com/Robotics_Toolbox.html}{Peter Corke’s Robotics Toolbox}. 
+A post processor specifies how robot programs must be generated for a specific robot controller and are used when robotic arm controllers are generated offline. Post processors serve as tools to convert the simulation to vendor-specific robot programs. All RoboDK post processors are placed in the \mintinline{shell-session}{C:/RoboDK/Posts/} folder in the Windows operating system. All post processors rely on the \mintinline{shell-session}{robodk} module. The \mintinline{shell-session}{robodk} module is a robotics toolbox for Python, based on \href{http://petercorke.com/Robotics_Toolbox.html}{Peter Corke’s Robotics Toolbox}. 
 
 \subsection{FANUC R-30iA post processor}
 

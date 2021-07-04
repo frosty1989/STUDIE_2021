@@ -73,14 +73,15 @@ A RoboDK project containing a robotic arm, robotic arm tools, additional CAD fil
 
 RoboDK provides a graphical user interface (GUI) to simulate and program industrial robotic arms. No programming experience is required to simulate and program robotic arms using the GUI. Unfortunately, the GUI has some limitations when used for simulation and offline programming. If such a situation arises, then the RoboDK application interface (API) can be used to extend the capabilities of RoboDK.
 
-The API exposes a set of routines and commands to RoboDK, enabling the user to program the robotic arm using high-level programming languages. The RoboDK API is available for Python, C\#, C++, Visual Basic (.NET) and Matlab. Any of these programming languages can be used to simulate and program any robotic arm. The API can conveniently handle the following tasks:
+The API provides a set of routines and commands to RoboDK, enabling the user to program the robotic arm using high-level programming languages. The RoboDK API is implemented in Python, C\#, C++, Visual Basic (.NET) and Matlab. Any of these programming languages can be used to simulate and program any robotic arm. The API can conveniently handle the following tasks:
 
 \begin{itemize}
     \item automating simulation,
-    \item offline programming.
+    \item offline programming,
+    \item online programming
 \end{itemize}
 
-The RoboDK API is divided into the following modules:
+The RoboDK API for Python consists of the following modules:
 
 
 \begin{itemize}
@@ -88,6 +89,8 @@ The RoboDK API is divided into the following modules:
     \item \mintinline{shell-session}{item} module - any item from the RoboDK item tree can be retrieved.  An item can be a robotic arm, a reference frame, a tool, an object, or a specific project,
     \item \mintinline{shell-session}{robodk} module - a module with a robotics toolbox for pose operations. All post processors depend on the \mintinline{shell-session}{robodk} module \cite{robodkapi}.
 \end{itemize}
+
+The RoboDK API is described in more detail in \autoref{chap:implementation}.
 
 \section{RoboDK Add-ins}
 
