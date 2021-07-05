@@ -145,10 +145,10 @@ A post processor specifies how robot programs must be generated for a specific r
 
 \subsection{RoboDK preprocessed file}
 
-After creating a program in the curve follow project, but before generating it using a post processor, the program is saved as a preprocessed/universal Python program and saved in a local temporary folder. The preprocessed program is linked to the right post processor (selected by the user in RoboDK). The post processor defines a \mintinline{python}{RobotPost} class that generates the desired code. In the Windows operating system, the preprocessed Python files are saved in the user's temporary folder (e.g.: \mintinline{shell-session}{C:/Users/username/AppData/Local/Temp}) folder. These programs can also be used for debugging new post processors. An example code of a preprocessed file is shown in Listing \ref{code:preprocessed_python}:
+After creating a program in the curve follow project, but before generating it using a post processor, the program is saved as a preprocessed/universal Python program and saved in a local temporary folder. The preprocessed program is linked to the right post processor (selected by the user in RoboDK). The post processor defines a \mintinline{python}{RobotPost} class that generates the desired code. In the Windows operating system, the preprocessed Python files are saved in the user's temporary folder (e.g.: \mintinline{shell-session}{C:/Users/username/AppData/Local/Temp}) folder. These programs can also be used for debugging new post processors. An example code of a preprocessed file is shown in Listing \ref{code:preprocessed_python} \cite{preprocessed}:
 
 %% this is an example of a minted code with caption and wrapped lines
-\begin{code}
+
 \label{code:preprocessed_python}
 \begin{minted}[frame=lines, linenos,tabsize=2,breaklines]{python}
 import sys
@@ -199,17 +199,16 @@ r.ProgSave(r"""C:/Users/marek.boehm/Documents/RoboDK/""", r"""Settings""", False
 
 \end{minted}
 \captionof{listing}{Code snippet of preprocessed program to be executed by post processor}
-\end{code}
+
 
 Let us dive into the source code of this preprocessed file and explain the functionality of some of its methods. The \mintinline{python}{p(x,y,z,r,p,w)} function converts the XYZRPW representation to a Pose ($ 4 \times 4 $ matrix). The \mintinline{python}{RobotPost} class initializes the robot post processor object. The parameters of the \mintinline{python}{RobotPost} class are:
 
-\begin{code}
 \begin{minted}[frame=lines,tabsize=2,breaklines]{python}
 
 class samplepost.RobotPost(robotpost=None, robotname=None, robot_axes=6, **kwargs)
 
 \end{minted}
-\end{code}
+
 
 Parameters of \mintinline{text}{RobotPost} class:
 
@@ -228,13 +227,13 @@ Parameters of \mintinline{text}{RobotPost} class:
 
 All subsequent functions are called upon the \mintinline{python}{RobotPost} object. The most important function is the \mintinline{python}{MoveL} function:
 
-\begin{code}
+
 \begin{minted}[frame=lines,tabsize=2,breaklines]{python}
 
 MoveL(pose, joints, conf_RLF=None)
 
 \end{minted}
-\end{code}
+
 
 Parameters \mintinline{text}{MoveL} method:
 
@@ -253,13 +252,13 @@ Parameters \mintinline{text}{MoveL} method:
 
 Another important method in the preprocessed file is the \mintinline{python}{ProgSave} method, which saves the program after all instructions have been executed:
 
-\begin{code}
+
 \begin{minted}[frame=lines,tabsize=2,breaklines]{python}
 
 ProgSave(folder, progname, ask_user=False, show_result=False)
 
 \end{minted}
-\end{code}
+
 
 Parameters of \mintinline{text}{ProgSave} method:
 
@@ -278,7 +277,7 @@ Parameters of \mintinline{text}{ProgSave} method:
 
 \end{itemize}
 
- Every post processor should implement a set of basic methods to generate programs for robotic arm controllers correctly. These basic  methods used in the preprocessed file can be found in the \href{https://robodk.com/doc/en/PythonAPI/postprocessor.html#post-processor-methods}{online documentation}.
+ Every post processor should implement a set of basic methods to generate programs for robotic arm controllers correctly. These basic  methods used in the preprocessed file can be found in the \href{https://robodk.com/doc/en/PythonAPI/postprocessor.html#post-processor-methods}{online documentation} \cite{postmethods}.
 
 
 \subsection{Selecting a post processor}
@@ -289,7 +288,7 @@ Each robotic arm has a post processor assigned to it by default. The following s
 \begin{itemize}
     \item opening the robot panel,
     \item selecting \mintinline{shell-session}{Parameters},
-    \item selecting post processor from drop--list.
+    \item selecting post processor from drop--down list \cite{selectpost}.
 \end{itemize}
 
 \subsection{Post processor example and example output}
@@ -299,7 +298,7 @@ Each robotic arm has a post processor assigned to it by default. The following s
 
 \subsection{FANUC R--30iA post processor}
 
-The FANUC R--30iB post processor is located in the \mintinline{shell-session}{C:/RoboDK/Posts/vXX folder}. \mintinline{shell-session}{XX} is a two--digit number and denotes the post processor version. The FANUC R--30iA post processor comes in the form of a \mintinline{shell-session}{.pyc} file (compiled bytecode) and needs to be decompiled to a \mintinline{shell-session}{.py} file with the help of a decompiler. The decompyler used in this thesis is   \href{https://github.com/rocky/python--decompile3}{decompyle3}.
+The FANUC R--30iB post processor is located in the \mintinline{shell-session}{C:/RoboDK/Posts/vXX folder}. \mintinline{shell-session}{XX} is a two--digit number and denotes the post processor version. The FANUC R--30iA post processor comes in the form of a \mintinline{shell-session}{.pyc} file (compiled bytecode) and needs to be decompiled to a \mintinline{shell-session}{.py} file with the help of a decompiler. The decompyler used in this thesis is   \href{https://github.com/rocky/python--decompile3}{decompyle3} \cite{decompyle3}.
 
 \section{Modifying the FANUC R--30iB post processor methods} 
 
@@ -309,17 +308,17 @@ The experimental setup of the LSP station at the HiLASE centre links the robotic
 
 % dirtytalk package
 
-\say{The laser source is operating at \SI{1}{\hertz} repetition rate. The post processor for the  R--30iB controller will be modified in such a way that when the robotic arm with the sample is in a position, where the LSP process (individual laser impact area) should be placed, the robotic arm controller sends a command to the laser source to fire exactly one laser pulse onto the desired area and then move on to the next position. This is accomplished by controlling the digital inputs (DIs) and digital outputs (DOs) of the robotic arm controller.} 
+\say{The laser source is operating at a \SI{1}{\hertz} repetition rate. The post processor for the  R--30iB controller will be modified in such a way that when the robotic arm with the sample is in a position, where the LSP process (individual laser impact area) should be placed, the robotic arm controller sends a command to the laser source to fire exactly one laser pulse onto the desired area and then move on to the next position. This is accomplished by controlling the digital inputs (DIs) and digital outputs (DOs) of the robotic arm controller.} 
 
 The modification involves the \mintinline{python}{MoveL} method. The original \mintinline{python}{MoveL} method generates the following code:
 
-\begin{code}
+
 \begin{minted}[frame=lines,tabsize=2,breaklines]{text}
 
 L P[2] 4mm/sec CNT100;
 
 \end{minted}
-\end{code}
+
 
 where:
 
@@ -334,17 +333,17 @@ where:
 
 The modified MoveL method should output the following robotic arm controller code to meet the requirements on the post processor:
 
-\begin{code}
+
 \begin{minted}[frame=lines,tabsize=2,breaklines]{text}
 
-  WAIT DI[1:SYNCHRONIZATION_IN]=OFF;
-  WAIT DI[1:SYNCHRONIZATION_IN]=ON;
-  L P[6] 4mm/sec CNT100 RTCP TB  0.00sec,DO[5]=PULSE,1.0sec;
-  WAIT  DO[5:LASER ON] = OFF;
-  WAIT  1.00(sec);
+WAIT DI[1:SYNCHRONIZATION_IN]=OFF;
+WAIT DI[1:SYNCHRONIZATION_IN]=ON;
+L P[6] 4mm/sec CNT100 RTCP TB  0.00sec,DO[5]=PULSE,1.0sec;
+WAIT  DO[5:LASER ON] = OFF;
+WAIT  1.00(sec);
   
 \end{minted}
-\end{code}
+
 
 where:
 
@@ -352,16 +351,16 @@ where:
 
     \item \mintinline{text}{WAIT} -- wait condition,
     \item \mintinline{text}{RTCP} -- remote tool centre point,
-    \item \mintinline{text}{TB  0.00sec,DO[5]=PULSE,1.0sec} -- execute command a designated time before reaching the point,
+    \item \mintinline{text}{TB  0.00sec,DO[5]=PULSE,1.0sec} -- execute command at a designated time before reaching the point,
     \item \mintinline{text}{P[2]} -- designation of point,
     \item \mintinline{text}{DO[5]=PULSE,1.0sec} -- pulse at digital output,
-    \item \mintinline{text}{WAIT  1.00(sec)} -- block code executing for a designated time.
+    \item \mintinline{text}{WAIT  1.00(sec)} -- block code execution for a designated time.
 
 \end{itemize}
 
-Listing contains the original MoveL method of the FANUC R--30iB post processor. 
+Listing contains the original MoveL method of the FANUC R--30iB post processor \cite{postmethods}. 
 
-\begin{code}
+
 \label{code:preprocessed_python}
 \begin{minted}[frame=lines, linenos,tabsize=2,breaklines]{python}
 
@@ -385,7 +384,7 @@ Listing contains the original MoveL method of the FANUC R--30iB post processor.
 
 \end{minted}
 \captionof{listing}{Code snippet of original MoveL method}
-\end{code}
+
 
 
 
