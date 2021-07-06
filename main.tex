@@ -321,7 +321,7 @@ In \kde\ on .................... &........................................ \\	% 
 \parskip=0pt
 \tableofcontents % SEM NESAHEJTE!
 \parskip=7pt
-\newpage % SEM NESAHEJTE!
+%\newpage % SEM NESAHEJTE!
 
 \mbox{}
 
@@ -342,15 +342,18 @@ In \kde\ on .................... &........................................ \\	% 
 
 %\printglossary
 
-\cleardoublepage
-% \phantomsection
-\addcontentsline{toc}{chapter}{\listfigurename}
-\listoffigures
+%% list of figures and tables - will be commented out for now
 
-\cleardoublepage
-% \phantomsection
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
+
+%%\cleardoublepage
+%% \phantomsection
+%% \addcontentsline{toc}{chapter}{\listfigurename}
+%% \listoffigures
+
+%% \cleardoublepage
+%% \phantomsection
+%% \addcontentsline{toc}{chapter}{\listtablename}
+%% \listoftables
 
 %--------------------------------------------------------
 %|         Zde začíná SAMOTNÁ PRÁCE (text)              |
@@ -364,6 +367,7 @@ In \kde\ on .................... &........................................ \\	% 
 \fancyhead[R]{\chaptername\ \thechapter\ --\ \leftmark}
 \fancyhead[L]{}
 
+% one page introduction placed here
 
 \input{Introduction, Conclusion/introduction}
 
@@ -392,16 +396,16 @@ In \kde\ on .................... &........................................ \\	% 
 
     \input{chapters/5_testing}
 
-\chapter{Discussion}
+\chapter{Discussion and Conclusion}
 
-    \input{chapters/6_discussion}
+    \input{chapters/6_discussion_and_conclusion}
     
 %%%%%%% CONCLUSION CHAPTER %%%%%%%
     
-\chapter{Conclusion} % SEM NESAHEJTE!
-\addcontentsline{toc}{chapter}{Conclusion} % SEM NESAHEJTE!
+%\chapter{Conclusion} % SEM NESAHEJTE!
+%\addcontentsline{toc}{chapter}{Conclusion} % SEM NESAHEJTE!
 %
-    \input{Introduction, Conclusion/conclusion}
+    %\input{Introduction, Conclusion/conclusion}
     
 %%%%%%% REFERENCES %%%%%%%
 
