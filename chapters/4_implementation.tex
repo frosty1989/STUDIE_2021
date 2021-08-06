@@ -2,13 +2,13 @@
 
 \epigraph{Python is the "most powerful language you can still read".}{\textit{Paul Dubois \\ Lead developer for Numerical Python and Pyfort }}
 
-This chapter deals with creating a curve follow project in RoboDK and modifying a RoboDK post processor to be suitable for the LSP process.
+This chapter familiarizes the reader with the creation of a curve follow project in RoboDK. Firstly, it focuses on the specifics of programming FANUC robotic arms. Secondly, it gives a short introduction to setting up a curve follow project in RoboDK. Subsequently, it describes the RoboDK API, and in the end, it deals with the problematics of post processor and the modification of post processors.
 
 \section{FANUC robotic arms programming specifics and FANUC software}
 
 \subsection{FANUC Roboguide}
 
-FANUC Roboguide is a proprietary robot simulator and offline programming tool developed by FANUC. Roboguide is in many ways similar to RoboDK.  Like RoboDK, it supports the creation of robotic arm stations, importing of CAD files and CAD--to--path features. The main difference is that Roboguide is limited to FANUC robotic arms and FANUC related technologies and procedures. In contrast, RoboDK is not limited to one robotic arm manufacturer and is universal and expandable. Roboguide is used for this project to compile the created FANUC programs and upload them to the FANUC robotic arm controller. Roboguide offers several simulation software options tailored for specific robotic arm applications:
+FANUC Roboguide is a proprietary robot simulator and offline programming tool developed by the FANUC corporation. Roboguide is in many ways similar to RoboDK.  Like RoboDK, it supports the creation of robotic arm stations, importing of CAD files and CAD--to--path features. The main difference is that Roboguide is limited to FANUC robotic arms and FANUC related technologies and procedures. In contrast, RoboDK is not limited to one robotic arm manufacturer and is universal and expandable. Roboguide is used for this project to compile the created FANUC programs and upload them to the FANUC robotic arm controller. Roboguide offers several simulation software options tailored for specific robotic arm applications:
 
 \begin{itemize}
 
@@ -38,7 +38,7 @@ Only a TP program in binary format can be run on FANUC robotic arm controllers. 
 
 \begin{enumerate}
 \item the ASCII Upload option must be loaded on the robot controller. After upload an \mintinline{shell-session}{.ls} file to the controller it is automatically converted to a \mintinline{shell-session}{.tp} file,
-\item the program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly \cite{fanuchandling}.
+\item the program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly \cite{fanuchandling}. The WinOLPC tool are located in \mintinline{shell-session}{C:/Program File(x86)/FANUC/WinOLPC/bin} in the Windows operating system.
 
 \end{enumerate}
 
@@ -59,9 +59,9 @@ RoboDK offers three types of robot manufacturing projects:
 
 \begin{itemize}
 
-    \item robot machining projects,
-    \item curve follow projects, 
-    \item point follow projects. 
+    \item robot machining projects -- a robotic arm path is created from an NC file,
+    \item curve follow projects -- robotic arm follows a curve path in 3D space, 
+    \item point follow projects -- robotic arm follows a path defined by points in 3D space.
 
 \end{itemize}
 
@@ -96,11 +96,11 @@ The user has to execute the following steps to set up a basic curve follow proje
     
 \item change \mintinline{shell-session}{Select algorithm} option to: \mintinline{shell-session}{Robot holds object & follows path},
 
-\item update project. RoboDK automatically generates a preprocessed robot program for the actual station,
+\item select \mintinline{shell-session}{Update project}. RoboDK automatically generates a preprocessed robot program for the actual station,
 
 \item right--click the preprocessed program, select post processor and generate program. The \mintinline{shell-session}{.ls} program for the actual station will be opened in the default RoboDK text editor,
 
-\item compile the program and export the program to the FANUC robot controller using Roboguide or WinOLPC tools \cite{curvefollow}.
+\item compile the program and export the program to the FANUC robot controller using FANUC Roboguide or WinOLPC tools \cite{curvefollow}.
     
 \end{enumerate}
 
@@ -113,15 +113,15 @@ The user has to execute the following steps to set up a basic curve follow proje
 
 \section{RoboDK API}
 
-An application interface is a set of features an application provides to a user via a high--level programming language. The RoboDK API dramatically expands the possibilities of RoboDK. The RoboDK API is implemented in The RoboDK API is implemented in Python, C\#, C++, Visual Basic (.NET) and Matlab.  The Python API is the most extensive and is used in this thesis. The RoboDK API facilitates the execution of the following tasks:
+An application interface (API) is a set of features an application provides to a user via a high--level programming language. The RoboDK API dramatically expands the possibilities of RoboDK. The RoboDK API is implemented in The RoboDK API is implemented in Python, C\#, C++, Visual Basic (.NET) and Matlab.  The Python API is the most extensive and is used in this thesis. The RoboDK API facilitates the execution of the following tasks:
 
 \begin{itemize}
     
- \item Automating simulation -- macro scripts for repetitive tasks such as tool changing, pick and place applications.
+ \item automating simulation -- macro scripts for repetitive tasks such as tool changing, pick and place applications.
 
- \item Offline programming -- using the RoboDK API methods to create programs for specific robotic arm controllers. The pre--processed \mintinline{shell-session}{.pyc} file created in RoboDK's GUI is executed directly by the post processor. The post processor defines the rules for vendor--specific robotic arm controller program generation. 
+ \item offline programming -- using the RoboDK API methods to create programs for specific robotic arm controllers. The pre--processed \mintinline{shell-session}{.pyc} file created in RoboDK's GUI is executed directly by the post processor. The post processor defines the rules for vendor--specific robotic arm controller program generation. 
 
- \item Online programming -- using RoboDK API to move robots and retrieve their current position in real time. RoboDK connects to the robotic arm controller using robot drivers.
+ \item online programming -- using RoboDK API to move robots and retrieve their current position in real time. RoboDK connects to the robotic arm controller using robot drivers.
 
 \end{itemize}
 
@@ -203,6 +203,8 @@ r.ProgSave(r"""C:/Users/marek.boehm/Documents/RoboDK/""", r"""Settings""", False
 
 Let us dive into the source code of this preprocessed file and explain the functionality of some of its methods. The \mintinline{python}{p(x,y,z,r,p,w)} function converts the XYZRPW representation to a Pose ($ 4 \times 4 $ matrix). The \mintinline{python}{RobotPost} class initializes the robot post processor object. The parameters of the \mintinline{python}{RobotPost} class are:
 
+
+%% RobotPost class
 \begin{minted}[frame=lines,tabsize=2,breaklines]{python}
 
 class samplepost.RobotPost(robotpost=None, robotname=None, robot_axes=6, **kwargs)
@@ -225,14 +227,21 @@ Parameters of \mintinline{text}{RobotPost} class:
 
 \end{itemize}
 
+
+
+
 All subsequent functions are called upon the \mintinline{python}{RobotPost} object. The most important function is the \mintinline{python}{MoveL} function:
 
 
+%%%%%%%%%%%%%%%%%%
+%% MoveL method
 \begin{minted}[frame=lines,tabsize=2,breaklines]{python}
 
 MoveL(pose, joints, conf_RLF=None)
 
 \end{minted}
+
+The \mintinline{text}{MoveL} function generates manufacturer specific code for linear movement. 
 
 
 Parameters \mintinline{text}{MoveL} method:
@@ -250,9 +259,46 @@ Parameters \mintinline{text}{MoveL} method:
 
 \end{itemize}
 
-Another important method in the preprocessed file is the \mintinline{python}{ProgSave} method, which saves the program after all instructions have been executed:
+%%%%%%%%%%%%%%%%%%
+%% ProgStart method
+\begin{minted}[frame=lines,tabsize=2,breaklines]{python}
+
+ProgStart(progname)
+
+\end{minted}
+
+The \mintinline{text}{ProgStart} method is called when a new program is generated
 
 
+Parameters \mintinline{text}{ProgStart} method:
+
+\begin{itemize}
+
+\item \mintinline{text}{progname (str)} -- program name
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%
+%% ProgStart method
+\begin{minted}[frame=lines,tabsize=2,breaklines]{python}
+
+setSpeed(speed_mms)
+
+\end{minted}
+
+The \mintinline{text}{setSpeed} method is called when a new program is generated
+
+
+Parameters \mintinline{text}{ProgStart} method:
+
+\begin{itemize}
+
+\item \mintinline{text}{progname (str)} -- program name
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%
+%% ProgSave method
 \begin{minted}[frame=lines,tabsize=2,breaklines]{python}
 
 ProgSave(folder, progname, ask_user=False, show_result=False)
@@ -285,11 +331,11 @@ Parameters of \mintinline{text}{ProgSave} method:
 Each robotic arm has a post processor assigned to it by default. The following steps have to be taken to change the post processor of a robotic arm:
 
 
-\begin{itemize}
+\begin{enumerate}
     \item opening the robot panel,
     \item selecting \mintinline{shell-session}{Parameters},
     \item selecting post processor from drop--down list \cite{selectpost}.
-\end{itemize}
+\end{enumerate}
 
 \subsection{Post processor example and example output}
 
