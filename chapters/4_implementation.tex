@@ -4,11 +4,11 @@
 
 This chapter familiarizes the reader with the creation of a curve follow project in RoboDK. Firstly, it focuses on the specifics of programming FANUC robotic arms. Secondly, it gives a short introduction to setting up a curve follow project in RoboDK. Subsequently, it describes the RoboDK API, and in the end, it deals with the problematics of post processor and the modification of post processors.
 
-\section{FANUC robotic arms programming specifics and FANUC software}
+\section{FANUC robotic arms programming specifics}
 
 \subsection{FANUC Roboguide}
 
-FANUC Roboguide is a proprietary robot simulator and offline programming tool developed by the FANUC corporation. Roboguide is in many ways similar to RoboDK.  Like RoboDK, it supports the creation of robotic arm stations, importing of CAD files and CAD--to--path features. The main difference is that Roboguide is limited to FANUC robotic arms and FANUC related technologies and procedures. In contrast, RoboDK is not limited to one robotic arm manufacturer and is universal and expandable. Roboguide is used for this project to compile the created FANUC programs and upload them to the FANUC robotic arm controller. Roboguide offers several simulation software options tailored for specific robotic arm applications:
+FANUC Roboguide is a proprietary robot simulator and offline programming tool developed by the FANUC corporation. FANUC Roboguide is in many ways similar to RoboDK.  Like RoboDK, it supports the creation of robotic arm stations, importing of CAD files and CAD--to--path features. The main difference is that Roboguide is limited to FANUC robotic arms and FANUC related technologies and procedures. In contrast, RoboDK is not limited to one robotic arm manufacturer and is universal and expandable. FANUC Roboguide is used in this thesis to compile the created robotic arm controller programs and upload them to the robotic arm controller. FANUC Roboguide offers several simulation software options tailored for specific robotic arm applications:
 
 \begin{itemize}
 
@@ -19,7 +19,7 @@ FANUC Roboguide is a proprietary robot simulator and offline programming tool de
 
 \end{itemize}
 
-An example of a Roboguide station is shown in Figure \ref{fig:roboguide}. The version of FANUC Roboguide used for this project is 8.30104.00.35 (Rev. K) \cite{roboguide}. 
+An example of a Roboguide station is shown in Figure \ref{fig:roboguide}. The version of FANUC Roboguide used in this thesis is 8.30104.00.35 (Rev. K) \cite{roboguide}. 
 
 \begin{figure}[h]
     \centering
@@ -30,15 +30,15 @@ An example of a Roboguide station is shown in Figure \ref{fig:roboguide}. The ve
 
 \subsection{FANUC robotic arm controller programming languages}
 
-The FANUC company implements two programming languages for programming their robot controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human--readable ASCII files (\mintinline{shell-session}{.ls} file extension). The KAREL language is a high--level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a pendant.
+The FANUC company implements two programming languages for programming their robotic arm controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human--readable ASCII files (\mintinline{shell-session}{.ls} file extension). The syntax of the TP language is described in great detail in the \emph{SYSTEM R-30iB and R-30iB MATE HandlingTool Setup and Operations Manual} \cite{fanuchandling}. The KAREL language is a high--level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a pendant. The syntax of the KAREL language is covered in the \emph{FANUC Robotics SYSTEM R-30iA Controller KAREL Reference Manual}.
 
 \subsection{Compiling a FANUC TP program}
 
-Only a TP program in binary format can be run on FANUC robotic arm controllers. Because RoboDK creates TP programs as human--readable ASCII files, the TP programs need to be converted to binary format before uploading them to the robot controller. Two options to convert \mintinline{shell-session}{.ls} programs to \mintinline{shell-session}{.tp} programs exist:
+Only a TP program in binary format can be run on FANUC robotic arm controllers. Because RoboDK creates TP programs as human--readable ASCII files, the TP programs need to be converted to binary format before uploading them to the robotic arm controller. Two options to convert \mintinline{shell-session}{.ls} programs to \mintinline{shell-session}{.tp} programs exist:
 
 \begin{enumerate}
-\item the ASCII Upload option must be loaded on the robot controller. After upload an \mintinline{shell-session}{.ls} file to the controller it is automatically converted to a \mintinline{shell-session}{.tp} file,
-\item the program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly \cite{fanuchandling}. The WinOLPC tool are located in \mintinline{shell-session}{C:/Program File(x86)/FANUC/WinOLPC/bin} in the Windows operating system.
+\item the ASCII Upload option must be loaded on the robotic arm controller. After uploading an \mintinline{shell-session}{.ls} file to the controller, it is automatically converted to a \mintinline{shell-session}{.tp} file,
+\item the program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly \cite{fanuchandling}. The WinOLPC tools are located in \mintinline{shell-session}{C:/Program File(x86)/FANUC/WinOLPC/bin} in the Windows operating system.
 
 \end{enumerate}
 
@@ -55,11 +55,11 @@ The applications of robot machining in the industry are numerous. Some applicati
 
 \end{itemize}
 
-RoboDK offers three types of robot manufacturing projects:
+RoboDK supports three types of robot machining projects:
 
 \begin{itemize}
 
-    \item robot machining projects -- a robotic arm path is created from an NC file,
+    \item robot machining projects -- a robotic arm path is created from an Numerical Control (NC) file,
     \item curve follow projects -- robotic arm follows a curve path in 3D space, 
     \item point follow projects -- robotic arm follows a path defined by points in 3D space.
 
@@ -70,7 +70,7 @@ The process of setting up a curve follow project in RoboDK is described in the f
 \subsection{Setting up a curve follow project in RoboDK}
 
 A curve follow project in RoboDK must at least consist of one robot, one tool, and one reference frame. The situation described is a so--called remote TCP situation, i.e., the Tool Center Point (TCP) is fixed in the station, and the robot holds the object. The TCP in our project is represented by the laser beam. 
-The user has to execute the following steps to set up a basic curve follow project: 
+The user has to execute the following steps to set up a basic curve follow project and to generate a vendor--specific robot program: 
 
 \begin{enumerate}
 
@@ -113,7 +113,7 @@ The user has to execute the following steps to set up a basic curve follow proje
 
 \section{RoboDK API}
 
-An application interface (API) is a set of features an application provides to a user via a high--level programming language. The RoboDK API dramatically expands the possibilities of RoboDK. The RoboDK API is implemented in The RoboDK API is implemented in Python, C\#, C++, Visual Basic (.NET) and Matlab.  The Python API is the most extensive and is used in this thesis. The RoboDK API facilitates the execution of the following tasks:
+An application interface (API) is a set of features an application provides to a user via a high--level programming language. The RoboDK API dramatically expands the potential of RoboDK. The RoboDK API is implemented in Python, C\#, C++, Visual Basic (.NET) and Matlab.  The Python API is the most extensive and is used in this thesis. The RoboDK API facilitates the execution of the following tasks:
 
 \begin{itemize}
     
@@ -141,15 +141,54 @@ The modules are located in the folder \mintinline{shell-session}{C:/RoboDK/Pytho
 
 \section{RoboDK post processors}
 
-A post processor specifies how robot programs must be generated for a specific robot controller and are used when robotic arm controllers are generated offline. Post processors serve as tools to convert the simulation to vendor--specific robot programs. All RoboDK post processors are placed in the \mintinline{shell-session}{C:/RoboDK/Posts} folder in the Windows operating system. All post processors rely on the \mintinline{shell-session}{robodk} module. The \mintinline{shell-session}{robodk} module is a robotics toolbox for Python, based on \href{http://petercorke.com/Robotics_Toolbox.html}{Peter Corke’s Robotics Toolbox} \cite{robodkapipython}. 
+A post processor specifies how robot programs must be generated for a specific robot controller and are used when robot programs are generated offline. Post processors serve as tools to convert the simulation to vendor--specific robot programs. All RoboDK post processors are placed in the \mintinline{shell-session}{C:/RoboDK/Posts} folder in the Windows operating system. All post processors rely on the \mintinline{text}{robodk} module. The \mintinline{text}{robodk} module is a robotics toolbox for Python, based on \href{http://petercorke.com/Robotics_Toolbox.html}{Peter Corke’s Robotics Toolbox} \cite{robodkapipython}. 
+
+\subsection{RoboDK post processor workflow}
+
+The creation of a program that is compatible with a FANUC robotic arm controller consists of three steps. These steps are shown in Figure \ref{workflow}:
+
+\begin{enumerate}
+  \item create a program in a curve follow project in RoboDK,   
+  \item generate a preprocessed \mintinline{shell-session}{.pyc} file using RoboDK
+  \item generate a vendor--specific robot \mintinline{shell-session}{.ls} program using the post processor.
+\end{enumerate}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{img/workflow.jpg}
+    \caption{RoboDK post processor workflow}
+    \label{workflow}
+\end{figure}
+
 
 \subsection{RoboDK preprocessed file}
 
-After creating a program in the curve follow project, but before generating it using a post processor, the program is saved as a preprocessed/universal Python program and saved in a local temporary folder. The preprocessed program is linked to the right post processor (selected by the user in RoboDK). The post processor defines a \mintinline{python}{RobotPost} class that generates the desired code. In the Windows operating system, the preprocessed Python files are saved in the user's temporary folder (e.g.: \mintinline{shell-session}{C:/Users/username/AppData/Local/Temp}) folder. These programs can also be used for debugging new post processors. An example code of a preprocessed file is shown in Listing \ref{code:preprocessed_python} \cite{preprocessed}:
+After creating a program in the curve follow project, but before generating it using a post processor, the program is saved as a preprocessed/universal Python program and saved in a local temporary folder. The preprocessed program is linked to the right post processor (selected by the user in RoboDK). The post processor defines a \mintinline{python}{RobotPost} class that generates the desired code. In the Windows operating system, the preprocessed Python files are saved in the user's temporary folder (e.g.: \mintinline{shell-session}{C:/Users/username/AppData/Local/Temp}) folder. These programs can also be used for debugging new post processors. An code snippet of a preprocessed file is shown in Listing \ref{code:preprocessed_python} \cite{preprocessed}. The three dots (...) denote parts of the code that have been intentionally omitted to keep the source code listing shorter. 
+
+
+%% Example of how to use the listings and captions correctly
+%% Using the multiline comment feature here
+\begin{comment}
+
+\begin{code}
+
+\begin{minted}{c}
+int main() {
+printf("hello, world");
+return 0;
+}
+\end{minted}
+\captionof{listing}{My C-Code}
+\label{code:c-code}
+\end{code}
+
+Reference to \ref{code:c-code}. 
+
+\end{comment}
 
 %% this is an example of a minted code with caption and wrapped lines
-
-\label{code:preprocessed_python}
+\begin{code}
 \begin{minted}[frame=lines, linenos,tabsize=2,breaklines]{python}
 import sys
 import os
@@ -199,9 +238,13 @@ r.ProgSave(r"""C:/Users/marek.boehm/Documents/RoboDK/""", r"""Settings""", False
 
 \end{minted}
 \captionof{listing}{Code snippet of preprocessed program to be executed by post processor}
+\label{code:preprocessed_python}
+\end{code}
+
+%% \captionof{listing}{Code snippet of preprocessed program to be executed by post processor}
 
 
-Let us dive into the source code of this preprocessed file and explain the functionality of some of its methods. The \mintinline{python}{p(x,y,z,r,p,w)} function converts the XYZRPW representation to a Pose ($ 4 \times 4 $ matrix). The \mintinline{python}{RobotPost} class initializes the robot post processor object. The parameters of the \mintinline{python}{RobotPost} class are:
+Let us dive into the source code of this preprocessed file and explain the functionality of some of its methods. The \mintinline{python}{p(x,y,z,r,p,w)} method converts the XYZRPW representation to a Pose ($ 4 \times 4 $ matrix). The \mintinline{python}{RobotPost} class initializes the robot post processor object. The parameters of the \mintinline{python}{RobotPost} class are:
 
 
 %% RobotPost class
@@ -211,8 +254,7 @@ class samplepost.RobotPost(robotpost=None, robotname=None, robot_axes=6, **kwarg
 
 \end{minted}
 
-
-Parameters of \mintinline{text}{RobotPost} class:
+The \mintinline{python}{RobotPost} class initializes the robot post processor object. The parameters of the \mintinline{python}{RobotPost} class are:
 
 \begin{itemize}
 
@@ -230,7 +272,7 @@ Parameters of \mintinline{text}{RobotPost} class:
 
 
 
-All subsequent functions are called upon the \mintinline{python}{RobotPost} object. The most important function is the \mintinline{python}{MoveL} function:
+All subsequent functions are called upon the \mintinline{python}{RobotPost} object. The most important method is the \mintinline{python}{MoveL} function:
 
 
 %%%%%%%%%%%%%%%%%%
@@ -241,10 +283,10 @@ MoveL(pose, joints, conf_RLF=None)
 
 \end{minted}
 
-The \mintinline{text}{MoveL} function generates manufacturer specific code for linear movement. 
+The \mintinline{text}{MoveL} method generates manufacturer-specific code for linear movement. 
 
 
-Parameters \mintinline{text}{MoveL} method:
+The parameters of the \mintinline{text}{MoveL} method are:
 
 \begin{itemize}
 
@@ -259,6 +301,8 @@ Parameters \mintinline{text}{MoveL} method:
 
 \end{itemize}
 
+
+
 %%%%%%%%%%%%%%%%%%
 %% ProgStart method
 \begin{minted}[frame=lines,tabsize=2,breaklines]{python}
@@ -267,10 +311,10 @@ ProgStart(progname)
 
 \end{minted}
 
-The \mintinline{text}{ProgStart} method is called when a new program is generated
+The \mintinline{text}{ProgStart} method is called when a new program is generated.
 
 
-Parameters \mintinline{text}{ProgStart} method:
+The parameters of the \mintinline{text}{ProgStart} method are:
 
 \begin{itemize}
 
@@ -279,7 +323,7 @@ Parameters \mintinline{text}{ProgStart} method:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%
-%% ProgStart method
+%% setSpeed method
 \begin{minted}[frame=lines,tabsize=2,breaklines]{python}
 
 setSpeed(speed_mms)
@@ -289,7 +333,7 @@ setSpeed(speed_mms)
 The \mintinline{text}{setSpeed} method is called when a new program is generated
 
 
-Parameters \mintinline{text}{ProgStart} method:
+The parameters of the  \mintinline{text}{setSpeed} method are:
 
 \begin{itemize}
 
@@ -305,8 +349,8 @@ ProgSave(folder, progname, ask_user=False, show_result=False)
 
 \end{minted}
 
-
-Parameters of \mintinline{text}{ProgSave} method:
+The \mintinline{text}{ProgSave} method saves the program in a format compatible with the corresponding robot controller type. 
+The parameters of the \mintinline{text}{ProgSave} method are:
 
 \begin{itemize}
 
@@ -323,6 +367,28 @@ Parameters of \mintinline{text}{ProgSave} method:
 
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%
+%% ProgFinish method
+\begin{minted}[frame=lines,tabsize=2,breaklines]{python}
+
+ProgFinish(progname)
+
+\end{minted}
+
+The \mintinline{text}{ProgFinish} method is triggered after all the instructions of the program and defines the end of the program.
+
+
+The parameters of the \mintinline{text}{ProgFinish} method are:
+
+\begin{itemize}
+
+\item \mintinline{text}{progname (str)} -- program name
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%
+%%% end of all methods
+
  Every post processor should implement a set of basic methods to generate programs for robotic arm controllers correctly. These basic  methods used in the preprocessed file can be found in the \href{https://robodk.com/doc/en/PythonAPI/postprocessor.html#post-processor-methods}{online documentation} \cite{postmethods}.
 
 
@@ -337,16 +403,151 @@ Each robotic arm has a post processor assigned to it by default. The following s
     \item selecting post processor from drop--down list \cite{selectpost}.
 \end{enumerate}
 
-\subsection{Post processor example and example output}
+\subsection{Post processor example and post processor example output}
 
-????Here put a link to you github repo, or a snippet????
+Examples of post processors can be found in the \href{https://github.com/ros-industrial/robodk_postprocessors}{Github repository}. An example of an output of the unmodified R--30iA post processor is shown in Listing \ref{code:unmodified_post}.
 
+\begin{code}
+\begin{minted}[frame=lines, linenos,tabsize=2,breaklines]{python}
+
+/PROG  Diecast15
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "RoboDK sequence";
+PROG_SIZE	= 0;
+CREATE		= DATE 31-12-14  TIME 12:00:00;
+MODIFIED	= DATE 31-12-14  TIME 12:00:00;
+FILE_NAME	= Diecast15;
+VERSION		= 0;
+LINE_COUNT	= 462;
+MEMORY_SIZE	= 0;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/MN
+   1:  ! Program generated by ;
+   2:  !  RoboDK v5.2.2 for F ;
+   3:  ! anuc M-20iA/35M on 0 ;
+   4:  ! 9/08/2021 16:07:49 ;
+   5:  ! Using nominal kinema ;
+   6:  ! tics. ;
+   7:  PR[9,1]=1000.300 ;
+   8:  PR[9,2]=-445.000 ;
+   9:  PR[9,3]=552.300 ;
+  10:  PR[9,4]=-90.000 ;
+  11:  PR[9,5]=10.190 ;
+  12:  PR[9,6]=0.000 ;
+  13:  UFRAME[9]=PR[9] ;
+  14:  UFRAME_NUM=9 ;
+  15:  PR[9,1]=0.000 ;
+  16:  PR[9,2]=0.000 ;
+  17:  PR[9,3]=0.000 ;
+  18:  PR[9,4]=0.000 ;
+  19:  PR[9,5]=0.000 ;
+  20:  PR[9,6]=0.000 ;
+  21:  UTOOL[9]=PR[9] ;
+  22:  UTOOL_NUM=9 ;
+  23:  ! Show Diecast15 ;
+  24:J P[1] 1% CNT0 ;
+  25:L P[2] 50mm/sec CNT0 ;
+  26:L P[3] 10mm/sec CNT0 ;
+  27:L P[4] 10mm/sec CNT0 ;
+
+...
+...
+...
+
+461:L P[438] 10mm/sec CNT0 ;
+ 462:L P[439] 50mm/sec CNT0 ;
+/POS
+P[1]{
+   GP1:
+    UF : 9, UT : 9,    
+	J1=    -11.825 deg,	J2=    0.745 deg,	J3=    -13.905 deg,
+	J4=    69.881 deg,	J5=    -63.946 deg,	J6=    28.200 deg
+};
+P[2]{
+   GP1:
+    UF : 9, UT : 9,        CONFIG : 'N U T, 0, 0, 0',
+	X =     1.632  mm,	Y =   -67.788  mm,	Z =    73.203  mm,
+	W =  -165.352 deg,	P =   -21.879 deg,	R =    21.809 deg
+};
+P[3]{
+   GP1:
+    UF : 9, UT : 9,        CONFIG : 'N U T, 0, 0, 0',
+	X =     2.074  mm,	Y =   -68.202  mm,	Z =    73.760  mm,
+	W =  -165.468 deg,	P =   -21.989 deg,	R =    21.644 deg
+};
+P[4]{
+   GP1:
+    UF : 9, UT : 9,        CONFIG : 'N U T, 0, 0, 0',
+	X =     2.535  mm,	Y =   -68.640  mm,	Z =    74.302  mm,
+	W =  -165.566 deg,	P =   -22.104 deg,	R =    21.494 deg
+};
+
+...
+...
+...
+
+P[439]{
+   GP1:
+    UF : 9, UT : 9,        CONFIG : 'N U T, 0, 0, -1',
+	X =    -1.638  mm,	Y =  -138.500  mm,	Z =   143.912  mm,
+	W =  -165.328 deg,	P =    21.824 deg,	R =   -21.741 deg
+};
+/END
+
+\end{minted}
+\captionof{listing}{Code snippet of unmodified post processor output}
+\label{code:unmodified_post}
+\end{code}
+
+Let us dive into the code in Listing \ref{code:unmodified_post}, explain the purpose of its individual elements and show the post processor methods that generate these elements. 
+The code in Listing \ref{code:metadata} contains metadata about the program and is not displayed on the pendant display. This metadata is generated by the post processor method \mintinline{text}{ProgFinish}. The code of the \mintinline{text}{ProgFinish} method  can be viewed in Appendix A (here put link).
+
+\begin{code}
+\begin{minted}[frame=lines, linenos,tabsize=2,breaklines]{text}
+
+/PROG  Diecast15
+/ATTR
+OWNER		= MNEDITOR;
+COMMENT		= "RoboDK sequence";
+PROG_SIZE	= 0;
+CREATE		= DATE 31-12-14  TIME 12:00:00;
+MODIFIED	= DATE 31-12-14  TIME 12:00:00;
+FILE_NAME	= Diecast15;
+VERSION		= 0;
+LINE_COUNT	= 462;
+MEMORY_SIZE	= 0;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= 0,
+      TASK_PRIORITY	= 50,
+      TIME_SLICE	= 0,
+      BUSY_LAMP_OFF	= 0,
+      ABORT_REQUEST	= 0,
+      PAUSE_REQUEST	= 0;
+DEFAULT_GROUP	= 1,*,*,*,*,*,*;
+CONTROL_CODE	= 00000000 00000000;
+/MN
+
+\end{minted}
+\captionof{listing}{Code snippet of metada}
+\label{code:metadata}
+\end{code}
+
+The code in Listing \ref{code:metadata}
 
 \subsection{FANUC R--30iA post processor}
 
-The FANUC R--30iB post processor is located in the \mintinline{shell-session}{C:/RoboDK/Posts/vXX folder}. \mintinline{shell-session}{XX} is a two--digit number and denotes the post processor version. The FANUC R--30iA post processor comes in the form of a \mintinline{shell-session}{.pyc} file (compiled bytecode) and needs to be decompiled to a \mintinline{shell-session}{.py} file with the help of a decompiler. The decompyler used in this thesis is   \href{https://github.com/rocky/python--decompile3}{decompyle3} \cite{decompyle3}.
+The FANUC R--30iA post processor is located in the \mintinline{shell-session}{C:/RoboDK/Posts/vXX folder}. \mintinline{shell-session}{XX} is a two--digit number and denotes the post processor version. The FANUC R--30iA post processor comes in the form of a \mintinline{shell-session}{.pyc} file (compiled bytecode) and needs to be decompiled to a \mintinline{shell-session}{.py} file with the help of a decompiler. The decompyler used in this thesis is   \href{https://github.com/rocky/python--decompile3}{decompyle3} \cite{decompyle3}.
 
-\section{Modifying the FANUC R--30iB post processor methods} 
+\section{Modifying the FANUC R--30iA post processor methods} 
 
 The user can create a new post processor from scratch or modify an existing post processor. A post processor for a specific robotic arm controller is a single \mintinline{shell-session}{.py} file. All post processors are placed in the \mintinline{shell-session}{C:/RoboDK/Posts} folder. A new post processor is added to RoboDK by creating a \mintinline{shell-session}{.py} file or renaming an existing \mintinline{shell-session}{.py} file in this folder. By deleting a \mintinline{shell-session}{.py} file in this folder, the post processor is deleted from the list of post processors in RoboDK. 
 
@@ -354,14 +555,14 @@ The experimental setup of the LSP station at the HiLASE centre links the robotic
 
 % dirtytalk package
 
-\say{The laser source is operating at a \SI{1}{\hertz} repetition rate. The post processor for the  R--30iB controller will be modified in such a way that when the robotic arm with the sample is in a position, where the LSP process (individual laser impact area) should be placed, the robotic arm controller sends a command to the laser source to fire exactly one laser pulse onto the desired area and then move on to the next position. This is accomplished by controlling the digital inputs (DIs) and digital outputs (DOs) of the robotic arm controller.} 
+\say{\emph{The laser source is operating at a 1 Hz repetition rate. The post processor for the  R--30iA controller will be modified in such a way that when the robotic arm with the sample is in a position, where the LSP process (individual laser impact area) should be placed, the robotic arm controller sends a command to the laser source to fire exactly one laser pulse onto the desired area and then move on to the next position. This is accomplished by controlling the digital inputs (DIs) and digital outputs (DOs) of the robotic arm controller.}} 
 
-The modification involves the \mintinline{python}{MoveL} method. The original \mintinline{python}{MoveL} method generates the following code:
+The modification involves the \mintinline{python}{MoveL} method. The unmodified \mintinline{python}{MoveL} method generates the following code:
 
 
 \begin{minted}[frame=lines,tabsize=2,breaklines]{text}
 
-L P[2] 4mm/sec CNT100;
+n: L P[2] 4mm/sec CNT100;
 
 \end{minted}
 
@@ -370,6 +571,7 @@ where:
 
 \begin{itemize}
 
+    \item \mintinline{text}{n} -- number of program line, \mintinline{text}{n} $\in \mathbb{N}$
     \item \mintinline{text}{L} -- linear movement,
     \item \mintinline{text}{P[2]} -- designation of point,
     \item \mintinline{text}{4mm/sec} -- movement speed,
@@ -377,16 +579,16 @@ where:
 
 \end{itemize}
 
-The modified MoveL method should output the following robotic arm controller code to meet the requirements on the post processor:
+The modified \mintinline{text}{MoveL} method should output the following robotic arm controller code to meet the requirements of the post processor:
 
 
 \begin{minted}[frame=lines,tabsize=2,breaklines]{text}
 
-WAIT DI[1:SYNCHRONIZATION_IN]=OFF;
-WAIT DI[1:SYNCHRONIZATION_IN]=ON;
-L P[6] 4mm/sec CNT100 RTCP TB  0.00sec,DO[5]=PULSE,1.0sec;
-WAIT  DO[5:LASER ON] = OFF;
-WAIT  1.00(sec);
+n: WAIT DI[1:SYNCHRONIZATION_IN]=OFF;
+n+1: WAIT DI[1:SYNCHRONIZATION_IN]=ON;
+n+2: L P[6] 4mm/sec CNT100 RTCP TB  0.00sec,DO[5]=PULSE,1.0sec;
+n+3: WAIT  DO[5:LASER ON] = OFF;
+n+4: WAIT  1.00(sec);
   
 \end{minted}
 
@@ -395,16 +597,18 @@ where:
 
 \begin{itemize}
 
-    \item \mintinline{text}{WAIT} -- wait condition,
+    \item \mintinline{text}{n} -- number of program line, \mintinline{text}{n} $\in \mathbb{N}$
+    \item \mintinline{text}{WAIT CONDITION} -- wait condition, block code execution until condition  is \mintinline{text}{True}
+    \item \mintinline{text}{WAIT DI[1:SYNCHRONIZATION_IN]=OFF; WAIT DI[1:SYNCHRONIZATION_IN]=ON;} -- detect rising edge of incoming synchronization signal,
     \item \mintinline{text}{RTCP} -- remote tool centre point,
-    \item \mintinline{text}{TB  0.00sec,DO[5]=PULSE,1.0sec} -- execute command at a designated time before reaching the point,
+    \item \mintinline{text}{TB  0.00sec,DO[5]=PULSE,1.0sec} -- execute command at a certain time before reaching the point,
     \item \mintinline{text}{P[2]} -- designation of point,
-    \item \mintinline{text}{DO[5]=PULSE,1.0sec} -- pulse at digital output,
-    \item \mintinline{text}{WAIT  1.00(sec)} -- block code execution for a designated time.
+    \item \mintinline{text}{DO[5]=PULSE,1.0sec} -- rectangular pulse at digital output, pulse duration is one second, 
+    \item \mintinline{text}{WAIT  1.00(sec)} -- block code execution for a certain amount of time.
 
 \end{itemize}
 
-Listing \ref{code:originalMoveL} contains the original MoveL method of the FANUC R--30iB post processor \cite{postmethods}. 
+ \ref{code:originalMoveL} contains the original \mintinline{text}{MoveL} method of the FANUC R--30iA post processor \cite{postmethods}. 
 
 
 \label{code:originalMoveL}

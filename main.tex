@@ -76,7 +76,7 @@
 \usepackage{subcaption}
 
 % for code highlightning
-\usepackage{minted}
+\usepackage[newfloat]{minted}
 
 % for Appendixes
 \usepackage[toc,page]{appendix}
@@ -105,6 +105,13 @@
 
 % package for simple quations
 \usepackage{dirtytalk}
+
+%% \usepackage[newfloat]{minted}
+%% \usepackage{caption}
+\usepackage{tikz-timing}
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Listing}
 
 
 \frenchspacing % za větou bude mezislovní mezera (v anglických textech je mezera za větou delší)
@@ -398,7 +405,7 @@ In \kde\ on .................... &........................................ \\	% 
 
 \chapter{Discussion and Conclusion}
 
-    \input{chapters/6_discussion_and_conclusion}
+    \input{chapters/6_future_and_conclusion}
     
 %%%%%%% CONCLUSION CHAPTER %%%%%%%
     
