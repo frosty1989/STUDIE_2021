@@ -17,7 +17,64 @@ In the introductory scene Helena Glory is visiting Harry Domin the director gene
 \textbf{Helena:} Oh, please forgive me …
 }{\textit{Karel Čapek \\ Rossum’s Universal Robots (R.U.R.)}}
 
-This chapter gives a short introduction to the domain of industrial robotics. This chapter deals with the classification of industrial robotic arms, industrial robotic arms programmings and offline programming of robotic arms. A basic understanding of industrial robotics is necessary to understand the implementation of the post processor in the following chapters.
+This chapter gives a short introduction to the domain of industrial robotics. This chapter deals with the classification of industrial robotic arms, industrial robotic arms programming and offline programming of robotic arms. A basic understanding of industrial robotics is necessary to understand the implementation of the post processor in the following chapters.
+
+\section{Classification of handling devices}
+
+Figure \ref{fig:manipulators} gives a basic idea of the different types of handling devices. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{img/manipulators.jpg}
+    \caption{Classification of handling devices \cite{vsb_2007}}
+    \label{fig:manipulators}
+\end{figure}
+
+\begin{itemize}
+
+    \item  single-purpose manipulators - characterized by limited movement possibilities, level of control suitable for the application, design and drives corresponding to
+to the equipment being operated and the technology being used. 
+
+    \item multipurpose manipulators - they are multipurpose with the possibility of adapting to different technologies. The choice between single-purpose and universal industrial robots and manipulators is based on the overall assessment of the technology, workplace, etc., and must respect both the technical and economic aspects. 
+
+    \item  synchronous manipulators - control is performed continuously by a human. These handling mechanisms are amplification devices for amplifying the force and motion variables on based on stimuli triggered by a human. They are independent of the machine being operated. The manipulator and the human form a closed control loop. These devices transmit human commands remotely. This possibility of remote control was used for scientific, medical and military purposes. Even today, some operations are carried out indirectly using miniature manipulators, 
+
+    \item  Programmable - they are controlled by a programming unit,
+
+    \item  programmable manipulators with fixed program - the program does not change during the operation of the handling mechanism, it is fixed, the programming unit is of simple design, 
+
+    \item  programmable manipulators with modifiable programs - they have the possibility of switching or selecting the program, usually according to the scene in which the manipulators are currently in. These are usually devices with adaptive control. They are currently at the cutting edge of design and we call them industrial robots,
+
+    \item  cognitive robots - robots equipped with the ability to perceive and think rationally \cite{vsb_2007}.
+
+\end{itemize}
+
+\section{Industrial robots}
+
+A robot is an automatically or computer-controlled integrated system capable of autonomous goal-oriented interaction with the natural environment according to instructions from a human. This
+interaction consists of:
+
+\begin{itemize}
+
+    \item in the perception and recognition of that environment,
+    \item manipulating objects or moving around in this environment. 
+
+\end{itemize}
+
+ Industrial robots are of more complex design than other handling devices and differ from other handling mechanisms primarily in the level of control.  Industrial robots are characterised by the following features:
+ 
+\begin{itemize}
+ 
+    \item  manipulation capability, i.e. grasping and moving objects, 
+    \item behavioural autonomy, i.e. a complex sequence of actions performed automatically according to a specific program. Of particular importance is the case where this program is not fixed (given by design, as in the case of classical automatic controllers) but modifiable,
+    \item controlled either by a human or automatically by its own controller.  This makes it different from, e.g. teleoperators, which amplify and transmit motion commands remotely directly from the human, who is an integral part of the system,
+    \item versatility in the sense of 'multipurpose', not 'omnipotence'. The devices do not serve a single purpose but for several, sometimes quite diverse, purposes. This is related to the possibility of changing the program,
+    \item the existence of a link with the environment (perception). In addition to simple mechanical (touch) electromagnetic sensors, more complex systems can also include visual (using a television camera) and acoustic feedback,
+    \item the spatial concentricity of the individual components (integration) is preferably (but not necessarily, if one of the components is a computer) into a single object. The consequence is, among other things, easy transportability. In some cases, the system may be required to be mobile \cite{vsb_2007}.
+
+\end{itemize}
+
+%% The classification
 
 \section{Classification of industrial robots and their structures}
 

@@ -402,71 +402,21 @@ The FANUC AIF01A PLC interface module and its expansion modules are connected to
 
 A block diagram of the electrical connection between FANUC R-30iB controller and Litron LPY ST 7875-10 2HG laser is shown in Figure . 
 
-\begin{minipage}{1.0\linewidth}
-\centering
 
- \def\degr{${}^\circ$}
-\begin{tikztimingtable}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\linewidth]{img/electronics.jpg}
+    \caption{Litron LPY ST 7875-10 2HG laser at HiLASE centre}
+    \label{fig:electronics}
+\end{figure}
 
-\tikzset{marek/.style={timing/c/rising arrows}}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\linewidth]{img/wavedrom.png}
+    \caption{Timing diagram for external triggering of flashlamp and internal triggering of the q-switch, where tBT is the intra-cavity build up time and is typically 50-100ns and tQSW is the internally timed q-switch delay.}
+    \label{fig:wave}
+\end{figure}
 
-%% Clock 128\,MHz 0\degr & H 2C N(A1) 8{2C} N(A5) 3{2C} G \\
-%% Clock 128\,MHz 90\degr & [C] 2{2C} N(A2) 8{2C} N(A6) 2{2C} C \\
-%% Clock 128\,MHz 180\degr & C 2{2C} N(A3) 8{2C} N(A7) 2{2C} G \\
-\node[marek] {
-Clock 128\,MHz 270\degr & 3{2C} N(A4) 8{2C} N(A8) 2C C \\
-}
-Coarse Pulse & 3L 16H 6L \\
-Coarse Pulse - Delayed 1 & 4L N(B2) 16H N(B6) 5L \\
-Coarse Pulse - Delayed 2 & 5L N(B3) 16H N(B7) 4L \\
-Coarse Pulse - Delayed 3 & 6L 16H 3L \\
-\\
-Final Pulse Set & 3L 16H N(B5) 6L \\
-Final Pulse $\overline{\mbox{Reset}}$ & 6L N(B4) 16H 3L \\
-Final Pulse & 3L N(B1) 19H N(B8) 3L \\
-\extracode
-\tablerules
-\begin{pgfonlayer}{background}
-%% \foreach \n in {7,...,8}
-\draw [help lines] (A4) -- (B2);
-\end{pgfonlayer}
-\end{tikztimingtable}
-
-\label{fig:timetible}
-\captionof{figure}{Here goes the caption}
-  
-\end{minipage}
-
-
-\begin{comment}
-
-\begin{minipage}{1.0\linewidth}
-\centering
-\begin{tikztimingtable}
-  % Clock 128\,MHz 0\degr    & H   12{2C} G \\ % ends with edge
-  % Clock 128\,MHz 90\degr   & [C] 12{2C} C \\ % starts with edge
-  % Clock 128\,MHz 180\degr  & C   12{2C} G \\ % ends with edge
-  Clock 128\,MHz 270\degr  &     12{2C} C \\
-\end{tikztimingtable}
-
-\begin{tikztimingtable}
-  Coarse Pulse                          & 3L 5H 17L \\
-  Coarse Pulse - Delayed 1              & 4L 16H 5L \\
-  Coarse Pulse - Delayed 2              & 5L 16H 4L \\
-  Coarse Pulse - Delayed 3              & 6L 16H 3L \\
-  \\ % Gives vertical space
-  Final Pulse Set                       & 3L 16H 6L \\
-  Final Pulse $\overline{\mbox{Reset}}$ & 6L 16H 3L \\
-  Final Pulse                           & 3L 19H 3L \\
-\end{tikztimingtable}
-
-
-  \label{fig:timetible}
-    \captionof{figure}{Here goes the caption}
-  
-\end{minipage}
-
-\end{comment}
 
 The  FANUC M-20iA/20M robot and FANUC R-30iB controller are shown in Figure~ \ref{fig:robotcontroller} \cite{fanucrobotcontroller}.
 
