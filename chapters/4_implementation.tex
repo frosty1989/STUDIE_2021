@@ -112,6 +112,7 @@ RoboDK supports three types of robot machining projects:
 The process of setting up a curve follow project in RoboDK is described in the following sections. In laser shock peening, the laser (representing the tool) is static, and the robot holds the object. Therefore, a curve follow project with a constant tool orientation is set up in RoboDK \cite{machiningproject}.
 
 \subsection{Setting up a curve follow project in RoboDK}
+\label{sec:setting_up}
 
 A curve follow project in RoboDK must at least consist of one robot, one tool, and one reference frame. The situation described is a so--called remote TCP situation, i.e., the Tool Center Point (TCP) is fixed in the station, and the robot holds the object. The TCP in our project is represented by the laser beam. 
 The user has to execute the following steps to set up a basic curve follow project and to generate a vendor--specific robot program: 
@@ -592,6 +593,7 @@ The code in Listing \ref{code:metadata}
 The FANUC R--30iA post processor is located in the \mintinline{shell-session}{C:/RoboDK/Posts/vXX folder}. \mintinline{shell-session}{XX} is a two--digit number and denotes the post processor version. The FANUC R--30iA post processor comes in the form of a \mintinline{shell-session}{.pyc} file (compiled bytecode) and needs to be decompiled to a \mintinline{shell-session}{.py} file with the help of a decompiler. The decompyler used in this study is   \href{https://github.com/rocky/python--decompile3}{decompyle3} \cite{decompyle3}.
 
 \section{Modifying the FANUC R--30iA post processor methods} 
+\label{sec:modifying}
 
 The user can create a new post processor from scratch or modify an existing post processor. A post processor for a specific robotic arm controller is a single \mintinline{shell-session}{.py} file. All post processors are placed in the \mintinline{shell-session}{C:/RoboDK/Posts} folder. A new post processor is added to RoboDK by creating a \mintinline{shell-session}{.py} file or renaming an existing \mintinline{shell-session}{.py} file in this folder. By deleting a \mintinline{shell-session}{.py} file in this folder, the post processor is deleted from the list of post processors in RoboDK. 
 
@@ -678,6 +680,9 @@ where:
 
 \end{minted}
 \captionof{listing}{Code snippet of original MoveL method}
+
+\section{Example output of modified FANUC R--30iA post processor} 
+\label{sec:example}
 
 
 
