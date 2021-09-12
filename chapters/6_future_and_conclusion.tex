@@ -1,10 +1,14 @@
 \label{chap:discussion}
 
+
+
 \epigraph{Our imagination is the only limit to what we can hope to have in the future.}{\textit{Charles F. Kettering \\ American inventor, engineer and businessman }}
 
-\section{Conclusions and future work of study}
+Firstly, this chapter deals with the conclusions of the study and the future work on study. Secondly, it focuses on the parameters of laser shock peening. Lastly, this chapter describes the experimental equipment used for laser shock peen-ing at the HiLASE centre.
 
-Let us recapitulate the goals of this study from the \hyperref[sec:introduction]{Introduction}:
+\section{Conclusions of study and future work on study}
+
+Let us recapitulate the goals of this study from the section \hyperref[sec:introduction]{\ref{sec:introduction} Introduction}:
 
 \begin{enumerate}
 
@@ -15,9 +19,20 @@ Let us recapitulate the goals of this study from the \hyperref[sec:introduction]
     
 \end{enumerate}
 
-The first goal is described in section \hyperref[sec:setting_up]{Setting up a curve follow project in RoboDK}, the second goal in section \hyperref[sec:modifying]{Modifying the FANUC R--30iA post processor methods}. The third goal has been achieved in section \hyperref[sec:modifying]{Modifying the FANUC R--30iA post processor methods} and finally, the test simulation is demonstrated in chapter
+The first goal is described in section  \hyperref[sec:setting_up]{\ref{sec:setting_up} Setting up a curve follow project in RoboDK}, the second goal in section  \hyperref[sec:modifying]{\ref{sec:modifying} Modifying the FANUC R--30iA post processor methods}. The third goal has been achieved in section  \hyperref[sec:example]{\ref{sec:example} Example output of modified FANUC R–30iA post processor} and finally, the test simulation is demonstrated in \hyperref[chap:testing]{Chapter 6 -- Testing}.
 
-\section{Future work of PhD thesis}
+This study addresses the problem of modifying a FANUC robotic arm controller post processor for LSP applications. One of the main contributions of our work is to simplify the generation of robotic arm controller programs. In this study, programs are generated using the CAM  program RoboDK. The creation of a robotic arm manually is a tedious process, especially for parts with complex geometries. From an experimental point of view, the contribution lies in testing the programs generated with the help of the CAM program RoboDK.
+
+In the future, the post processor could be improved by incorporating the following features:
+
+\begin{itemize}
+
+    \item implementation of Remote Tool Center Point functionality (RTCP). RTCP ensures a constant robotic arm speed with respect to the surface of the sample in case a static tool is used,
+
+    \item constrain the angular speed of robotic arm joints to a specific limit so that the robotic arm motions will be smoothed.
+
+\end{itemize}
+\section{Future direction of the PhD thesis}
 
 This study deals only with one subsystem of the LSP station at HiLASE, namely, creating a robotic arm controller program for a three-dimensional part, and it gives a peek into the future direction of the PhD thesis. The LSP station consists of several subsystems. Figure \ref{fig:subsystems} displays a mind map of the various LSP station subsystems. Each subsystem takes care of a certain aspect of the LSP process. Unfortunately, each subsystem has its unique control software. The ultimate goal of the PhD thesis is to create a  Supervisory Control And Data Acquisition (SCADA) control system to unify the fragmented subsystem's control software. 
 
