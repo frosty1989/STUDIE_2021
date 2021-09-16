@@ -2,7 +2,7 @@
 
 \epigraph{Python is the "most powerful language you can still read".}{\textit{Paul Dubois \\ Lead developer for Numerical Python and Pyfort }}
 
-This chapter familiarizes the reader with the creation of a curve follow project in RoboDK. Firstly, it focuses on the specifics of programming FANUC robotic arms. Secondly, it gives a short introduction to setting up a curve follow project in RoboDK. Subsequently, it describes the RoboDK API, and in the end, it deals with the problematics of post processor and the modification of post processors.
+This chapter familiarizes the reader with the creation of a curve follow project in RoboDK. Firstly, it focuses on the specifics of programming FANUC robotic arms. Secondly, it gives a short introduction to setting up a curve follow project in RoboDK. Subsequently, it describes the RoboDK API, and in the end, it deals with the problematics of post processors and the modification of post processors.
 
 \section{FANUC robotic arms programming specifics}
 
@@ -51,7 +51,7 @@ A program element is a segment of a program. A teach pendant (TP) program is a c
     \label{fig:tp}
 \end{figure}
 
-A motion instruction, the most important type of program element. A motion instruction directs the robot to move in a specified way to a specific location in the workcell
+A motion instruction is the most important type of program element. A motion instruction directs the robot to move in a specified way to a specific location in the workcell
 using a specified speed. Figure \ref{fig:motion} shows a typical example of a motion instruction. A motion instruction consists of:
 
 \begin{itemize}
@@ -74,7 +74,7 @@ using a specified speed. Figure \ref{fig:motion} shows a typical example of a mo
 
 \subsection{FANUC robotic arm controller programming languages}
 
-The FANUC company implements two programming languages for programming their robotic arm controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human--readable ASCII files (\mintinline{shell-session}{.ls} file extension). The syntax of the TP language is described in great detail in the \emph{SYSTEM R-30iB and R-30iB MATE HandlingTool Setup and Operations Manual} \cite{fanuchandling}. The KAREL language is a high--level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a pendant. The syntax of the KAREL language is covered in the \emph{FANUC Robotics SYSTEM R-30iA Controller KAREL Reference Manual}.
+The FANUC company implements two programming languages for programming their robotic arm controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human--readable ASCII files (\mintinline{shell-session}{.ls} file extension). The syntax of the TP language is described in great detail in the \emph{SYSTEM R-30iB and R-30iB MATE HandlingTool Setup and Operations Manual} \cite{fanuchandling}. The KAREL language is a high--level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a Teach pendant. The syntax of the KAREL language is covered in the \emph{FANUC Robotics SYSTEM R-30iA Controller KAREL Reference Manual} \cite{karelmanual}.
 
 \subsection{Compiling a FANUC TP program}
 
