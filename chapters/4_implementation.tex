@@ -28,6 +28,12 @@ An example of a Roboguide station is shown in Figure \ref{fig:roboguide}. The ve
     \label{fig:roboguide}
 \end{figure}
 
+\subsection{FANUC robotic arm controller programming languages}
+
+The FANUC company implements two programming languages for programming their robotic arm controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human--readable ASCII files (\mintinline{shell-session}{.ls} file extension). The syntax of the TP language is described in great detail in the \emph{SYSTEM R-30iB and R-30iB MATE HandlingTool Setup and Operations Manual} \cite{fanuchandling}. The KAREL language is a high--level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a Teach pendant. The syntax of the KAREL language is covered in the \emph{FANUC Robotics SYSTEM R-30iA Controller KAREL Reference Manual} \cite{karelmanual}.
+
+
+
 \subsection{Teach pendant program structure}
 
 A program element is a segment of a program. A teach pendant (TP) program is a collection of program elements with the purpose of executing an application.  Figure \ref{fig:tp} shows an example of a TP program with some typical program elements. A TP program is typically composed of the following program elements:
@@ -51,8 +57,7 @@ A program element is a segment of a program. A teach pendant (TP) program is a c
     \label{fig:tp}
 \end{figure}
 
-A motion instruction is the most important type of program element. A motion instruction directs the robot to move in a specified way to a specific location in the workcell
-using a specified speed. Figure \ref{fig:motion} shows a typical example of a motion instruction. A motion instruction consists of:
+A motion instruction is the most important type of program element. A motion instruction directs the robot to move in a specified way to a specific location in the workcell using a specified speed. Figure \ref{fig:motion} shows a typical example of a motion instruction. A motion instruction consists of:
 
 \begin{itemize}
 
@@ -72,11 +77,28 @@ using a specified speed. Figure \ref{fig:motion} shows a typical example of a mo
     \label{fig:motion}
 \end{figure}
 
+\begin{comment}
+
+
+
 \subsection{FANUC robotic arm controller programming languages}
 
 The FANUC company implements two programming languages for programming their robotic arm controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human--readable ASCII files (\mintinline{shell-session}{.ls} file extension). The syntax of the TP language is described in great detail in the \emph{SYSTEM R-30iB and R-30iB MATE HandlingTool Setup and Operations Manual} \cite{fanuchandling}. The KAREL language is a high--level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a Teach pendant. The syntax of the KAREL language is covered in the \emph{FANUC Robotics SYSTEM R-30iA Controller KAREL Reference Manual} \cite{karelmanual}.
 
 \subsection{Compiling a FANUC TP program}
+
+Only a TP program in binary format can be run on FANUC robotic arm controllers. Because RoboDK creates TP programs as human--readable ASCII files, the TP programs need to be converted to binary format before uploading them to the robotic arm controller. Two options to convert \mintinline{shell-session}{.ls} programs to \mintinline{shell-session}{.tp} programs exist:
+
+\begin{enumerate}
+\item the ASCII Upload option must be loaded on the robotic arm controller. After uploading an \mintinline{shell-session}{.ls} file to the controller, it is automatically converted to a \mintinline{shell-session}{.tp} file,
+\item the program is compiled and uploaded either using the WinOLPC  tools via Roboguide or using the WinOLPC tools directly \cite{fanuchandling}. The WinOLPC tools are located in \mintinline{shell-session}{C:/Program File(x86)/FANUC/WinOLPC/bin} in the Windows operating system.
+
+\end{enumerate}
+
+\end{comment}
+
+
+\subsection{Compiling a FANUC teach pendant program}
 
 Only a TP program in binary format can be run on FANUC robotic arm controllers. Because RoboDK creates TP programs as human--readable ASCII files, the TP programs need to be converted to binary format before uploading them to the robotic arm controller. Two options to convert \mintinline{shell-session}{.ls} programs to \mintinline{shell-session}{.tp} programs exist:
 
@@ -162,7 +184,7 @@ An application interface (API) is a set of features an application provides to a
 
 \begin{itemize}
     
- \item automating simulation -- macro scripts for repetitive tasks such as tool changing, pick and place applications.
+ \item automating simulations -- macro scripts for repetitive tasks such as tool changing, pick and place applications.
 
  \item offline programming -- using the RoboDK API methods to create programs for specific robotic arm controllers. The pre--processed \mintinline{shell-session}{.pyc} file created in RoboDK's GUI is executed directly by the post processor. The post processor defines the rules for vendor--specific robotic arm controller program generation. 
 
@@ -557,7 +579,7 @@ P[439]{
 
 \begin{comment}
 
-Let us dive into the code in Listing \ref{code:unmodified_post}, explain the purpose of its individual elements and show the post processor methods that generate these elements. 
+Let us dive into the code in Listing \ref{code:unmodified_post}, explain the purpose of its individual elements, and show the post processor methods that generate these elements. 
 The code in Listing \ref{code:metadata} contains metadata about the program and is not displayed on the pendant display. This metadata is generated by the post processor method \mintinline{text}{ProgFinish}.
 
 \begin{code}
@@ -730,7 +752,7 @@ where:
 
 %%%%%%%%%%%
 
-\subsection{Example output of modified FANUC R--30iA post processor} 
+\subsection{Example output of the modified FANUC R--30iA post processor} 
 \label{sec:example}
 
 An example of an output of the unmodified R--30iA post processor is shown in Listing \ref{code:modified_post}.

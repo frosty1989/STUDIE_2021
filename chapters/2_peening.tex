@@ -25,7 +25,7 @@ Firstly, this chapter deals with the physical and mechanical mechanisms of laser
     \item pulse shape and duration,
     \item laser wavelength,
     \item laser spot size and geometry,
-    \item thermal protective coating and confining overlay,
+    \item thermal protective coating, and confining overlay,
     \item coverage ratio of impacts \cite{dane_2000}.
 
 \end{itemize}
@@ -188,7 +188,7 @@ One of the advantages of LSP is that the laser spot size and geometry can be adj
 
 Consequently, the planar shock wave propagates further into the material, and the residual stresses reach deeper than the spherical shock wave \cite{bolger_montross_rode_1999}. 
 
-The magnitude of residual stresses usually reaches its maximum at the surface and decreases with depth. This rule is valid for square laser spots. which minimalize the instabilities of the residual stresses at the centre of the laser spot. On the other hand, when using a circular laser spot, the residual stresses at the centre of the laser spot are unstable due to the complicated interactions of shock waves in this region \cite{masse_barreau_1995}. 
+The magnitude of residual stresses usually reaches its maximum at the surface and decreases with depth. This rule is valid for square laser spots. which minimalize the instability of the residual stresses at the centre of the laser spot. On the other hand, when using a circular laser spot, the residual stresses at the centre of the laser spot are unstable due to the complicated interactions of shock waves in this region \cite{masse_barreau_1995}. 
 
 \subsubsection*{Laser power density and wavelength}
 
@@ -271,7 +271,7 @@ The layout of the LSP station is shown in Figure \ref{fig:lsplayout}. The laser 
 continues to the optical table, where it is redirected and
 focused on the target. The target itself is mounted on the
 robotic arm. The laser beam position is fixed, so the robotic
-arm needs to be moved to direct the laser on the sample.
+arm needs to be moved to direct the laser to the sample.
 
 \begin{figure}[h]
 \centering
@@ -405,7 +405,7 @@ A block diagram of the electrical connection between FANUC R-30iB controller and
 
 \begin{itemize}
     \item $t_{BT}$ -- intra-cavity build up time (typically \SIrange{50}{100}{\ns}),
-    \item $t_{QSW}$ -- timed by external electronics with respect to external lamp trigger input (typically \SIrange{100}{500}{\us} for maximum output)
+    \item $t_{QSW}$ -- timed by external electronics with respect to the external lamp trigger input (typically \SIrange{100}{500}{\us} for maximum output)
 
 \end{itemize}
 
@@ -426,6 +426,7 @@ A block diagram of the electrical connection between FANUC R-30iB controller and
 
 
 The  FANUC M-20iA/20M robot and FANUC R-30iB controller are shown in Figure~ \ref{fig:robotcontroller} \cite{fanucrobotcontroller}. The electrical connection also allows to change the repetition rate of the laser (1 \SI{}{\hertz} or 10 \SI{}{\hertz}).
+
 
 
 \begin{figure}[h]
@@ -458,10 +459,11 @@ The  FANUC M-20iA/20M robot and FANUC R-30iB controller are shown in Figure~ \re
 \end{figure}
 \end{comment}
 
-\subsection{Network connection of robot controller}
+
+\subsubsection*{Network connection of robot controller}
 
 
-The robot controller must be reachable from the computer running the RoboDK application described in \hyperref[chap:design]{Chapter 3 -- Design}. In the LSP station this is ensured by having the controllers and computer on the same local network as depicted in Figure \ref{fig:network}. 
+The robot controller must be reachable from the computer running the RoboDK application described in \hyperref[chap:design]{Chapter 3 -- Design}. In the LSP station, this is ensured by having the controllers and computer on the same local network as depicted in Figure \ref{fig:network}. 
 
 \begin{figure}[h]
     \centering
@@ -470,6 +472,22 @@ The robot controller must be reachable from the computer running the RoboDK appl
     \label{fig:network}
 \end{figure}
 
+
+\begin{comment}
+
+\subsection{Network connection of robot controller}
+
+
+The robot controller must be reachable from the computer running the RoboDK application described in \hyperref[chap:design]{Chapter 3 -- Design}. In the LSP station, this is ensured by having the controllers and computer on the same local network as depicted in Figure \ref{fig:network}. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{img/network.pdf}
+    \caption{Network diagram of the robotic arm workcell}
+    \label{fig:network}
+\end{figure}
+
+\end{comment}
 
 \subsection{LSP process example}
 

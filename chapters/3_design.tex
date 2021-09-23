@@ -9,7 +9,7 @@ This is definitely not the case for industrial robots.}{\textit{Albert Nubiola \
 
 \section{RoboDK overview}
 
-RoboDK (short for robot development kit) is a development platform for industrial robotic arm offline and online programming and simulation. 
+RoboDK (short for Robot Development Kit) is a development platform for industrial robotic arms offline and online programming and simulation. 
 RoboDK (the company) was founded by Albert Nubiola and Lauren Ierullo in January 2015 as a spin-off company from the \href{https://en.etsmtl.ca/unites-de-recherche/coro/accueil?lang=en-CA}{CoRo laboratory}   at ETS University in Montreal, Canada. RoboDK is a commercial version of \href{https://www.parallemic.org/RoKiSim.html}{RoKiSim}, a multiplatform educational software tool for 3D simulation of serial 6-axis robotic arms \cite{robodkoverview}.
 
 \subsection{RoboDK features}
@@ -111,7 +111,7 @@ The RoboDK Add-in for SolidWorks is accessible directly from the SolidWorks tool
     \item \mintinline{shell-session}{LoadPart} -- only loads the 3D model from SolidWorks to RoboDK without importing the curves or points,
     \item \mintinline{shell-session}{LoadPoints} -- loads points to RoboDK as a new object. Selected surfaces are used to calculate the curve normals, 
     \item \mintinline{shell-session}{LoadCurves} --  loads curves selected in RoboDK as a new object. Selected surfaces are used to calculate curve normals, 
-    \item \mintinline{shell-session}{Settings} -- opens default settings window \cite{robodksolidworks}.
+    \item \mintinline{shell-session}{Settings} -- opens the default settings window \cite{robodksolidworks}.
 \end{itemize}
 
 \begin{figure}[h]
@@ -142,9 +142,21 @@ To import curves from SolidWorks to RoboDK, SolidWorks offers two options:
 
 \end{comment}
 
+\section{RoboDK collision detection}
+
+RoboDK is equipped with a tool that checks for collisions in the simulated workcell. Unfortunately, RoboDK can not foresee collisions and can not stop a running simulation before a collision occurs. RoboDK can only detect collisions. A successful simulation collision-free is the first step in running a program. If the simulation is collision-free, the next step is to test the robotic arm program on the physical robotic arm. The simulated workcell should represent the physical workcell as accurate as required by the given application. 
+
+The collision detection is activated by selecting \mintinline{shell-session}{Tools} $\rightarrow$ \mintinline{shell-session}{Check collisions}. The setup of the collision detection is done via the collision map. An example of a collision map is shown in Figure \ref{fig:collisionmap}. The collision map is a Boolean matrix representing the collision check state between all the moving objects in the workcell. The rows and columns of the matrix are named after the moving objects in the workcell. The entries in the matrix display the collision check state of a pair of moving objects in the workcell -- the user can activate or deactivate this collision check state \cite{robodkcollision}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\linewidth]{img/collision_map.PNG}
+    \caption{Example of a collision map}
+    \label{fig:collisionmap}
+\end{figure}
 
 \section{RoboDK post processors}
 
 Post processors generate robot programs for robotic arm controllers from robotic arm simulations. Post processors are essential for offline programming of robotic arms. A post processor defines the vendor-specific rules a robotic arm program must follow. A robotic arm must be linked to a post processor in RoboDK to be able to generate a robotic arm controller program. The post processors available in RoboDK by default can be found \href{https://robodk.com/doc/en/Post-Processors.html#AvailablePosts}{online}.  
-A post processor in RoboDK is a Python script (\mintinline{shell-session}{.py} extension). All the post processors of RoboDK are located in the
+A post processor in RoboDK is a Python script (\mintinline{shell-session}{.py} extension). All the RoboDK post processors are located in the
 \mintinline{shell-session}{C:/RoboDK/Posts/} folder (in case of the Windows operating system).  To use a post processor it must be placed in the \mintinline{shell-session}{C:/RoboDK/Posts/} folder. The user can modify an existing post processor or create a new one from scratch. Modifications of post processors are described in \hyperref[chap:implementation]{Chapter 4} in more detail \cite{robodkposts}. 
