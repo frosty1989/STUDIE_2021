@@ -36,7 +36,7 @@ Figure \ref{fig:robodk_die} shows a picture of the RoboDK workcell with the forg
 \end{figure}
 
 
-\section{Testing on the physical robot}
+\section{Testing on the physical robotic arm}
 
 The testing of robotic arm programs on physical robots follows the simulation process and is roughly divided into the following steps:
 
@@ -90,9 +90,27 @@ Figure \ref{fig:cast} shows the forging die mounted on the robotic arm. The para
     \label{fig:cast}
 \end{figure}
 
-\section{Results of testing and simulation}
+\section{Results of simulation and testing on a physical robotic arm}
 
-Both simulation and testing on a physical robot were successful. Figure \ref{fig:peening} shows the actual LSP process performed on the forging die. 
+\subsection{Results of simulation}
+
+The simulation has been a quick way of testing various ideas by changing the parameters of the simulation. The simulation has also allowed the author to create large programs with the number of points in the order of hundreds. Creating such large programs manually using a teach pendant would be enormously time-consuming. 
+
+Initially, the laser beam was parallel to the surface normal of the forging die. Then, the angle between the surface normal and the laser beam was changed to achieve a collision-free simulation. The angle of impact is measured in relation to the surface normal of the forging die. As a rule of thumb, an angle of impact of fewer than 15$^{\circ}$ does not affect the result of the LSP process.  Finally, a simulation that is sufficiently close to the actual LSP process was created, and the testing continued on the physical robot.
+
+\subsection{Results of testing on a physical robotic arm}
+
+Generally, the program from the simulation does not transition directly to the physical robotic arm due to minor differences between the simulated and physical workcell.  As a consequence, some tweaks to the robotic arm program were necessary. Therefore, the following program parameters were alternated:
+
+\begin{itemize}
+
+\item the laser beam is tied to a user frame -- this user frame origin was shifted,
+
+\item the forging die was rotated around the J6 robotic arm joint (the J6 joint is responsible for the rotation of the robotic arm flange).
+ 
+\end{itemize}
+
+Finally, the testing on the physical robot has been successful -- the LSP affected area on the surface of the forging die has matched the area to be treated by LSP specified in the simulation. Figure \ref{fig:peening} shows the actual LSP process performed on the forging die. 
 
 \begin{figure}[h]
     \centering
