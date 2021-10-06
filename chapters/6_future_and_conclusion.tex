@@ -82,7 +82,15 @@ The subsystems will be integrated using LabVIEW. LabVIEW (Laboratory Virtual Ins
 
 A LabVIEW program consists of the front panel window and the block diagram window. The front panel window contains controls and indicators (i.e., inputs and outputs). The block diagram window contains terminals corresponding to front panel controls and indicators, as well as constants, functions, structures, and wires that connect data from one object to another \cite{bress_2013}.
 
-HERE ADD AN TRANSITION SENTENCE FOR OPTICAL MICROPHONE AND HMI
+The following two sections illustrate two possible future directions of the PhD thesis in more detail. The sections cover the following topics:
+
+\begin{itemize}
+
+    \item robotic arm Human-Machine Interface for LSP applications,
+    \item residual stresses evaluation based on acoustic signature of LSP.
+
+
+\end{itemize}
 
 
 \subsubsection*{Robotic arm Human-Machine Interface for LSP applications}
@@ -112,7 +120,11 @@ The advantage of the Digimetrix library is that it offers an extensive number of
 \subsubsection*{Residual stresses evaluation based on acoustic signature of LSP}
 \label{sec:optical_microphone}
 
-Offline detection methods assess the process after it is carried out. On the other hand, online detection methods assess the process in real-time. Existing LSP detection methods (e.g. X-ray diffraction and hole-drilling stress measurements) are offline detection methods. The advantage of online detection methods is that errors in the process are immediately recognized and can be corrected. In order to overcome the disadvantages of offline detection methods, an online detection method based on LSP acoustic measurement is investigated in this chapter. Laser processes monitoring is usually based on light-detecting sensors, such as photodiodes, cameras and spectrometers. An alternative method to monitor laser processes is to evaluate their sound and ultrasound emissions. Acoustic detectors are not widely used in process monitoring and control, mainly because of their limited frequency bandwidth and susceptibility to electromagnetic interference. The drawbacks of conventional capacitive microphones can be overcome by using an optical microphone. 
+
+
+Offline detection methods assess the process after it is carried out. On the other hand, online detection methods assess the process in real-time. Existing LSP detection methods (e.g. X-ray diffraction and hole-drilling stress measurements) are offline detection methods. The advantage of online detection methods is that errors in the process are immediately recognized and can be corrected. In order to overcome the disadvantages of offline detection methods, an online detection method based on LSP acoustic measurement is investigated in this section \cite{wu_zhao_qiao_liu_zhang_hu_2018}. An acoustic signal in the ms-range duration is emitted during the LSP process. By benchmarking the acoustic signal with an offline method, the correlation between the surface residual stress of the material and the acoustic signal can be revealed and unique signatures of acoustic signals for different materials and conditions can be identified \cite{banerjee_2019}. 
+
+Laser processes monitoring is usually based on light-detecting sensors, such as photodiodes, cameras and spectrometers. An alternative method to monitor laser processes is to evaluate their sound and ultrasound emissions. Acoustic detectors are not widely used in process monitoring and control, mainly because of their limited frequency bandwidth and susceptibility to electromagnetic interference. The drawbacks of conventional capacitive microphones can be overcome by using an optical microphone \cite{fischer_rohringer_panzer_hecker_2017}. 
 
 \smallskip
 Optical microphone principle
@@ -146,18 +158,70 @@ where:
 \end{itemize}
 
 
-Equation \ref{interference} represents the condition for the constructive interference intensity maximum.
+Equation \ref{interference} represents the condition for the constructive interference intensity maximum \cite{fpi}.
  Small changes in the density of the optical medium between the two mirrors change the optical index of refraction of the medium and, consequently, the laser’s propagation speed and wavelength. The distance between the two mirrors is fixed, so the change of the laser’s wavelength results in the change of the condition for the constructive interference intensity maximum, which changes the transmitted laser intensity. The laser intensity is measured with a photodiode and converted to an electrical signal. The optical microphone consists of two units:
  
 \begin{itemize}
  
     \item the acoustic detection system, consisting of the optical sensor head and the driver unit comprising laser and detector,
 
-    \item the analogue-to-digital converter with acquisition software.
+    \item the analogue-to-digital converter with acquisition software \cite{fischer_rohringer_panzer_hecker_2017}.
 
 \end{itemize}
 
-The ILA group is equipped with a Xarion Eta250 Ultra optical microphone. The main features of the Xarion Eta250 Ultra optical microphone are listed in Table X.X and the control box and optical sensor head are depicted in Figure X.X. 
+The ILA group is equipped with a Xarion Eta250 Ultra optical microphone. The main features of the Xarion Eta250 Ultra optical microphone are listed in Table \ref{tab:xarionparameters} and the control box and optical sensor head are depicted in Figure \ref{fig:xarion_box} \cite{xarion_eta}. 
+
+\begin{table}[h!] 
+\centering
+    \begin{threeparttable}
+        \begin{tabular}{|c | c|} 
+        \hline
+            \textbf{Parameter} & \textbf{Value} \\ [0.5ex] 
+        \hline
+        Transducer type & Membrane-free, optical  \\ 
+        \hline
+            Frequency range &  10 Hz – 1 MHz \\
+        \hline
+            Dynamic range & 100 dB  \\
+        \hline
+            Self-noise, full bandwidth & 50 mPa  \\ 
+        \hline
+            Max. sound pressure for THD < 3 & 400 Pa \tnote{a} \\
+        \hline
+            Sensitivity & 10 mV/Pa @ 1 kHz  \\
+        \hline
+        \end{tabular}
+        \begin{tablenotes}
+            \small
+            \item[a] THD = Total Harmonic Distortion. 
+        \end{tablenotes}
+        
+    \end{threeparttable}
+        \caption{Xarion Eta250 Ultra optical microphone parameters \cite{xarion_eta}}
+\label{tab:xarionparameters}
+\end{table}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{img/xarion_box.jpg}
+    \caption{Xarion Eta250 Ultra optical microphone (Description of images from left to right) (1) driver unit with laser, detector and analogue-to-digital converter, (2) optical sensor head \cite{xarion_eta}}
+    \label{fig:xarion_box}
+\end{figure}
+
+\smallskip
+Experimental plan and qualitative evaluation of residual stresses
+
+The schematic diagram of the experimental setup is shown in Figure \ref{fig:experiment_microphone}. The sample is mounted to the robotic arm, and the optical sensor head is placed in front of the sample and collects the acoustic signals emitted during the LSP process. The temporal evolution of the optical microphone is obtained with an oscilloscope and further stored and analyzed. The signal in the temporal domain is then transformed to the frequency domain and fitted with an appropriate distribution. This process aims to obtain a unique set of parameters for each material and set of experimental conditions and then reference these parameters against the surface residual stresses after the LSP process \cite{banerjee_2019}. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{img/microphone_experiment.jpg}
+    \caption{Schematic diagram of LSP acoustic signature experimental setup \cite{wu_zhao_qiao_liu_zhang_hu_2018}}
+    \label{fig:experiment_microphone}
+\end{figure}
+
+
 
 
 
