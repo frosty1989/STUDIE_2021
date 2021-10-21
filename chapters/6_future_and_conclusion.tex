@@ -129,8 +129,9 @@ Laser processes monitoring is usually based on light-detecting sensors, such as 
 \smallskip
 Optical microphone principle
 
-An optical microphone is directly measuring the changes in the density of the optical medium. An optical microphone consists of a miniaturized Fabry-Pérot (FPI) laser interferometer . The FPI comprises two semi-transmissive mirrors arranged at a distance matching a multiple of the laser’s half-wavelength $d$ and two lenses as depicted in Figure \ref{fig:fabry_perot}.
+An optical microphone is directly measuring the changes in the density of the optical medium. An optical microphone consists of a miniaturized Fabry-Pérot laser interferometer (FPI). The FPI comprises two semi-transmissive mirrors arranged at a distance matching a multiple of the laser’s half-wavelength $d$ and two lenses.
 
+\begin{comment}
 
 \begin{figure}[h]
     \centering
@@ -139,6 +140,7 @@ An optical microphone is directly measuring the changes in the density of the op
     \label{fig:fabry_perot}
 \end{figure}
 
+\end{comment}
 
 An incoming laser beam passes between the two mirrors multiple times. Part of the light in each pass is transmitted through the second surface. This process generates multiple reflected beams out of phase by a constant increment and forms interference fringes. The interference fringes form concentric circles when focused by a lens. The FPI multiple reflections follow the interference condition for thin films:
 
@@ -159,7 +161,8 @@ where:
 
 
 Equation \ref{interference} represents the condition for the constructive interference intensity maximum \cite{fpi}.
- Small changes in the density of the optical medium between the two mirrors change the optical index of refraction of the medium and, consequently, the laser’s propagation speed and wavelength. The distance between the two mirrors is fixed, so the change of the laser’s wavelength results in the change of the condition for the constructive interference intensity maximum, which changes the transmitted laser intensity. The laser intensity is measured with a photodiode and converted to an electrical signal. The optical microphone consists of two units:
+
+ The optical microphone consists of two units:
  
 \begin{itemize}
  
@@ -168,6 +171,17 @@ Equation \ref{interference} represents the condition for the constructive interf
     \item the analogue-to-digital converter with acquisition software \cite{fischer_rohringer_panzer_hecker_2017}.
 
 \end{itemize}
+
+ 
+ The principle of operation of the optical microphone is depicted in Figure \ref{fig:optical_microphone_principle}. The incoming sound signal causes small changes in the density of the optical medium between the two mirrors of the FPI. The FPI is inside the optical sensor head. These changes in density alter the optical index of refraction of the medium and, consequently, the laser’s propagation speed and wavelength. The distance between the two mirrors is fixed, so the change of the laser’s wavelength results in the change of the condition for the constructive interference intensity maximum, which changes the transmitted laser intensity. The laser intensity is measured with a photodiode and converted to an electrical signal.
+
+%% optical microphone principle 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{img/optical_mocrophone_principle.jpg}
+    \caption{Principle of optical microphone -- the ultrasonic signal is detected optically by the change of the refractive index within a FPI etalon inside the optical sensor head \cite{fischer_rohringer_panzer_hecker_2017}}
+    \label{fig:optical_microphone_principle}
+\end{figure}
 
 The ILA group is equipped with a Xarion Eta250 Ultra optical microphone. The main features of the Xarion Eta250 Ultra optical microphone are listed in Table \ref{tab:xarionparameters} and the control box and optical sensor head are depicted in Figure \ref{fig:xarion_box} \cite{xarion_eta}. 
 
@@ -212,7 +226,7 @@ The ILA group is equipped with a Xarion Eta250 Ultra optical microphone. The mai
 \smallskip
 Experimental plan and qualitative evaluation of residual stresses
 
-The schematic diagram of the experimental setup is shown in Figure \ref{fig:experiment_microphone}. The sample is mounted to the robotic arm, and the optical sensor head is placed in front of the sample and collects the acoustic signals emitted during the LSP process. The temporal evolution of the optical microphone is obtained with an oscilloscope and further stored and analyzed. The signal in the temporal domain is then transformed to the frequency domain and fitted with an appropriate distribution. This process aims to obtain a unique set of parameters for each material and set of experimental conditions and then reference these parameters against the surface residual stresses after the LSP process \cite{banerjee_2019}. 
+The schematic diagram of the experimental setup is shown in Figure  \ref{fig:experiment_microphone}. The sample is mounted to the robotic arm, and the optical sensor head is placed in front of the sample and collects the acoustic signals emitted during the LSP process. The temporal evolution of the optical microphone is obtained with an oscilloscope and further stored and analyzed. The signal in the temporal domain is then transformed to the frequency domain and fitted with an appropriate distribution. This process aims to obtain a unique set of parameters for each material and set of experimental conditions and then reference these parameters against the surface residual stresses after the LSP process \cite{banerjee_2019}. 
 
 \begin{figure}[h]
     \centering
