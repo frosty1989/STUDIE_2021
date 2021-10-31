@@ -42,13 +42,13 @@ Figure \ref{fig:manipulators} gives a basic idea of the different types of handl
 
     \item  programmable manipulators with fixed program -- the program does not change during the operation of the handling mechanism, it is fixed, the programming unit is of simple design, 
 
-    \item  programmable manipulators with modifiable programs -- they have the possibility of switching or selecting the program, usually according to the scene in which the manipulators are currently in. These are usually devices with adaptive control. They are currently at the cutting edge of design and we call them industrial robots,
+    \item  programmable manipulators with modifiable programs -- they have the possibility of switching or selecting the program, usually according to the scene in which the manipulators are currently in. These are usually devices with adaptive control. They are currently at the cutting edge of design and we call them industrial robotic arms,
 
     \item  cognitive robots -- robots equipped with the ability to perceive and think rationally \cite{vsb_2007}.
 
 \end{itemize}
 
-\section{Industrial robots}
+\section{Industrial robotic arms}
 
 A robot is an automatically or computer-controlled integrated system capable of autonomous goal-oriented interaction with the natural environment according to instructions from a human. This
 interaction consists of:
@@ -60,7 +60,7 @@ interaction consists of:
 
 \end{itemize}
 
- Industrial robots are of more complex design than other handling devices and differ from other handling mechanisms primarily in the level of control.  Industrial robots are characterised by the following features:
+ Industrial robotic arms are of more complex design than other handling devices and differ from other handling mechanisms primarily in the level of control.  Industrial robotic arms are characterised by the following features:
  
 \begin{itemize}
  
@@ -75,24 +75,24 @@ interaction consists of:
 
 %% The classification
 
-\subsection{Classification of industrial robots and their structures}
+\subsection{Classification of industrial robotic arms and their structures}
 
-Industrial robots can be classified according to various criteria: the number of degrees of freedom, kinematic structure, drives used, workspace geometry, motion characteristics, control method, or programming method. According to the abovementioned criteria, several types of robots are distinguished:
+Industrial robotic arms can be classified according to various criteria: the number of degrees of freedom, kinematic structure, drives used, workspace geometry, motion characteristics, control method, or programming method. According to the abovementioned criteria, several types of robots are distinguished:
 
 \subsubsection*{Number of degrees of freedom}
 
 \begin{itemize}
-    \item universal robots -- six degrees of freedom,
-    \item redundant robots -- more than six degrees of freedom,
-    \item deficient robots -- less than six degrees of freedom.
+    \item universal robotic arms -- six degrees of freedom,
+    \item redundant robotic arms -- more than six degrees of freedom,
+    \item deficient robotic arms -- less than six degrees of freedom.
 \end{itemize}
 
 \subsubsection*{Kinematic structure}
 
 \begin{itemize}
-    \item serial robots -- open-loop kinematic chain,
-    \item parallel robots -- closed-loop kinematic chain,
-    \item hybrid robots -- combining both types of kinematic chains.
+    \item serial robotic arms -- open-loop kinematic chain,
+    \item parallel robotic arms -- closed-loop kinematic chain,
+    \item hybrid robotic arms -- combining both types of kinematic chains.
 \end{itemize}
 
 
@@ -104,7 +104,7 @@ Industrial robots can be classified according to various criteria: the number of
     \item pneumatic.
 \end{itemize}
 
-Currently, industrial robots with electric drives predominate in numbers. If high loads are required, hydraulic drives are used and for high speeds pneumatic drives are preferred.
+Currently, industrial robotic arms with electric drives predominate in numbers. If high loads are required, hydraulic drives are used and for high speeds pneumatic drives are preferred.
 
 \subsubsection*{Workspace geometry}
 
@@ -120,7 +120,7 @@ Currently, industrial robots with electric drives predominate in numbers. If hig
 Before we dive into the programming of industrial robotic arms, let us revise a few concepts.
 A workcell represents a robotic and a collection of machines or peripherals. A single robotic arm controller is responsible for controlling the various appliances of a~ workcell.
 
-A robotic arm end effector is a peripheral placed at the end of the robotic arm. The~end effector represents the last link of the robot. According to the application, end effectors can be grippers, welding devices, spray guns, or grinding and deburring machines \cite{monkman_2007}.
+A robotic arm end effector is a peripheral placed at the end of the robotic arm. The~end effector represents the last link of the robotic arm. According to the application, end effectors can be grippers, welding devices, spray guns, or grinding and deburring machines \cite{monkman_2007}.
 
 The robotic arm controller is equipped with a so-called interface software. The interface software makes it easier for the user to program the robotic arm. Two basic information need to be programmed into the robotic arm:
 
@@ -134,13 +134,13 @@ A robotic arm position can be taught in several different ways:
 \begin{itemize}
     \item positional commands -- the programmer inputs the position data using a graphical user interface (GUI) or text-based commands,
     
-    \item Online programming, which is further divided into three types:
+    \item online programming, which is further divided into three types:
     
     \begin{itemize}
     
     \item pendant -- the pendant is a handheld control and programming unit attached to the robotic arm controller,
     \item lead-by-the-nose -- the robotic arm is de-energized and moved along the required positions by hand while the robotic controller saves them into memory,
-    \item direct control by CAM program -- the robot is moved along the required positions using a CAM program from an external PC.
+    \item direct control by CAM program -- the robotic arm is moved along the required positions using a CAM program from an external PC.
     
     \end{itemize}
     
@@ -159,14 +159,14 @@ Robotic arms from different manufacturers have incompatible interfaces. Robotic 
 
 \end{itemize}
 
-Offline programming  (OLP) refers to a programming method in which the robot is programmed outside the production environment. OLP helps to eliminate production downtime and allows studying multiple scenarios of a robot cell before setting up the production cell. OLP also aids in predicting mistakes made in designing a workcell. The OLP workflow can be summarized into the following steps:
+Offline programming  (OLP) refers to a programming method in which the robotic arm is programmed outside the production environment. OLP helps to eliminate production downtime and allows studying multiple scenarios of a robot cell before setting up the production cell. OLP also aids in predicting mistakes made in designing a workcell. The OLP workflow can be summarized into the following steps:
 
 \begin{enumerate}
-  \item creating/importing a robotic cell that mimics the real life workcell,
+  \item creating/importing a robot cell that mimics the real life workcell,
   \item importing a CAD file representing the machined part,
-  \item programming (graphical or textual) and automatic generation of robot path,
+  \item programming (graphical or textual) and automatic generation of robotic arm path,
   \item simulation and validation -- collision detection, join violations etc.,
   \item reporting -- efficiency, productivity, cycle time etc.,
-  \item translating the robot program for a specific controller using a post processor,
-  \item executing the robot program in a actual workcell \cite{offlinesteps}.
+  \item translating the robotic arm program for a specific controller using a post processor,
+  \item executing the robotic arm program in a actual workcell \cite{offlinesteps}.
 \end{enumerate}
