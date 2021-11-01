@@ -15,7 +15,7 @@ Let us recapitulate the goals of this study taken from the section \hyperref[sec
     \item creating a simulation of a LSP process in CAM software,
     \item developing a post processor for the LSP process, 
     \item generating a program  for the robotic arm controller from simulation,
-    \item test simulation of LSP process on actual robotic arm controller.
+    \item testing simulation of LSP process on actual robotic arm controller.
     
 \end{enumerate}
 
@@ -95,18 +95,18 @@ The following two sections illustrate two possible future directions of the PhD 
 
 \subsubsection*{Robotic arm Human-Machine Interface for LSP applications}
 \label{sec:mm_science}
-A part of the PhD thesis' future direction is investigated in the MM Science Journal article \href{https://www.mmscience.eu/journal/issues/december-2019/articles/robotic-arm-human-machine-interface-for-laser-shock-peening-applications}{Robotic arm Human-Machine Interface for LSP applications} \cite{bohm_kaufman_brajer_rostohar_2019}.   The focus of this article is the development of a robotic arm HMI for LSP applications.
+A part of the PhD thesis' future direction is investigated in the MM Science Journal article \href{https://www.mmscience.eu/journal/issues/december-2019/articles/robotic-arm-human-machine-interface-for-laser-shock-peening-applications}{Robotic arm Human-Machine Interface for LSP applications} \cite{bohm_kaufman_brajer_rostohar_2019}.   The focus of this article is the development of a robotic arm Human-Machine Interface (HMI) for LSP applications.
 
 Learning to program an industrial robotic arm using a teach pendant has a steep learning curve and requires special training because different robotic arm vendors use different Operating Systems (OS) and different programming languages for their respective teach pendants. It is ineffective and time-consuming to provide every employee with the same level of training required to program a robot application. 
 
 Consequently, there is a need to develop a unifying HMI for the LSP station, which allows the operator to control the process and change the process parameters via a Graphical User Interface (GUI) without the need to learn industrial robotic arm programming. The GUI is developed using LabVIEW and the Digimetrix FANUC Robotics library for LabVIEW. With the Digimetrix FANUC Robotics library, the developer can integrate FANUC robotic arms into LabVIEW programs \cite{bohm_kaufman_brajer_rostohar_2019}. 
 
 \smallskip
-Digimetrix FANUC Robotics library
+\emph{Digimetrix FANUC Robotics library}
 
-The Digimetrix FANUC Robotics Library add-on is used to simplify the application development process. The solution incorporating the Digimetrix library is unique compared to standard procedures of robot control from superior systems (PC, PLC, CNC) used in industrial automation because it enables the developer to access all of LabVIEW's capabilities. In this way, advanced measurement and machine control can be integrated into a single LabVIEW application and the developer can tailor the program to his needs. Furthermore, the program is mostly hardware-independent, so the code can be reused.
+The Digimetrix FANUC Robotics Library add-on is used to simplify the application development process. The solution incorporating the Digimetrix library is unique compared to standard procedures of robotic arm control from superior systems (PC, PLC, CNC) used in industrial automation because it enables the developer to access all of LabVIEW's capabilities. In this way, advanced measurement and machine control can be integrated into a single LabVIEW application and the developer can tailor the program to his needs. Furthermore, the program is mostly hardware-independent, so the code can be reused.
 
-The Digimetrix Library uses the FANUC User Socket Messaging Communication Option. Socket messaging enables data exchange between networked robots and a remote computer via (Transmission Control Protocol/Internet Protocol) TCP/IP Sockets. The Transmission Control Protocol (TCP) is intended for use as a highly reliable, host-to-host protocol between hosts in packet-switched computer communications networks. It fits into a layered protocol architecture just above a basic Internet Protocol (IP). The IP provides a way for TCP to send and receive variable-length segments of information enclosed in Internet datagram envelopes. The FANUC Robotics Library enables the controller to communicate with external or host devices across an Ethernet network. The PC with LabVIEW acts as a client and the robot controller as a server as depicted in Figure \ref{fig:client_server}.
+The Digimetrix Library uses the FANUC User Socket Messaging Communication Option. Socket messaging enables data exchange between networked robots and a remote computer via Transmission Control Protocol/Internet Protocol (TCP/IP) Sockets. The Transmission Control Protocol (TCP) is intended for use as a highly reliable, host-to-host protocol between hosts in packet-switched computer communications networks. It fits into a layered protocol architecture just above a basic Internet Protocol (IP). The IP provides a way for TCP to send and receive variable-length segments of information enclosed in Internet datagram envelopes. The FANUC Robotics Library enables the controller to communicate with external or host devices across an Ethernet network. The PC with LabVIEW acts as a client and the robot controller as a server as depicted in Figure \ref{fig:client_server}.
 
 The advantage of the Digimetrix library is that it offers an extensive number of functions. These functions allow controlling almost every aspect of the robotic arm. It is also deeply integrated into the LabVIEW environment. The disadvantage of this library is that the developer must be familiar with LabVIEW, at least on a fundamental level. Another disadvantage of the library is that TCP/IP itself does not support real-time operation \cite{digimetrix}.
 
@@ -122,12 +122,12 @@ The advantage of the Digimetrix library is that it offers an extensive number of
 
 
 
-Offline detection methods assess the process after it is carried out. On the other hand, online detection methods assess the process in real-time. Existing LSP detection methods (e.g. X-ray diffraction and hole-drilling stress measurements) are offline detection methods. The advantage of online detection methods is that errors in the process are immediately recognized and can be corrected. In order to overcome the disadvantages of offline detection methods, an online detection method based on LSP acoustic measurement is investigated in this section \cite{wu_zhao_qiao_liu_zhang_hu_2018}. An acoustic signal in the ms-range duration is emitted during the LSP process. By benchmarking the acoustic signal with an offline method, the correlation between the surface residual stress of the material and the acoustic signal can be revealed and unique signatures of acoustic signals for different materials and conditions can be identified \cite{banerjee_2019}. 
+Offline detection methods assess the process after it is carried out. On the other hand, online detection methods assess the process in real-time. Existing LSP detection methods (e.g. X-ray diffraction and hole-drilling stress measurements) are offline detection methods. The advantage of online detection methods is that errors in the process are immediately recognized and can be corrected. In order to overcome the disadvantages of offline detection methods, an online detection method based on LSP acoustic measurement is investigated in this section \cite{wu_zhao_qiao_liu_zhang_hu_2018}. An acoustic signal in the \SI{}{\milli\second}--range duration is emitted during the LSP process. By benchmarking the acoustic signal with an offline method, the correlation between the surface residual stress of the material and the acoustic signal can be revealed and unique signatures of acoustic signals for different materials and conditions can be identified \cite{banerjee_2019}. 
 
 Laser processes monitoring is usually based on light-detecting sensors, such as photodiodes, cameras and spectrometers. An alternative method to monitor laser processes is to evaluate their sound and ultrasound emissions. Acoustic detectors are not widely used in process monitoring and control, mainly because of their limited frequency bandwidth and susceptibility to electromagnetic interference. The drawbacks of conventional capacitive microphones can be overcome by using an optical microphone \cite{fischer_rohringer_panzer_hecker_2017}. 
 
 \smallskip
-Optical microphone principle
+\emph{Optical microphone principle}
 
 An optical microphone is directly measuring the changes in the density of the optical medium. An optical microphone consists of a miniaturized Fabry-Pérot laser interferometer (FPI). The FPI comprises two semi-transmissive mirrors arranged at a distance matching a multiple of the laser’s half-wavelength $d$ and two lenses.
 
@@ -219,14 +219,14 @@ The ILA group is equipped with a Xarion Eta250 Ultra optical microphone. The mai
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\linewidth]{img/xarion_box.jpg}
-    \caption{Xarion Eta250 Ultra optical microphone (Description of images from left to right) (1) driver unit with laser, detector and analogue-to-digital converter, (2) optical sensor head \cite{xarion_eta}}
+    \caption{Xarion Eta250 Ultra optical microphone (description of images from left to right) (1) driver unit with laser, detector and analogue-to-digital converter, (2) optical sensor head \cite{xarion_eta}}
     \label{fig:xarion_box}
 \end{figure}
 
 \smallskip
-Experimental plan and qualitative evaluation of residual stresses
+\emph{Experimental plan and qualitative evaluation of residual stresses}
 
-The schematic diagram of the experimental setup is shown in Figure  \ref{fig:experiment_microphone}. The sample is mounted to the robotic arm, and the optical sensor head is placed in front of the sample and collects the acoustic signals emitted during the LSP process. The temporal evolution of the optical microphone is obtained with an oscilloscope and further stored and analyzed. The signal in the temporal domain is then transformed to the frequency domain and fitted with an appropriate distribution. This process aims to obtain a unique set of parameters for each material and set of experimental conditions and then reference these parameters against the surface residual stresses after the LSP process \cite{banerjee_2019}. 
+The schematic diagram of the experimental setup is shown in Figure  \ref{fig:experiment_microphone}. The sample is mounted to the robotic arm, and the optical sensor head is placed in front of the sample and collects the acoustic signals emitted during the LSP process. The temporal evolution of the optical microphone is obtained with an oscilloscope and further stored and analyzed. The signal in the temporal domain is then transformed to the frequency domain and fitted with an appropriate distribution. This process aims to obtain a unique set of parameters for each material and then reference these parameters against the surface residual stresses after the LSP process \cite{banerjee_2019}. 
 
 \begin{figure}[h]
     \centering
