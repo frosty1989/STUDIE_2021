@@ -30,13 +30,13 @@ An example of a Roboguide station is shown in Figure \ref{fig:roboguide}. The ve
 
 \subsection{FANUC robotic arm controller programming languages}
 
-The FANUC company implements two programming languages for programming their robotic arm controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human--readable ASCII files (\mintinline{shell-session}{.ls} file extension). The syntax of the TP language is described in great detail in the \emph{SYSTEM R-30iB and R-30iB MATE HandlingTool Setup and Operations Manual} \cite{fanuchandling}. The KAREL language is a high--level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a Teach pendant. The syntax of the KAREL language is covered in the \emph{FANUC Robotics SYSTEM R-30iA Controller KAREL Reference Manual} \cite{karelmanual}.
+The FANUC company implements two programming languages for programming their robotic arm controllers: teach pendant (TP) or KAREL. The TP language is mainly used for motion control of the robotic arm and the programs are usually edited via the pendant. TP programs are either binary files (\mintinline{shell-session}{.tp} file extension) or can be human--readable ASCII files (\mintinline{shell-session}{.ls} file extension). The syntax of the TP language is described in great detail in the \emph{SYSTEM R-30iB and R-30iB MATE HandlingTool Setup and Operations Manual} \cite{fanuchandling}. The KAREL language is a high--level language and does not support robotic arm movement instructions. KAREL is mainly used to implement program logic. KAREL programs can not be edited using a pendant. The syntax of the KAREL language is covered in the \emph{FANUC Robotics SYSTEM R-30iA Controller KAREL Reference Manual} \cite{karelmanual}.
 
 
 
 \subsection{Teach pendant program structure}
 
-A program element is a segment of a program. A teach pendant (TP) program is a collection of program elements with the purpose of executing an application.  Figure \ref{fig:tp} shows an example of a TP program with some typical program elements. A TP program is typically composed of the following program elements:
+A program element is a segment of a program. A TP program is a collection of program elements with the purpose of executing an application.  Figure \ref{fig:tp} shows an example of a TP program with some typical program elements. A TP program is typically composed of the following program elements:
 
 \begin{itemize}
 
@@ -231,7 +231,7 @@ The creation of a program that is compatible with a FANUC robotic arm controller
 
 \subsection{RoboDK preprocessed file}
 
-After creating a program in the curve follow project, but before generating it using a post processor, the program is saved as a preprocessed/universal Python program and saved in a local temporary folder. The preprocessed program is linked to the right post processor (selected by the user in RoboDK). The post processor defines a \mintinline{python}{RobotPost} class that generates the desired code. In the Windows operating system, the preprocessed Python files are saved in the user's temporary folder (e.g.: \mintinline{shell-session}{C:/Users/username/AppData/Local/Temp}). These programs can also be used for debugging new post processors. An code snippet of a preprocessed file is shown in Listing \ref{code:preprocessed_python} \cite{preprocessed}. The three dots (...) denote parts of the code that have been intentionally omitted to keep the source code listing shorter. 
+After creating a program in the curve follow project, but before generating it using a post processor, the program is saved as a preprocessed/universal Python program and saved in a local temporary folder. The preprocessed program is linked to the right post processor (selected by the user in RoboDK). The post processor defines a \mintinline{python}{RobotPost} class that generates the desired code. In the Windows operating system, the preprocessed Python files are saved in the user's temporary folder (e.g.: \mintinline{shell-session}{C:/Users/username/AppData/Local/Temp}). These programs can also be used for debugging new post processors. A code snippet of a preprocessed file is shown in Listing \ref{code:preprocessed_python} \cite{preprocessed}. The three dots (...) denote parts of the code that have been intentionally omitted to keep the source code listing shorter. 
 
 
 %% Example of how to use the listings and captions correctly
@@ -331,7 +331,7 @@ The parameters of the \mintinline{python}{RobotPost} class are:
 %% do not highlight anything - then use text
 \item \mintinline{text}{robotname(string)} -- the name of the robotic arm,
 
-\item \mintinline{text}{robotaxes(string list)} -- type and quantity of robotic arm axes,
+\item \mintinline{text}{robot_axes(string list)} -- type and quantity of robotic arm axes,
 
 \item \mintinline{text}{**kwargs} -- pass additional arguments to function.
 
@@ -362,8 +362,6 @@ The parameters of the \mintinline{text}{MoveL} method are:
 
 %% do not highlight anything - then use text
 \item \mintinline{text}{joints (float list)} -- robot joints as a list,
-
-\item \mintinline{text}{robotaxes(array)} -- type and quantity of robotic arm axes,
 
 \item \mintinline{text}{conf_RLF (int list)} -- pass additional arguments to function. 
 
@@ -422,8 +420,6 @@ The \mintinline{text}{ProgSave} method saves the program in a format compatible 
 The parameters of the \mintinline{text}{ProgSave} method are:
 
 \begin{itemize}
-
-\item \mintinline{text}{pose (robodk.Mat())} -- pose target of the tool with respect to the reference frame, pose can be \mintinline{python}{None} if the target is defined as a joint target,
 
 %% do not highlight anything - then use text
 \item \mintinline{text}{folder (str)} -- folder hint to save the program,
@@ -573,7 +569,7 @@ P[439]{
 /END
 
 \end{minted}
-\captionof{listing}{Code snippet of unmodified post processor output}
+\captionof{listing}{Code snippet of unmodified R--30iA post processor output}
 \label{code:unmodified_post}
 \end{code}
 
@@ -674,7 +670,7 @@ where:
     \item \mintinline{text}{WAIT CONDITION} -- wait condition, block code execution until condition  is \mintinline{text}{True},
     \item \mintinline{text}{WAIT DI[1:SYNCHRONIZATION_IN]=OFF; WAIT DI[1:SYNCHRONIZATION_IN]=ON;} -- detect rising edge of incoming synchronization signal,
     \item \mintinline{text}{TB  0.00sec,DO[5]=PULSE,1.0sec} -- execute command at a certain time before reaching the point,
-    \item \mintinline{text}{P[2]} -- designation of point,
+    \item \mintinline{text}{P[6]} -- designation of point,
     \item \mintinline{text}{DO[5]=PULSE,1.0sec} -- rectangular pulse at digital output, pulse duration is one second, this command fires the laser,
     \item \mintinline{text}{WAIT  1.00(sec)} -- block code execution for a certain amount of time.
 
@@ -858,7 +854,7 @@ P[439]{
 /END
 
 \end{minted}
-\captionof{listing}{Code snippet of modified post processor output}
+\captionof{listing}{Code snippet of modified R--30iA post processor output}
 \label{code:modified_post}
 \end{code}
 
